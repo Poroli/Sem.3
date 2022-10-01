@@ -44,14 +44,13 @@ public class Character_Movement_P1 : MonoBehaviour
         {
             horizontalP1 = 0;
         }
-
         Vector3 direction = new Vector3(horizontalP1, 0f, verticalP1).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude != 0)
         { 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 

@@ -1686,7 +1686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242991183}
-  m_LocalRotation: {x: 0.12451125, y: -0.000000012789054, z: 0.00000000160487, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451125, y: -0.000000012804364, z: 0.0000000016067909, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1959,7 +1959,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291302360}
-  m_LocalRotation: {x: 0.14253859, y: 3.1196325e-23, z: -4.058188e-24, w: 0.98978925}
+  m_LocalRotation: {x: 0.14253858, y: 0.000000008515345, z: -0.0000000012262865, w: 0.98978925}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2689,7 +2689,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427034837}
-  m_LocalRotation: {x: 0.12451125, y: -0.000000012789054, z: 0.00000000160487, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451125, y: -0.000000012804364, z: 0.0000000016067909, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3107,7 +3107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662477037}
-  m_LocalRotation: {x: 0.14253859, y: 3.1196325e-23, z: -4.058188e-24, w: 0.98978925}
+  m_LocalRotation: {x: 0.14253858, y: 0.000000008515345, z: -0.0000000012262865, w: 0.98978925}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3491,7 +3491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 775994364}
   - component: {fileID: 775994363}
-  - component: {fileID: 775994362}
   - component: {fileID: 775994361}
   - component: {fileID: 775994365}
   m_Layer: 0
@@ -3534,14 +3533,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &775994362
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775994359}
-  m_Enabled: 1
 --- !u!20 &775994363
 Camera:
   m_ObjectHideFlags: 0
@@ -3592,7 +3583,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775994359}
-  m_LocalRotation: {x: 0.12451124, y: -0.000000032217525, z: 0.0000000040429056, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451124, y: -0.000000032223607, z: 0.0000000040436685, w: 0.9922182}
   m_LocalPosition: {x: -1.5, y: 6.1, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3645,6 +3636,7 @@ GameObject:
   - component: {fileID: 807732301}
   - component: {fileID: 807732300}
   - component: {fileID: 807732302}
+  - component: {fileID: 807732303}
   m_Layer: 11
   m_Name: ThirdPersonCamera1
   m_TagString: Untagged
@@ -3804,6 +3796,21 @@ MonoBehaviour:
   m_Damping: 0.6
   m_DampingWhenOccluded: 0.6
   m_OptimalTargetDistance: 0
+--- !u!114 &807732303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807732299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432bcd04d65421741b1ead7fb685faec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj2: {fileID: 1605795801}
+  direction: {x: 0, y: 0, z: 0}
+  Xangle: 0
 --- !u!1 &820021908
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,7 +5211,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178341820}
-  m_LocalRotation: {x: 0.10649046, y: 0.0000000063122814, z: -6.7604194e-10, w: 0.9943138}
+  m_LocalRotation: {x: 0.10649046, y: -0.0000000042771338, z: 4.580787e-10, w: 0.9943138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5422,7 +5429,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1203149073}
   - component: {fileID: 1203149072}
-  - component: {fileID: 1203149071}
   - component: {fileID: 1203149070}
   - component: {fileID: 1203149074}
   m_Layer: 0
@@ -5465,14 +5471,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1203149071
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203149069}
-  m_Enabled: 1
 --- !u!20 &1203149072
 Camera:
   m_ObjectHideFlags: 0
@@ -5523,7 +5521,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203149069}
-  m_LocalRotation: {x: 0.12451124, y: -0.000000032217525, z: 0.0000000040429056, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451124, y: -0.000000032223607, z: 0.0000000040436685, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 6, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7093,7 +7091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1605795807}
   C_Keys: {fileID: 11400000, guid: d6b142580b640e24a9d32fc358e9402f, type: 2}
-  cam: {fileID: 807732301}
+  cam: {fileID: 1203149073}
   speed: 6
   turnSmoothTime: 0.1
 --- !u!1 &1655277526
@@ -7302,7 +7300,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709775557}
-  m_LocalRotation: {x: 0.10649046, y: -0.000000005863681, z: 6.279971e-10, w: 0.9943138}
+  m_LocalRotation: {x: 0.10649046, y: 0.0000000042771364, z: -4.5807902e-10, w: 0.9943138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7932,7 +7930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1892944221}
-  cam: {fileID: 453329746}
+  cam: {fileID: 775994364}
   C_Keys: {fileID: 11400000, guid: d6b142580b640e24a9d32fc358e9402f, type: 2}
   speed: 6
   turnSmoothTime: 0.1
