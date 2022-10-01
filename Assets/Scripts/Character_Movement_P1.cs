@@ -5,8 +5,7 @@ using UnityEngine;
 public class Character_Movement_P1 : MonoBehaviour
 {
     public CharacterController controller;
-    public Control_Keys C_Keys;
-    public Transform cam;
+    public GameObject Camera;
     public float speed = 6f;
 
     public float turnSmoothTime = 0.1f;
@@ -15,41 +14,22 @@ public class Character_Movement_P1 : MonoBehaviour
     private float horizontalP1;
     private float verticalP1;
 
-
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        Camera = GameObject.Find("Main_Camera1");
+    }
 
     void Update()
     {
-        if (Input.GetKey(C_Keys.P1Forward))
-        {
-            verticalP1 = 1;
-        }
-        else if (Input.GetKey(C_Keys.P1Backwards))
-        {
-            verticalP1 = -1;
-        }
-        else
-        {
-            verticalP1 = 0;
-        }
-        
-        if (Input.GetKey(C_Keys.P1Left))
-        {
-            horizontalP1 = -1;
-        }
-        else if (Input.GetKey(C_Keys.P1Right))
-        {
-            horizontalP1 = 1;
-        }
-        else
-        {
-            horizontalP1 = 0;
-        }
+        horizontalP1 = Input.GetAxisRaw("Horizontal_LStick_C1");
+        verticalP1 = Input.GetAxisRaw("Vertical_LStick_C1");
 
         Vector3 direction = new Vector3(horizontalP1, 0f, verticalP1).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude != 0)
         { 
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
