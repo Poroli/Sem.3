@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character_Movement_P1 : MonoBehaviour
 {
-    public CharacterController controller;
+    public Rigidbody Rb;
     public GameObject Camera;
     public float speed = 6f;
 
@@ -16,7 +16,7 @@ public class Character_Movement_P1 : MonoBehaviour
 
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
+        Rb = GetComponent<Rigidbody>();
         Camera = GameObject.Find("Main_Camera1");
     }
 
@@ -35,9 +35,7 @@ public class Character_Movement_P1 : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
-
-        
+            Rb.velocity = moveDir.normalized * speed;
         }
     }
 }
