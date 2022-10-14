@@ -31,8 +31,9 @@ public class Character_Movement_P1 : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontalP1, 0f, verticalP1).normalized;
 
-        if (Input.GetKeyDown(C_Keys.P1Jump) && j_Manager.Grounded())
+        if (Input.GetKeyDown(C_Keys.P1Jump) == true && j_Manager.Grounded())
         {
+            j_Manager.StartCooldown();
             j_Manager.actual_jumps += 1;
             Rb.AddForce(0, Jumpforce, 0);
         }
