@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Characters_Moving : MonoBehaviour
+public class Elements_P2 : MonoBehaviour
 {
-
-    public GameObject P1;
-    public GameObject P2;
+    // Start is called before the first frame update
     void Start()
     {
-        P1 = GameObject.FindWithTag("Player1");
-        P2 = GameObject.FindWithTag("Player2");
+        
     }
 
     // Update is called once per frame
