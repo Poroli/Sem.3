@@ -33,7 +33,7 @@ void Update()
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
+        moveDir.y = Rb.velocity.y;
         Rb.velocity = moveDir.normalized * speed;
 
 
