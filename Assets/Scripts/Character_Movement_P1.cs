@@ -13,9 +13,9 @@ public class Character_Movement_P1 : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    private Jump_Manager j_Manager;
     private float horizontalP1;
     private float verticalP1;
-    private Jump_Manager j_Manager;
 
     private void Start()
     {
@@ -44,9 +44,14 @@ public class Character_Movement_P1 : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            moveDir = moveDir.normalized* speed;
+            moveDir = moveDir.normalized * speed;
             moveDir.y = Rb.velocity.y;
             Rb.velocity = moveDir;
+        }
+        else
+        {
+            Vector3 Playervelocity = new Vector3(0, Rb.velocity.y, 0);
+            Rb.velocity = Playervelocity;
         }
     }
 }

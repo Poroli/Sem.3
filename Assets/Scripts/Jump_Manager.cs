@@ -6,24 +6,24 @@ using UnityEngine;
 
 public class Jump_Manager : MonoBehaviour
 {
+    public CapsuleCollider c_Collider;
     public int actual_jumps;
     public float xtra_range;
     public float J_Cooldown;
-    private bool IsOnCooldown = false;
 
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
-    public CapsuleCollider c_Collider;
+    private bool IsOnCooldown = false;
     
 
     private void Start()
     {
-        //c_Collider = GetComponent<CapsuleCollider>();
+        c_Collider = GetComponent<CapsuleCollider>();
     }
     public bool Grounded()
     {
         bool Jump_ready;
-        Vector3 SphereCheck_position =new Vector3(transform.position.x, transform.position.y- xtra_range, transform.position.z);
+        Vector3 SphereCheck_position =new Vector3(transform.position.x, transform.position.y - xtra_range, transform.position.z);
         bool Spherecheck = Physics.CheckSphere(SphereCheck_position, c_Collider.radius, groundlayer);
         
         if (!Spherecheck && actual_jumps < jumpAmount && !CheckCooldown())
@@ -60,11 +60,4 @@ public class Jump_Manager : MonoBehaviour
         CheckCooldown();
         Grounded();
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Vector3 SphereCheck_position = new Vector3(transform.position.x, transform.position.y - xtra_range, transform.position.z);
-        Gizmos.DrawSphere(SphereCheck_position, c_Collider.radius);
-    }
-
 }

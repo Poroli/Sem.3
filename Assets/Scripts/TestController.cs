@@ -16,7 +16,7 @@ public class TestController : MonoBehaviour
     void Update()
     {
         Elements_Activated = new bool[] { Fire_activated, Water_activated, Earth_activated, Air_activated, Standart_activated };
-        Inputvalue = Input.GetAxisRaw("DPad_Horizontal_C2");
+        Inputvalue = Input.GetAxisRaw("Horizontal_LStick_C2");
         
         
         Debug.Log(Inputvalue);
