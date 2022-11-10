@@ -10,6 +10,7 @@ public class Jump_Manager : MonoBehaviour
     public int actual_jumps;
     public float xtra_range;
     public float J_Cooldown;
+    public float Sphere_Radius;
 
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
@@ -23,8 +24,8 @@ public class Jump_Manager : MonoBehaviour
     public bool Grounded()
     {
         bool Jump_ready;
-        Vector3 SphereCheck_position =new Vector3(transform.position.x, transform.position.y - xtra_range, transform.position.z);
-        bool Spherecheck = Physics.CheckSphere(SphereCheck_position, c_Collider.radius, groundlayer);
+        Vector3 SphereCheck_position = new Vector3(transform.position.x, transform.position.y - xtra_range, transform.position.z);
+        bool Spherecheck = Physics.CheckSphere(SphereCheck_position, Sphere_Radius, groundlayer);
         
         if (!Spherecheck && actual_jumps < jumpAmount && !CheckCooldown())
         {
