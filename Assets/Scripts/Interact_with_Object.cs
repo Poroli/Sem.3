@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Interact_with_Object_P1 : MonoBehaviour
 {
-    public float Interact_Sphere_distance;
-    public float Interact_Sphere_radius;
     public Control_Keys C_Keys;
     public GameObject Interact_Object;
+    public List<Interact_Translate> I_Translates = new List<Interact_Translate>();
 
-    
-    [SerializeField] private LayerMask Interactable_layer;
 
-    private void Update()
+
+    private void OnTriggerEnter(SphereCollider collision)
     {
-        Vector3 Interactable_SphereCheck_position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Interact_Sphere_distance);
-        bool Interactable_Spherecheck = Physics.CheckSphere(Interactable_SphereCheck_position, Interact_Sphere_radius, Interactable_layer);
-        
-        if( Interactable_Spherecheck && Input.GetKeyDown(C_Keys.Interact_Key_P1))
+        if (collision.gameObject.tag == "Interactable")
         {
-            
+            I_Translates.Add(collision.GetComponent<Interact_Translate>());
         }
-
-        
+    }
+    private void OnTriggerExit(SphereCollider collision)
+    {
+        if (collision.gameObject.tag == "Interactable")
+        {
+            Interact_Translate I_Translate = collision.GetComponent<Interact_Translate>();
+            if (I_Translates.Contains(I_Translate) == true)
+            {
+                I_Translates.Remove(I_Translate);
+            }
+        }
     }
 }
