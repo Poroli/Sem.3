@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interact_with_Object_P1 : MonoBehaviour
+public class Interact_with_Object : MonoBehaviour
 {
     public Control_Keys C_Keys;
     public List<Interact_Translate> I_Translates = new List<Interact_Translate>();
