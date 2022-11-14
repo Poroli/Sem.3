@@ -39,7 +39,7 @@ public class Pause_Functions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause_C1")| Input.GetButtonDown("Pause_C2"))
         {
             Time.timeScale = 0;
             Pause_Menu.SetActive(true);
