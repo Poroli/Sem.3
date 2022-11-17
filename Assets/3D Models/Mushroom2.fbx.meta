@@ -1,22 +1,24 @@
 fileFormatVersion: 2
-guid: 8d94f53c2d0e5724fa2c6ba3957d1e85
+guid: 1ab25db3e5bc7834ba398c135947da85
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Base
-    second: {fileID: 2100000, guid: ad489e11459658b45b5f82702c43fb57, type: 2}
+      name: Base4
+    second: {fileID: 2100000, guid: b07fa4a9ab05f094c984557a1ffc03b8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Kopf
-    second: {fileID: 2100000, guid: 4b7697795cd7c1c43bc3cf2478a5a641, type: 2}
+      name: Head1
+    second: {fileID: 2100000, guid: 2f9e1a6f217a5b146b0b9fe54cbd7109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamellen
+    second: {fileID: 2100000, guid: 5cf36e74fc574a746833f4e8c9013d54, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -44,36 +46,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 50
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
