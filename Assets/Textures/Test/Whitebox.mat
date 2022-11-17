@@ -37,8 +37,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Whitebox
-  m_Shader: {fileID: -6465566751694194690, guid: 98fbf3cd3ac5990488ff50596549aef1,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 98fbf3cd3ac5990488ff50596549aef1, type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   m_InvalidKeywords:
@@ -240,7 +239,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _Ambient_Occlusion_Intensity: 0.25
+    - _Ambient_Occlusion_Intensity: 1
     - _Anisotropy: 0
     - _Blend: 0
     - _BlendMode: 0
@@ -380,7 +379,7 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Edge_Color: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission_Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}

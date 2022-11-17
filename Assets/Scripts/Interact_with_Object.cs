@@ -8,14 +8,14 @@ public class Interact_with_Object : MonoBehaviour
     public List<Interact_Translate> I_Translates = new List<Interact_Translate>();
 
 
-    private void OnTriggerEnter(SphereCollider collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Interactable_P1")
         {
             I_Translates.Add(collision.GetComponent<Interact_Translate>());
         }
     }
-    private void OnTriggerExit(SphereCollider collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "Interactable_P1")
         {
