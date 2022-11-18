@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HDRenderPipelineAsset
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
-    supportShadowMask: 1
+    supportShadowMask: 0
     supportSSR: 0
     supportSSRTransparent: 0
     supportSSAO: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
     hdShadowInitParams:
       maxShadowRequests: 128
       directionalShadowsDepthBits: 32
-      shadowFilteringQuality: 1
+      shadowFilteringQuality: 0
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 32
@@ -162,7 +162,7 @@ MonoBehaviour:
       ChromaticAberrationMaxSamples: 03000000060000000c000000
     lightSettings:
       useContactShadow:
-        m_Values: 000001
+        m_Values: 010001
         m_SchemaId:
           m_Id: With3Levels
     maximumLODLevel:

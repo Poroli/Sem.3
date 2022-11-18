@@ -19,8 +19,8 @@ public class Stone_Moving : MonoBehaviour
     {
             movingVector.x = Targetposition.transform.position.x - gameObject.transform.position.x;
             movingVector.z = Targetposition.transform.position.z - gameObject.transform.position.z;
-            movingVector = movingVector * Smooth_Speed;
-            movingVector.y = rb.velocity.y;
+            movingVector = movingVector.normalized * Smooth_Speed;
+            rb.AddForce(movingVector * Smooth_Speed, ForceMode.Force);
             rb.velocity = movingVector;
     }
     private void Start()
@@ -41,7 +41,6 @@ public class Stone_Moving : MonoBehaviour
         }
         else
         {
-            rb.constraints = RigidbodyConstraints.FreezePosition;
             if (change_to_default)
             {
                 C1_Movement.speed = temp_C1_speed;
