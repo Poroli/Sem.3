@@ -21,7 +21,7 @@ public class Hoverring : MonoBehaviour
     private void Hovering_Check_Ground()
     {
         hovering_check_pos_1.x = transform.position.x;
-        hovering_check_pos_1.y = transform.position.y - (c_Collider.height/2 + c_Collider.radius);
+        hovering_check_pos_1.y = transform.position.y - ((c_Collider.height / 2) + c_Collider.radius);
         hovering_check_pos_1.z = transform.position.z;
 
         hovering_check_pos_2.x = transform.position.x;
