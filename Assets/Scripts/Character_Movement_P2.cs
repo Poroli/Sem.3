@@ -13,7 +13,6 @@ public class Character_Movement_P2 : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    private Jump_Manager j_Manager;
     private float horizontalP2;
     private float verticalP2;
 
@@ -21,7 +20,6 @@ public class Character_Movement_P2 : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         Camera = GameObject.Find("Main_Camera2");
-        j_Manager = GetComponent<Jump_Manager>();
     }
 
     void Update()
@@ -31,13 +29,7 @@ public class Character_Movement_P2 : MonoBehaviour
     
         Vector3 direction = new Vector3(horizontalP2, 0f, verticalP2).normalized;
 
-        if (Input.GetKeyDown(C_Keys.P2Jump) == true && j_Manager.Grounded())
-        {
-            j_Manager.StartCooldown();
-            j_Manager.actual_jumps += 1;
-            Rb.AddForce(0, Jumpforce, 0);
-        }
-        else if (direction.magnitude != 0)
+        if (direction.magnitude != 0)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);

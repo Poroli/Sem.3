@@ -26,6 +26,7 @@ public class Stone_Moving : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        C1_Movement = FindObjectOfType<Character_Movement_P1>();
         temp_C1_speed = C1_Movement.speed;
         temp_C1_turnSmoothTime = C1_Movement.turnSmoothTime;
     }
