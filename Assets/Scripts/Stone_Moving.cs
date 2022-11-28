@@ -17,15 +17,14 @@ public class Stone_Moving : MonoBehaviour
 
     private void Move_Stone()
     {
-            movingVector.x = Targetposition.transform.position.x - gameObject.transform.position.x;
-            movingVector.z = Targetposition.transform.position.z - gameObject.transform.position.z;
-            movingVector = movingVector.normalized * Smooth_Speed;
-            rb.AddForce(movingVector * Smooth_Speed, ForceMode.Force);
-            rb.velocity = movingVector;
+        CalculateMovingVector();
+        rb.AddForce(movingVector * Smooth_Speed, ForceMode.Force);
+        rb.velocity = movingVector;
     }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        C1_Movement = FindObjectOfType<Character_Movement_P1>();
         temp_C1_speed = C1_Movement.speed;
         temp_C1_turnSmoothTime = C1_Movement.turnSmoothTime;
     }
@@ -48,5 +47,21 @@ public class Stone_Moving : MonoBehaviour
                 change_to_default = false;
             }
         }
+    }
+
+    private void CalculateMovingVector()
+    {
+        movingVector.x = Targetposition.transform.position.x - gameObject.transform.position.x;
+        movingVector.z = Targetposition.transform.position.z - gameObject.transform.position.z;
+        movingVector = movingVector.normalized * Smooth_Speed;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(Targetposition.transform.position, Vector3.one * 0.25f);
+        CalculateMovingVector();
+        if (Stone_movable)
+            Gizmos.DrawLine(transform.position, transform.position + movingVector);
     }
 }
