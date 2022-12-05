@@ -482,7 +482,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -40.85849, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -850,8 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c2903c128f1ae41a7c83a209719b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
+  nameText: {fileID: 135321825}
+  dialogueText: {fileID: 310109292}
   animator: {fileID: 496082889}
 --- !u!4 &304687431
 Transform:
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -149.72607, y: 0, z: -433.16754, w: -121.76979}
+  m_margin: {x: -149.72607, y: 0, z: -497.51514, w: -121.76979}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3203,31 +3203,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -460.60526
+      value: -463.18112
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -110.80656
+      value: -111.87656
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -273.23288
+      value: -274.28214
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9402717
+      value: 0.6696795
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.34042525
+      value: 0.05542439
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000002288009
+      value: 0.7380558
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000082837355
+      value: -0.06108338
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3256,6 +3256,14 @@ PrefabInstance:
     - target: {fileID: 2067713085697348031, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -274.28214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067713085811723840, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000002288009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067713085811723840, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000082837355
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086765218157, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3347,11 +3355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000002288009
+      value: -0.000000022880096
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000082837355
+      value: 0.000000008283737
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3916,11 +3924,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Donkey Kong
+    name: Schneemann
     sentences:
-    - Uuuugh...
-    - Banana!
-    - '*Gulp*'
+    - 'Don''t cry, snowman, not in front of me
+
+      Who''ll catch your tears if
+      you can''t catch me, darling
+
+      If you can''t catch me, darling'
+    - 'Don''t cry, snowman, don''t leave me this way
+
+      A puddle of water can''t
+      hold me close, baby
+
+      Can''t hold me close, baby'
+    - 'I want you to know that I''m never leaving
+
+      ''Cause I''m Mrs. Snow,
+      ''til death we''ll be freezing
+
+      Yeah, you are my home, my home for all
+      seasons
+
+      So come on, let''s go'
+    - 'Let''s go below zero and hide from the sun
+
+      I love you forever where
+      we''ll have some fun
+
+      Yes, let''s hit the North Pole and live happily
+
+      Please
+      don''t cry no tears now, it''s Christmas, baby'
+    - 'My snowman and me
+
+      My snowman and me
+
+      Baby'
+    - 'Don''t cry, snowman, don''t you fear the sun
+
+      Who''ll carry me without
+      legs to run, honey
+
+      Without legs to run, honey'
+    - 'Don''t cry, snowman, don''t you shed a tear
+
+      Who''ll hear my secrets
+      if you don''t have ears, baby
+
+      If you don''t have ears, baby'
+    - 'I want you to know that I''m never leaving
+
+      ''Cause I''m Mrs. Snow,
+      ''til death we''ll be freezing
+
+      Yeah, you are my home, my home for all
+      seasons
+
+      So come on, let''s go'
+    - 'Let''s go below zero and hide from the sun
+
+      I love you forever where
+      we''ll have some fun
+
+      Yes, let''s hit the North Pole and live happily
+
+      Please
+      don''t cry no tears now, it''s Christmas, baby'
+    - 'My snowman and me
+
+      My snowman and me
+
+      Baby'
 --- !u!114 &1757666617
 MonoBehaviour:
   m_ObjectHideFlags: 0
