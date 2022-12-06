@@ -171,7 +171,7 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
-    - _Distance: 1.21
+    - _Distance: 1.5
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -184,8 +184,10 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _Foam_Ammount: 5
+    - _Foam_Ammount: 75
+    - _Foam_Intensity: 0.15
     - _Foam_Slimness: 5
+    - _Foam_Smoothness_Impact: 1
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -196,12 +198,14 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InvTilingScale: 1
+    - _Inverted_Stepping: 0.4
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
+    - _Liquid_Smoothness: 1
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.5
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
@@ -219,7 +223,7 @@ Material:
     - _Refraction_Strength: 0.2
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Ripple_Slimness: 10
+    - _Ripple_Slimness: 100
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -259,7 +263,7 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _Wave_Scaling: 0.1
+    - _Wave_Scaling: 0.5
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
@@ -274,11 +278,11 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
-    - _Floating_Direction: {r: 1, g: 1, b: 0, a: 0}
-    - _Foam_Color: {r: 0.66193485, g: 0.7144513, b: 0.8018868, a: 1}
+    - _Floating_Direction: {r: 0, g: -1, b: 0, a: 0}
+    - _Foam_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Foam_CutOff: {r: 119.43, g: 0.9, b: 0, a: 0}
-    - _Foam_Density: {r: 10, g: 2.3, b: 0, a: 0}
-    - _Foam_Speed: {r: 0.48, g: 0, b: 0, a: 0}
+    - _Foam_Density: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Foam_Speed: {r: 0, g: -0.01, b: 0, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _Liquid_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -286,13 +290,13 @@ Material:
     - _Liquid_Color_Low: {r: 0.42924526, g: 0.8582979, b: 1, a: 0}
     - _Liquid_Color_Shallow: {r: 0.3726415, g: 0.68298614, b: 1, a: 1}
     - _Ripple_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0}
-    - _Ripple_Density: {r: 10, g: 10, b: 0, a: 0}
-    - _Ripple_Speed: {r: 2, g: 2, b: 0, a: 0}
+    - _Ripple_Density: {r: 0, g: 0, b: 0, a: 0}
+    - _Ripple_Speed: {r: 1, g: -1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
-    - _Wave_Size: {r: 1, g: 1, b: 0, a: 0}
+    - _Wave_Size: {r: 1, g: 50, b: 0, a: 0}
   m_BuildTextureStacks: []
