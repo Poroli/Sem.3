@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player1
+  - Player2
+  - Interactable_P1
+  - Interactable_P2
   layers:
   - Default
   - TransparentFX
@@ -11,6 +15,8 @@ TagManager:
   - Default - No Shadow
   - Water
   - UI
+  - Ground
+  - Snow_Path_Particles
   - 
   - 
   - 
@@ -33,10 +39,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Camera_P1
+  - Camera_P2
   m_SortingLayers:
   - name: Default
     uniqueID: 0

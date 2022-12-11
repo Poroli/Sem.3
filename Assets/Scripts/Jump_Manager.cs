@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class Jump_Manager : MonoBehaviour
 {
-    public CapsuleCollider c_Collider;
     public int actual_jumps;
     public float xtra_range;
     public float J_Cooldown;
     public float Sphere_Radius;
 
+
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
+    private Vector3 SphereCheck_position;
     private bool IsOnCooldown = false;
+    private bool Jump_ready;
     
-
-    private void Start()
-    {
-        c_Collider = GetComponent<CapsuleCollider>();
-    }
     public bool Grounded()
     {
-        bool Jump_ready;
-        Vector3 SphereCheck_position = new Vector3(transform.position.x, transform.position.y - xtra_range, transform.position.z);
+        SphereCheck_position.x = transform.position.x;
+        SphereCheck_position.y = transform.position.y - xtra_range;
+        SphereCheck_position.z = transform.position.z;
+        
         bool Spherecheck = Physics.CheckSphere(SphereCheck_position, Sphere_Radius, groundlayer);
         
         if (!Spherecheck && actual_jumps < jumpAmount && !CheckCooldown())

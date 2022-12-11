@@ -7,11 +7,15 @@ public class Interact_with_Object : MonoBehaviour
     public Control_Keys C_Keys;
     public List<Interact_Translate> I_Translates = new List<Interact_Translate>();
 
+    private Vector3 Targetposition;
+
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Interactable_P1")
         {
+            Interact_Translate I_Translate = collision.GetComponent<Interact_Translate>();
+            I_Translate.In_range = true;
             I_Translates.Add(collision.GetComponent<Interact_Translate>());
         }
     }
@@ -22,6 +26,7 @@ public class Interact_with_Object : MonoBehaviour
             Interact_Translate I_Translate = collision.GetComponent<Interact_Translate>();
             if (I_Translates.Contains(I_Translate) == true)
             {
+                I_Translate.In_range = false;
                 I_Translates.Remove(I_Translate);
             }
         }
@@ -29,11 +34,18 @@ public class Interact_with_Object : MonoBehaviour
 
     private void Update()
     {
-        if (I_Translates.Count > 0 && Input.GetKeyDown(C_Keys.Interact_Key_P1))
+        if (I_Translates.Count > 0 && Input.GetKeyDown(C_Keys.Interact_Key_P1) == true)
         {
             foreach (Interact_Translate I_Translate in I_Translates)
             {
-                I_Translate.Interact = true;
+                if (I_Translate.Interact)
+                {
+                    I_Translate.Interact = false;
+                }
+                else if (!I_Translate.Interact)
+                {
+                    I_Translate.Interact = true;
+                }
             }
         }
     }
