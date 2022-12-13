@@ -11,4 +11,6 @@ public class Control_Keys : ScriptableObject
     public KeyCode P2Jump;
 
     public KeyCode Interact_Key_P1;
+
+    public KeyCode Interact_Key_P2;
 }
