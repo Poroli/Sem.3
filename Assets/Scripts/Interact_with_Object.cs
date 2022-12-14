@@ -7,9 +7,11 @@ public class Interact_with_Object : MonoBehaviour
     public Control_Keys C_Keys;
     public List<Interact_Translate> I_Translates = new List<Interact_Translate>();
 
+    private string Interactable;
+    private string InteractWithPlayer;
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Interactable_P1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player1"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer))
         {
             Interact_Translate I_Translate = collision.GetComponent<Interact_Translate>();
             I_Translate.In_range = true;
@@ -18,7 +20,7 @@ public class Interact_with_Object : MonoBehaviour
     }
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Interactable_P1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player1"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer))
         {
             Interact_Translate I_Translate = collision.GetComponent<Interact_Translate>();
             if (I_Translates.Contains(I_Translate) == true)
@@ -29,6 +31,20 @@ public class Interact_with_Object : MonoBehaviour
         }
     }
 
+
+    private void Start()
+    {
+        if (gameObject.tag == "Player1")
+        {
+            Interactable = "Interactable_P1";
+            InteractWithPlayer = "Player1";
+        }
+        else if (gameObject.tag == "Player2")
+        {
+            Interactable = "Interactable_P2";
+            InteractWithPlayer = "Player2";
+        }
+    }
     private void Update()
     {
         if (I_Translates.Count > 0 && Input.GetKeyDown(C_Keys.Interact_Key_P1))

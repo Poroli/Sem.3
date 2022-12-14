@@ -39,6 +39,7 @@ public class ThrowObject : MonoBehaviour
     }
     private void DestroyJoints()
     {
+        Debug.Log("Destroy Joint");
         Destroy(fJoint);
     }
 
@@ -55,9 +56,9 @@ public class ThrowObject : MonoBehaviour
         if (hasPlayer && up_throw && !beingCarried)
         {
             beingCarried = true;
-            up_throw = false;
             transform.position = orient_Point.transform.position;
             CreateJoints();
+            up_throw = false;
         }
         if (beingCarried && up_throw)
         {
