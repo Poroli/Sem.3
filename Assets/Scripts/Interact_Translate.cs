@@ -14,11 +14,13 @@ public class Interact_Translate : MonoBehaviour
     private Stone_Moving s_moving;
     private Go_away_Wall g_a_W;
     private ThrowObject t_Object;
+    private CollectShard collectShard;
     private bool[] USO = new bool[3];
     /// <summary>
     /// 0 = Stone_Moving
     /// 1 = activate Runes
     /// 2 = Throw
+    /// 3 = Shard
     /// 
     /// </summary>
     
@@ -40,6 +42,12 @@ public class Interact_Translate : MonoBehaviour
         {
             t_Object = GetComponent<ThrowObject>();
             i = 2;
+            USO[i] = true;
+        }
+        if (GetComponent<CollectShard>())
+        {
+            collectShard = GetComponent<CollectShard>();
+            i = 3;
             USO[i] = true;
         }
     }
@@ -76,6 +84,14 @@ public class Interact_Translate : MonoBehaviour
                         switch_count_2 = false;
                     }
                     break;
+                case 3:
+                    if (!switch_count_1)
+                    {
+                        switch_count_1 = true;
+                        collectShard.CollectingShard();
+                        switch_count_2 = false;
+                    }
+                    break;
             }
         }
         else if (USO[i] && !Interact)
@@ -98,6 +114,14 @@ public class Interact_Translate : MonoBehaviour
                     {
                         switch_count_2 = true;
                         t_Object.up_throw = true;
+                        switch_count_1 = false;
+                    }
+                    break;
+                case 3:
+                    if (!switch_count_2)
+                    {
+                        switch_count_2 = true;
+                        collectShard.CollectingShard();
                         switch_count_1 = false;
                     }
                     break;
