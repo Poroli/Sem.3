@@ -344,6 +344,9 @@
         },
         {
             "m_Id": "6e58e6075093462c97168e0ab2bb8642"
+        },
+        {
+            "m_Id": "d33717fdc6fa4eb3ac46fc03651c4d4a"
         }
     ],
     "m_GroupDatas": [
@@ -1448,8 +1451,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 0.0
+            "x": -0.00000286102294921875,
+            "y": -180.99998474121095
         },
         "m_Blocks": [
             {
@@ -1460,6 +1463,9 @@
             },
             {
                 "m_Id": "d9a13183fee54ec287e682ed7e94c265"
+            },
+            {
+                "m_Id": "d33717fdc6fa4eb3ac46fc03651c4d4a"
             }
         ]
     },
@@ -6145,7 +6151,7 @@
     "m_TessellationBackFaceCullEpsilon": -0.25,
     "m_TessellationMaxDisplacement": 0.009999999776482582,
     "m_Version": 1,
-    "inspectorFoldoutMask": 0
+    "inspectorFoldoutMask": 1
 }
 
 {
@@ -6153,10 +6159,10 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "8c8c129368094ba19e93e0709c9eba91",
     "m_Id": 2,
-    "m_DisplayName": "Normal_Heigth",
+    "m_DisplayName": "Snow_Heigth",
     "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "Normal_Heigth",
+    "m_ShaderOutputName": "Snow_Heigth",
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
@@ -8795,6 +8801,39 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "d33717fdc6fa4eb3ac46fc03651c4d4a",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "VertexDescription.TessellationFactor",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "ed217c1e230d4ca2bdd8f32127b44f4b"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "VertexDescription.TessellationFactor"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "d35f969e184645f9a6150a28289258c0",
     "m_Id": 2,
@@ -9433,6 +9472,21 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "ed217c1e230d4ca2bdd8f32127b44f4b",
+    "m_Id": 0,
+    "m_DisplayName": "Tessellation Factor",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "TessellationFactor",
+    "m_StageCapability": 1,
+    "m_Value": 0.0,
+    "m_DefaultValue": 1.0,
+    "m_Labels": []
 }
 
 {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Master_Control_Script : MonoBehaviour
+public class MasterControlScript : MonoBehaviour
 {
     void Awake()
     {

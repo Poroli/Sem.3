@@ -5,10 +5,10 @@ using UnityEngine;
 public class ThrowObject : MonoBehaviour
 {
     public GameObject orient_Point;
-    public Control_Keys C_Keys;
+    public ControlKeys CKeys;
     public Rigidbody rb;
     public float throwForce = 10;
-    public bool up_throw;
+    public bool UpThrow;
 
     private FixedJoint fJoint;
     private GameObject gOP1;
@@ -31,13 +31,13 @@ public class ThrowObject : MonoBehaviour
         }
     }
 
-    private void CreateJoints()
+    private void createJoints()
     {
         gameObject.AddComponent<FixedJoint>();
         fJoint = gameObject.GetComponent<FixedJoint>();
         fJoint.connectedBody = rbP1;
     }
-    private void DestroyJoints()
+    private void destroyJoints()
     {
         Debug.Log("Destroy Joint");
         Destroy(fJoint);
@@ -53,19 +53,19 @@ public class ThrowObject : MonoBehaviour
 
     private void Update()
     {
-        if (hasPlayer && up_throw && !beingCarried)
+        if (hasPlayer && UpThrow && !beingCarried)
         {
             beingCarried = true;
             transform.position = orient_Point.transform.position;
-            CreateJoints();
-            up_throw = false;
+            createJoints();
+            UpThrow = false;
         }
-        if (beingCarried && up_throw)
+        if (beingCarried && UpThrow)
         {
             beingCarried = false;
-            DestroyJoints();
+            destroyJoints();
             rb.AddForce(orient_Point.transform.up * throwForce);
-            up_throw = false;
+            UpThrow = false;
         }
     }
 }

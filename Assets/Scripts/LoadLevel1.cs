@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLevel_1 : MonoBehaviour
+public class LoadLevel1 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Level_1loading();
+        Level1loading();
     }
-    public void Level_1loading()
+    public void Level1loading()
     {
         SceneManager.LoadScene("Level_1");
     }

@@ -268,7 +268,7 @@ Material:
     - _Snow_Dunes_Density: -0.46
     - _Snow_Scale: 50
     - _Snow_heigth: 0
-    - _Snow_on: 0
+    - _Snow_on: 1
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -307,7 +307,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _is_Snow_Plane: 0
+    - _is_Snow_Plane: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

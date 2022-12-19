@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class ShardManager : MonoBehaviour
 {
+    public GameObject GOToCheck;
     public int ShardsCollected;
     public int ShardsToCollect;
     
 
-    private Interact_with_Object[] IWOs;
-    private GameObject[] Shards;
+    private InteractWithObject[] iWOs;
+    private GameObject[] shards;
 
 
     private void Start()
     {
-        Shards = FindObjectsOfType<GameObject>(gameObject.CompareTag("Shard"));
-        ShardsToCollect = Shards.Length;
-        IWOs = FindObjectsOfType<Interact_with_Object>();
+        shards = FindObjectsOfType<GameObject>(gameObject.CompareTag("Shard"));
+        ShardsToCollect = shards.Length;
+        iWOs = FindObjectsOfType<InteractWithObject>();
     }
 
     public void CheckShardCollectable()
     {
-        foreach (Interact_with_Object IWO in IWOs)
+        foreach (InteractWithObject IWO in iWOs)
         {
-            foreach (Interact_Translate IT in IWO.I_Translates)
+            foreach (InteractTranslate IT in IWO.ITranslates)
             {
-                foreach (GameObject GO in Shards)
+                foreach (GameObject GO in shards)
                 {
-                    if (IT.gameObject == GO)
+                    if (IT.gameObject == GO == GOToCheck)
                     {
                         Destroy(IT.gameObject);
                     }

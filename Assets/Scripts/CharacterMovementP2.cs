@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character_Movement_P2 : MonoBehaviour
+public class CharacterMovementP2 : MonoBehaviour
 {
     public Rigidbody Rb;
     public GameObject Camera;
-    public Control_Keys C_Keys;
-    public float speed = 6f;
+    public ControlKeys CKeys;
+    public float Speed = 6f;
     public float Jumpforce;
+    public float TurnSmoothTime = 0.1f;
 
-    public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
 
+    private float turnSmoothVelocity;
     private float horizontalP2;
     private float verticalP2;
 
@@ -32,11 +32,11 @@ public class Character_Movement_P2 : MonoBehaviour
         if (direction.magnitude != 0)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            moveDir = moveDir.normalized * speed;
+            moveDir = moveDir.normalized * Speed;
             moveDir.y = Rb.velocity.y;
             Rb.velocity = moveDir;
         }
