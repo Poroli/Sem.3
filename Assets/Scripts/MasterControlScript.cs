@@ -6,7 +6,7 @@ public class MasterControlScript : MonoBehaviour
 {
     void Awake()
     {
-        QualitySettings.vSyncCount = 1;
+        QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 }

@@ -6,13 +6,16 @@ using TMPro;
 public class OptionsUIUpdater : MonoBehaviour
 {
     public TMP_Text P1JumpKeyText;
-    public TMP_Text P2JumpKeyText;
+    public TMP_Text P1InteractKeyText;
+    
+    public TMP_Text P2InteractKeyText;
     public ControlKeys ControlKeys;
 
     private void Update()
     {
         P1JumpKeyText.text = ControlKeys.P1Jump.ToString();
-        
-        P2JumpKeyText.text = ControlKeys.P2Jump.ToString();
+        P1InteractKeyText.text = ControlKeys.InteractKeyP1.ToString();
+
+        P2InteractKeyText.text = ControlKeys.InteractKeyP2.ToString();
     }
 }

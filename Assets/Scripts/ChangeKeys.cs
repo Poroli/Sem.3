@@ -8,22 +8,40 @@ public class ChangeKeys : MonoBehaviour
     public bool GetKeyInput;
 
     private KeyCode tempKeyCode;
-    private bool jumpKeychangeP1 = false;
-    private bool jumpKeychangeP2 = false;
+    private int i;
 
-
-    public void ChangeForwardP1()
+    public void JumpP1()
     {
-        jumpKeychangeP1 = true;
+        i = 0;
         GetKeyInput = true;
     }
-    public void ChangeBackwardsP1()
+    public void InteractP1()
     {
-        jumpKeychangeP2 = true;
+        i = 1;
+        GetKeyInput = true;
+    }
+    public void InteractP2()
+    {
+        i = 2;
         GetKeyInput = true;
     }
 
+    private void Keychange()
+    {
+        switch(i)
+        {
+            case 0:
+                ControlKeys.P1Jump = tempKeyCode;
+                break;
+            case 1:
+                ControlKeys.InteractKeyP1 = tempKeyCode;
+                break;
+            case 2:
+                ControlKeys.InteractKeyP2 = tempKeyCode;
+                break;
+        }
 
+    }
 
     private void Update()
     {
@@ -34,20 +52,9 @@ public class ChangeKeys : MonoBehaviour
                 if (Input.GetKey(TempKey))
                 {
                     tempKeyCode = TempKey;
+                    Keychange();
                     GetKeyInput = false;
                 }
-                if (jumpKeychangeP1 && !GetKeyInput)
-                {
-                    ControlKeys.P1Jump = tempKeyCode;
-                    jumpKeychangeP1 = false;
-                }
-                
-                if (jumpKeychangeP2 && !GetKeyInput)
-                {
-                    ControlKeys.P2Jump = tempKeyCode;
-                    jumpKeychangeP2 = false;
-                }
-
             }
         }
     }
