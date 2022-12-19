@@ -4,68 +4,68 @@ using UnityEngine;
 
 public class ThrowObject : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject playerCam;
-    public Control_Keys C_Keys;
+    public GameObject orient_Point;
+    public ControlKeys CKeys;
     public Rigidbody rb;
     public float throwForce = 10;
-    
-    private float dist;
-    private bool touched = false;
+    public bool UpThrow;
+
+    private FixedJoint fJoint;
+    private GameObject gOP1;
+    private Rigidbody rbP1;
     private bool beingCarried = false;
     private bool hasPlayer = false;
 
+    private void OnTriggerEnter(Collider sCollider)
+    {
+        if (sCollider.CompareTag("Player1"))
+        {
+            hasPlayer = true;
+        }
+    }
+    private void OnTriggerExit(Collider sCollider)
+    {
+        if(sCollider.CompareTag("Player1"))
+        {
+            hasPlayer = false;
+        }
+    }
+
+    private void createJoints()
+    {
+        gameObject.AddComponent<FixedJoint>();
+        fJoint = gameObject.GetComponent<FixedJoint>();
+        fJoint.connectedBody = rbP1;
+    }
+    private void destroyJoints()
+    {
+        Debug.Log("Destroy Joint");
+        Destroy(fJoint);
+    }
+
     public void Start()
     {
-        player = GameObject.Find("Player_1");
-        playerCam = GameObject.Find("Target_Position_Stone_Moving");
+        gOP1 = GameObject.Find("Player_1");
+        rbP1 = gOP1.GetComponent<Rigidbody>();
+        orient_Point = GameObject.Find("Target_Position_Stone_Moving");
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
-        if (dist <= 2.5f)
+        if (hasPlayer && UpThrow && !beingCarried)
         {
-            hasPlayer = true;
-        }
-        else
-        {
-            hasPlayer = false;
-        }
-        if (hasPlayer && Input.GetKeyDown(C_Keys.Interact_Key_P1))
-        {
-            rb.isKinematic = true;
-            transform.parent = playerCam.transform;
             beingCarried = true;
+            transform.position = orient_Point.transform.position;
+            createJoints();
+            UpThrow = false;
         }
-        if (beingCarried)
+        if (beingCarried && UpThrow)
         {
-            if (touched)
-            {
-                rb.isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
-                touched = false;
-            }
-            if (Input.GetKeyDown(C_Keys.Interact_Key_P1))
-            {
-                rb.isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
-                rb.AddForce(playerCam.transform.forward * throwForce);
-               
-            }   
-        }
-    }
-   
-
-    
-    void OnTriggerEnter()
-    {
-        if (beingCarried)
-        {
-            touched = true;
+            beingCarried = false;
+            destroyJoints();
+            rb.AddForce(orient_Point.transform.up * throwForce);
+            UpThrow = false;
         }
     }
 }

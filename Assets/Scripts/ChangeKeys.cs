@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ChangeKeys : MonoBehaviour
 {
-    public Control_Keys ControlKeys;
+    public ControlKeys ControlKeys;
     public bool GetKeyInput;
 
-    private KeyCode TempKeyCode;
-    private bool P1Jump_Keychange = false;
-    private bool P2Jump_Keychange = false;
+    private KeyCode tempKeyCode;
+    private bool jumpKeychangeP1 = false;
+    private bool jumpKeychangeP2 = false;
 
 
     public void ChangeForwardP1()
     {
-        P1Jump_Keychange = true;
+        jumpKeychangeP1 = true;
         GetKeyInput = true;
     }
     public void ChangeBackwardsP1()
     {
-        P2Jump_Keychange = true;
+        jumpKeychangeP2 = true;
         GetKeyInput = true;
     }
 
@@ -27,25 +27,25 @@ public class ChangeKeys : MonoBehaviour
 
     private void Update()
     {
-        if (GetKeyInput == true)
+        if (GetKeyInput)
         {
             foreach (KeyCode TempKey in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKey(TempKey))
                 {
-                    TempKeyCode = TempKey;
+                    tempKeyCode = TempKey;
                     GetKeyInput = false;
                 }
-                if (P1Jump_Keychange == true && GetKeyInput == false)
+                if (jumpKeychangeP1 && !GetKeyInput)
                 {
-                    ControlKeys.P1Jump = TempKeyCode;
-                    P1Jump_Keychange = false;
+                    ControlKeys.P1Jump = tempKeyCode;
+                    jumpKeychangeP1 = false;
                 }
                 
-                if (P2Jump_Keychange == true && GetKeyInput == false)
+                if (jumpKeychangeP2 && !GetKeyInput)
                 {
-                    ControlKeys.P2Jump = TempKeyCode;
-                    P2Jump_Keychange = false;
+                    ControlKeys.P2Jump = tempKeyCode;
+                    jumpKeychangeP2 = false;
                 }
 
             }

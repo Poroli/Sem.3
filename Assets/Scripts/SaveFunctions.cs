@@ -4,22 +4,22 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class Save_Functions : MonoBehaviour
+public class SaveFunctions : MonoBehaviour
 {
-    public static void SaveData(Elements_Manager e_Manager)
+    public static void SaveData(ElementsManager eManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        Data_to_Save charData = new Data_to_Save(e_Manager);
+        DataToSave charData = new DataToSave(eManager);
 
         formatter.Serialize(stream, charData);
         stream.Close();
     }
 
-    public static Data_to_Save LoadData()
+    public static DataToSave LoadData()
     {
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
@@ -28,7 +28,7 @@ public class Save_Functions : MonoBehaviour
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            Data_to_Save data = formatter.Deserialize(stream) as Data_to_Save;
+            DataToSave data = formatter.Deserialize(stream) as DataToSave;
 
             stream.Close();
 

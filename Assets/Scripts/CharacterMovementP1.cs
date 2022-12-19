@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character_Movement_P1 : MonoBehaviour
+public class CharacterMovementP1 : MonoBehaviour
 {
     public Rigidbody Rb;
     public GameObject Camera;
-    public Control_Keys C_Keys;
-    public float speed = 6f;
+    public ControlKeys C_Keys;
+    public float Speed = 6f;
     public float Jumpforce;
+    public float TurnSmoothTime = 0.1f;
 
-    public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
 
-    private Jump_Manager j_Manager;
+    private JumpManager j_Manager;
+    private float turnSmoothVelocity;
     private float horizontalP1;
     private float verticalP1;
 
@@ -21,7 +21,7 @@ public class Character_Movement_P1 : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         Camera = GameObject.Find("Main_Camera1");
-        j_Manager = GetComponent<Jump_Manager>();
+        j_Manager = GetComponent<JumpManager>();
     }
 
     void Update()
@@ -34,17 +34,17 @@ public class Character_Movement_P1 : MonoBehaviour
         if (Input.GetKeyDown(C_Keys.P1Jump) == true && j_Manager.Grounded())
         {
             j_Manager.StartCooldown();
-            j_Manager.actual_jumps += 1;
+            j_Manager.ActualJumps += 1;
             Rb.AddForce(0, Jumpforce, 0);
         }
         else if (direction.magnitude != 0)
         { 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            moveDir = moveDir.normalized * speed;
+            moveDir = moveDir.normalized * Speed;
             moveDir.y = Rb.velocity.y;
             Rb.velocity = moveDir;
         }
