@@ -46,7 +46,7 @@ public class GoAwayWall : MonoBehaviour
     {
         if (runes[0])
         {
-            for (int i = 0; i <= 2; i = i + 2)
+            for (int i = 0; i <= 2; i += 2)
             {
                 if (Walls[i].activeInHierarchy)
                     {
@@ -60,7 +60,7 @@ public class GoAwayWall : MonoBehaviour
         }
         else if (runes[1])
         {
-            for (int i = 1; i <= 2; i = i + 1)
+            for (int i = 1; i <= 2; i += 1)
             {
                 if (Walls[i].activeInHierarchy)
                 {
@@ -74,7 +74,7 @@ public class GoAwayWall : MonoBehaviour
         }
         else if (runes[2])
         {
-            for (int i = 0; i <= Walls.Length; i = i + 3)
+            for (int i = 0; i <= Walls.Length; i += 3)
             {
                 if (Walls[i].activeInHierarchy)
                 {

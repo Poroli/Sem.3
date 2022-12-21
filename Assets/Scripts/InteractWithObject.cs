@@ -11,19 +11,28 @@ public class InteractWithObject : MonoBehaviour
     private string InteractWithPlayer;
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
         {
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
             ITranslate.InRange = true;
-            ITranslates.Add(collision.GetComponent<InteractTranslate>());
+            if (ITranslates.Contains(ITranslate))
+            {
+                ITranslates.Remove(ITranslate);
+                ITranslates.Add(collision.GetComponent<InteractTranslate>());                
+            }
+            else
+            {
+                ITranslates.Add(collision.GetComponent<InteractTranslate>());
+            }
         }
     }
+
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
         {
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
-            if (ITranslates.Contains(ITranslate) == true)
+            if (ITranslates.Contains(ITranslate))
             {
                 ITranslate.InRange = false;
                 ITranslates.Remove(ITranslate);
@@ -36,13 +45,13 @@ public class InteractWithObject : MonoBehaviour
     {
         if (gameObject.CompareTag("Player1"))
         {
-            Interactable = "Interactable_P1";
-            InteractWithPlayer = "Player1";
+            Interactable = "InteractableP1";
+            InteractWithPlayer = "Player2";
         }
         else if (gameObject.CompareTag("Player2"))
         {
-            Interactable = "Interactable_P2";
-            InteractWithPlayer = "Player2";
+            Interactable = "InteractableP2";
+            InteractWithPlayer = "Player1";
         }
     }
     private void Update()

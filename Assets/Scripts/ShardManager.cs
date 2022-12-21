@@ -10,12 +10,12 @@ public class ShardManager : MonoBehaviour
     
 
     private InteractWithObject[] iWOs;
-    private GameObject[] shards;
+    public GameObject[] shards;
 
 
     private void Start()
     {
-        shards = FindObjectsOfType<GameObject>(gameObject.CompareTag("Shard"));
+        shards = GameObject.FindGameObjectsWithTag("Shard");
         ShardsToCollect = shards.Length;
         iWOs = FindObjectsOfType<InteractWithObject>();
     }

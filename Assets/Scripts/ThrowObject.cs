@@ -14,22 +14,6 @@ public class ThrowObject : MonoBehaviour
     private GameObject gOP1;
     private Rigidbody rbP1;
     private bool beingCarried = false;
-    private bool hasPlayer = false;
-
-    private void OnTriggerEnter(Collider sCollider)
-    {
-        if (sCollider.CompareTag("Player1"))
-        {
-            hasPlayer = true;
-        }
-    }
-    private void OnTriggerExit(Collider sCollider)
-    {
-        if(sCollider.CompareTag("Player1"))
-        {
-            hasPlayer = false;
-        }
-    }
 
     private void createJoints()
     {
@@ -39,21 +23,20 @@ public class ThrowObject : MonoBehaviour
     }
     private void destroyJoints()
     {
-        Debug.Log("Destroy Joint");
         Destroy(fJoint);
     }
 
     public void Start()
     {
-        gOP1 = GameObject.Find("Player_1");
+        gOP1 = GameObject.Find("Player1");
         rbP1 = gOP1.GetComponent<Rigidbody>();
-        orient_Point = GameObject.Find("Target_Position_Stone_Moving");
+        orient_Point = GameObject.Find("TargetPosition");
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (hasPlayer && UpThrow && !beingCarried)
+        if (UpThrow && !beingCarried)
         {
             beingCarried = true;
             transform.position = orient_Point.transform.position;

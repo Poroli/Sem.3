@@ -5,10 +5,10 @@ using UnityEngine;
 public class StoneMoving : MonoBehaviour
 {
     public bool StoneMovable;
-    public GameObject Targetposition;
     public float SmoothSpeed;
     public CharacterMovementP1 C1Movement;
 
+    private GameObject targetposition;
     private Rigidbody rb;
     private Vector3 movingVector;
     private float tempC1Speed;
@@ -24,6 +24,7 @@ public class StoneMoving : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        targetposition = GameObject.Find("TargetPosition");
         C1Movement = FindObjectOfType<CharacterMovementP1>();
         tempC1Speed = C1Movement.Speed;
         tempC1TurnSmoothTime = C1Movement.TurnSmoothTime;
@@ -51,17 +52,8 @@ public class StoneMoving : MonoBehaviour
 
     private void CalculateMovingVector()
     {
-        movingVector.x = Targetposition.transform.position.x - gameObject.transform.position.x;
-        movingVector.z = Targetposition.transform.position.z - gameObject.transform.position.z;
+        movingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
+        movingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
         movingVector = movingVector.normalized * SmoothSpeed;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(Targetposition.transform.position, Vector3.one * 0.25f);
-        CalculateMovingVector();
-        if (StoneMovable)
-            Gizmos.DrawLine(transform.position, transform.position + movingVector);
     }
 }
