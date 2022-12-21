@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 2046312648280275535}
   - component: {fileID: 6078056699343620616}
   - component: {fileID: 7786508010206555779}
+  - component: {fileID: 7527289606996595498}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -182,7 +183,7 @@ MonoBehaviour:
   Rb: {fileID: 0}
   Camera: {fileID: 0}
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
-  Speed: 6
+  Speed: 2
   Jumpforce: 50
   TurnSmoothTime: 0.1
 --- !u!54 &2046312648280275531
@@ -273,6 +274,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &7527289606996595498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046312648280275524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4df93cc37845644bd4ef39137c4c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
+  ITranslates: []
 --- !u!1 &2046312648317083576
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,8 +360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActualJumps: 0
   XtraRange: 0
-  JCooldown: 0
-  SphereRadius: 0
+  JCooldown: 0.1
+  SphereRadius: 0.1
   groundlayer:
     serializedVersion: 2
     m_Bits: 64
