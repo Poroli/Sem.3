@@ -13,6 +13,7 @@ public class JumpManager : MonoBehaviour
 
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
+    private CapsuleCollider cCollider;
     private Vector3 sphereCheckPosition;
     private bool isOnCooldown = false;
     private bool jumpReady;

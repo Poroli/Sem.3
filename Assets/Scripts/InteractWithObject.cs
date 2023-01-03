@@ -13,16 +13,12 @@ public class InteractWithObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
         {
+            if (collision.GetComponent<InteractTranslate>())
+            { 
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
             ITranslate.InRange = true;
-            if (ITranslates.Contains(ITranslate))
-            {
-                ITranslates.Remove(ITranslate);
-                ITranslates.Add(collision.GetComponent<InteractTranslate>());                
-            }
-            else
-            {
-                ITranslates.Add(collision.GetComponent<InteractTranslate>());
+            ITranslates.Add(collision.GetComponent<InteractTranslate>());
+            
             }
         }
     }
@@ -43,12 +39,12 @@ public class InteractWithObject : MonoBehaviour
 
     private void Start()
     {
-        if (gameObject.CompareTag("Player1"))
+        if (this.transform.parent.CompareTag("Player1"))
         {
             Interactable = "InteractableP1";
             InteractWithPlayer = "Player2";
         }
-        else if (gameObject.CompareTag("Player2"))
+        else if (this.transform.parent.CompareTag("Player2"))
         {
             Interactable = "InteractableP2";
             InteractWithPlayer = "Player1";
