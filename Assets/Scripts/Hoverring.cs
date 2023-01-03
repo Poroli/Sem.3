@@ -18,7 +18,7 @@ public class Hoverring : MonoBehaviour
         cCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
     }
-    private void hoveringCheckGround()
+    private void HoveringCheckGround()
     {
         hoveringCheckPos1.x = transform.position.x;
         hoveringCheckPos1.y = transform.position.y - ((cCollider.height / 2) + cCollider.radius);
@@ -42,6 +42,6 @@ public class Hoverring : MonoBehaviour
 
     private void Update()
     {
-        hoveringCheckGround();
+        HoveringCheckGround();
     }
 }
