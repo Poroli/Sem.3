@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class Hoverring : MonoBehaviour
 {
-    public float xtra_range;
-    public float Change_heigth_power;
+    public float XtraRange;
+    public float ChangeHeigthPower;
 
-    private Vector3 hovering_check_pos_1;
-    private Vector3 hovering_check_pos_2;
-    private CapsuleCollider c_Collider;
+    private Vector3 hoveringCheckPos1;
+    private Vector3 hoveringCheckPos2;
+    private CapsuleCollider cCollider;
     private Rigidbody rb;
     private bool spherecheck;
 
     private void Start()
     {
-        c_Collider = GetComponent<CapsuleCollider>();
+        cCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
     }
-    private void Hovering_Check_Ground()
+    private void hoveringCheckGround()
     {
-        hovering_check_pos_1.x = transform.position.x;
-        hovering_check_pos_1.y = transform.position.y - ((c_Collider.height / 2) + c_Collider.radius);
-        hovering_check_pos_1.z = transform.position.z;
+        hoveringCheckPos1.x = transform.position.x;
+        hoveringCheckPos1.y = transform.position.y - ((cCollider.height / 2) + cCollider.radius);
+        hoveringCheckPos1.z = transform.position.z;
 
-        hovering_check_pos_2.x = transform.position.x;
-        hovering_check_pos_2.y = hovering_check_pos_1.y - xtra_range;
-        hovering_check_pos_2.z = transform.position.z;
+        hoveringCheckPos2.x = transform.position.x;
+        hoveringCheckPos2.y = hoveringCheckPos1.y - XtraRange;
+        hoveringCheckPos2.z = transform.position.z;
 
-        spherecheck = Physics.CheckCapsule(hovering_check_pos_1, hovering_check_pos_2, c_Collider.radius);
+        spherecheck = Physics.CheckCapsule(hoveringCheckPos1, hoveringCheckPos2, cCollider.radius);
 
         if (!spherecheck)
         {
-            rb.AddForce(transform.up * -Change_heigth_power, ForceMode.Force);
+            rb.AddForce(transform.up * -ChangeHeigthPower, ForceMode.Force);
         }
         else if (spherecheck)
         {
-            rb.AddForce(transform.up * Change_heigth_power, ForceMode.Force);
+            rb.AddForce(transform.up * ChangeHeigthPower, ForceMode.Force);
         }
     }
 
     private void Update()
     {
-        Hovering_Check_Ground();
+        hoveringCheckGround();
     }
 }

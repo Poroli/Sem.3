@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Master_Control_Script : MonoBehaviour
+public class MasterControlScript : MonoBehaviour
 {
     void Awake()
     {
-        QualitySettings.vSyncCount = 1;
+        QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 }

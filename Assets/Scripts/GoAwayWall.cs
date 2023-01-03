@@ -2,40 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Go_away_Wall : MonoBehaviour
+public class GoAwayWall : MonoBehaviour
 {
     public GameObject[] Walls = new GameObject[4];
-    public int Runes_Nr;
-    public bool activate_rune;
-    private bool[] Runes = new bool[3];
+    public int RunesNr;
+    public bool ActivateRune;
+    
+    private bool[] runes = new bool[3];
     private bool reset;
 
-    private void If_runes_change()
+    private void ifRunesChange()
     {
         if (reset)
         {
-            activate_rune = false;
-            for (int i = 0; i < Runes.Length; i++)
+            ActivateRune = false;
+            for (int i = 0; i < runes.Length; i++)
             {
-                Runes[i] = false;
+                runes[i] = false;
             }
             reset = false;
         }
-        else if (activate_rune && Runes_Nr == 1)
+        else if (ActivateRune && RunesNr == 1)
         {
-            Runes[0] = true;
+            runes[0] = true;
             Wallcheck();
             reset = true;
         }
-        else if (activate_rune && Runes_Nr == 2)
+        else if (ActivateRune && RunesNr == 2)
         {
-            Runes[1] = true;
+            runes[1] = true;
             Wallcheck();
             reset = true;
         }
-        else if (activate_rune && Runes_Nr == 3)
+        else if (ActivateRune && RunesNr == 3)
         {
-            Runes[2] = true;
+            runes[2] = true;
             Wallcheck();
             reset = true;
         }
@@ -43,9 +44,9 @@ public class Go_away_Wall : MonoBehaviour
     
     private void Wallcheck()
     {
-        if (Runes[0])
+        if (runes[0])
         {
-            for (int i = 0; i <= 2; i = i + 2)
+            for (int i = 0; i <= 2; i += 2)
             {
                 if (Walls[i].activeInHierarchy)
                     {
@@ -57,9 +58,9 @@ public class Go_away_Wall : MonoBehaviour
                 }
             }
         }
-        else if (Runes[1])
+        else if (runes[1])
         {
-            for (int i = 1; i <= 2; i = i + 1)
+            for (int i = 1; i <= 2; i += 1)
             {
                 if (Walls[i].activeInHierarchy)
                 {
@@ -71,9 +72,9 @@ public class Go_away_Wall : MonoBehaviour
                 }
             }
         }
-        else if (Runes[2])
+        else if (runes[2])
         {
-            for (int i = 0; i <= Walls.Length; i = i + 3)
+            for (int i = 0; i <= Walls.Length; i += 3)
             {
                 if (Walls[i].activeInHierarchy)
                 {
@@ -89,7 +90,7 @@ public class Go_away_Wall : MonoBehaviour
 
     private void Update()
     {
-        If_runes_change();
+        ifRunesChange();
     }
 }
     

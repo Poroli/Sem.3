@@ -5,17 +5,17 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Elements_Manager : MonoBehaviour
+public class ElementsManager : MonoBehaviour
 {
     public int P2_Element;
-    public int P1_Element;
+    public int P1Element;
     //0=Standart_activated;
     //1=Fire_activated;
     //2=Water_activated;
     //3=Earth_activated;
     //4=Air_activated;
     public bool[] Elements_Activated = new bool[5];
-    public int[] temp_Element;
+    public int[] tempElement;
     public Button[] Element_Buttons = new Button[4];
 
 
@@ -32,11 +32,11 @@ public class Elements_Manager : MonoBehaviour
         }
     }
 
-    public void Update_Elements_Activated()
+    public void UpdateElementsActivated()
     {
-        for (int i = 0; i < temp_Element.Length; i++)
+        for (int i = 0; i < tempElement.Length; i++)
         {
-            Elements_Activated[temp_Element[i]] = true;
+            Elements_Activated[tempElement[i]] = true;
         }
     }
 
@@ -44,8 +44,8 @@ public class Elements_Manager : MonoBehaviour
     {
         int tmp_P1_Element;
 
-        tmp_P1_Element = P1_Element;
-        P1_Element = P2_Element;
+        tmp_P1_Element = P1Element;
+        P1Element = P2_Element;
         P2_Element = tmp_P1_Element;
     }
 
@@ -61,12 +61,12 @@ public class Elements_Manager : MonoBehaviour
                 tmp_Element_length = tmp_Element_length + 1;
             }
         }
-        temp_Element = new int[tmp_Element_length];
+        tempElement = new int[tmp_Element_length];
         for (int AEnr = 0; AEnr < Elements_Activated.Length -1; AEnr++)
         {
             if (Elements_Activated[AEnr] == true)
             {
-                temp_Element[tmp_Element_Nr] = AEnr;
+                tempElement[tmp_Element_Nr] = AEnr;
                 tmp_Element_Nr = tmp_Element_Nr + 1;
             }
         }
@@ -75,12 +75,12 @@ public class Elements_Manager : MonoBehaviour
 
     public void Give_Elementbutton_ElementID()
     {
-            Element_to_switch element_To_Switch;
-        for (int i = 0; i < temp_Element.Length; i++)
+            ElementToSwitch element_To_Switch;
+        for (int i = 0; i < tempElement.Length; i++)
         {
             Element_Buttons[i].gameObject.SetActive(true);
-            element_To_Switch = Element_Buttons[i].GetComponent<Element_to_switch>();
-            element_To_Switch.Saved_Element_ID = temp_Element[i];
+            element_To_Switch = Element_Buttons[i].GetComponent<ElementToSwitch>();
+            element_To_Switch.SavedElementID = tempElement[i];
         }
     }
 }

@@ -5,25 +5,20 @@ using UnityEngine;
 public class TestController : MonoBehaviour
 {
     public float Inputvalue;
-    public bool[] Elements_Activated;
+    public bool[] ElementsActivated;
 
-    public bool Fire_activated;
-    public bool Water_activated;
-    public bool Earth_activated;
-    public bool Air_activated;
-    public bool Standart_activated;
+    public bool FireActivated;
+    public bool WaterActivated;
+    public bool EarthActivated;
+    public bool AirActivated;
+    public bool StandartActivated;
 
     void Update()
     {
-        Elements_Activated = new bool[] { Fire_activated, Water_activated, Earth_activated, Air_activated, Standart_activated };
+        ElementsActivated = new bool[] { FireActivated, WaterActivated, EarthActivated, AirActivated, StandartActivated };
         Inputvalue = Input.GetAxisRaw("Horizontal_LStick_C2");
         
         
         Debug.Log(Inputvalue);
-    }
-
-
-    private void Start()
-    {
     }
 }
