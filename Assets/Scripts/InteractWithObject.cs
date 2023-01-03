@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractWithObject : MonoBehaviour
 {
     public ControlKeys CKeys;
-    public List<InteractTranslate> ITranslates = new List<InteractTranslate>();
+    public List<InteractTranslate> InteractTranslates = new();
 
     private string Interactable;
     private string InteractWithPlayer;
@@ -17,7 +17,7 @@ public class InteractWithObject : MonoBehaviour
             { 
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
             ITranslate.InRange = true;
-            ITranslates.Add(collision.GetComponent<InteractTranslate>());
+            InteractTranslates.Add(collision.GetComponent<InteractTranslate>());
             
             }
         }
@@ -28,10 +28,10 @@ public class InteractWithObject : MonoBehaviour
         if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
         {
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
-            if (ITranslates.Contains(ITranslate))
+            if (InteractTranslates.Contains(ITranslate))
             {
                 ITranslate.InRange = false;
-                ITranslates.Remove(ITranslate);
+                InteractTranslates.Remove(ITranslate);
             }
         }
     }
@@ -52,9 +52,9 @@ public class InteractWithObject : MonoBehaviour
     }
     private void Update()
     {
-        if (ITranslates.Count > 0 && Input.GetKeyDown(CKeys.InteractKeyP1))
+        if (InteractTranslates.Count > 0 && Input.GetKeyDown(CKeys.InteractKeyP1))
         {
-            foreach (InteractTranslate ITranslate in ITranslates)
+            foreach (InteractTranslate ITranslate in InteractTranslates)
             {
                 if (ITranslate.Interact)
                 {

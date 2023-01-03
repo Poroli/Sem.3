@@ -24,7 +24,7 @@ public class ShardManager : MonoBehaviour
     {
         foreach (InteractWithObject IWO in iWOs)
         {
-            foreach (InteractTranslate IT in IWO.ITranslates)
+            foreach (InteractTranslate IT in IWO.InteractTranslates)
             {
                 foreach (GameObject GO in shards)
                 {

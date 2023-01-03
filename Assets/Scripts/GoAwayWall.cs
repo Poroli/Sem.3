@@ -8,8 +8,10 @@ public class GoAwayWall : MonoBehaviour
     public int RunesNr;
     public bool ActivateRune;
     
+    [SerializeField]private Animator animator;
     private bool[] runes = new bool[3];
     private bool reset;
+    private string animationBoolString;
 
     private void ifRunesChange()
     {
@@ -41,20 +43,35 @@ public class GoAwayWall : MonoBehaviour
             reset = true;
         }
     }
-    
+
     private void Wallcheck()
     {
         if (runes[0])
         {
             for (int i = 0; i <= 2; i += 2)
             {
-                if (Walls[i].activeInHierarchy)
-                    {
-                        Walls[i].SetActive(false);
-                    }
-                else if (!Walls[i].activeInHierarchy)
+                switch (i)
                 {
-                    Walls[i].SetActive(true);
+                    case 0:
+                        animationBoolString = "Bar1Open";
+                        break;
+                    case 1:
+                        animationBoolString = "Bar2Open";
+                        break;
+                    case 2:
+                        animationBoolString = "Bar3Open";
+                        break;
+                    case 3:
+                        animationBoolString = "Bar4Open";
+                        break;
+                }
+                if (animator.GetBool(animationBoolString))
+                    {
+                        animator.SetBool(animationBoolString, false);
+                    }
+                else if (!animator.GetBool(animationBoolString))
+                {
+                    animator.SetBool(animationBoolString, true);
                 }
             }
         }
@@ -62,13 +79,28 @@ public class GoAwayWall : MonoBehaviour
         {
             for (int i = 1; i <= 2; i += 1)
             {
-                if (Walls[i].activeInHierarchy)
+                switch (i)
                 {
-                    Walls[i].SetActive(false);
+                    case 0:
+                        animationBoolString = "Bar1Open";
+                        break;
+                    case 1:
+                        animationBoolString = "Bar2Open";
+                        break;
+                    case 2:
+                        animationBoolString = "Bar3Open";
+                        break;
+                    case 3:
+                        animationBoolString = "Bar4Open";
+                        break;
                 }
-                else if (!Walls[i].activeInHierarchy)
+                if (animator.GetBool(animationBoolString))
                 {
-                    Walls[i].SetActive(true);
+                    animator.SetBool(animationBoolString, false);
+                }
+                else if (!animator.GetBool(animationBoolString))
+                {
+                    animator.SetBool(animationBoolString, true);
                 }
             }
         }
@@ -76,13 +108,28 @@ public class GoAwayWall : MonoBehaviour
         {
             for (int i = 0; i <= Walls.Length; i += 3)
             {
-                if (Walls[i].activeInHierarchy)
+                switch (i)
                 {
-                    Walls[i].SetActive(false);
+                    case 0:
+                        animationBoolString = "Bar1Open";
+                        break;
+                    case 1:
+                        animationBoolString = "Bar2Open";
+                        break;
+                    case 2:
+                        animationBoolString = "Bar3Open";
+                        break;
+                    case 3:
+                        animationBoolString = "Bar4Open";
+                        break;
                 }
-                else if (!Walls[i].activeInHierarchy)
+                if (animator.GetBool(animationBoolString))
                 {
-                    Walls[i].SetActive(true);
+                    animator.SetBool(animationBoolString, false);
+                }
+                else if (!animator.GetBool(animationBoolString))
+                {
+                    animator.SetBool(animationBoolString, true);
                 }
             }
         }
