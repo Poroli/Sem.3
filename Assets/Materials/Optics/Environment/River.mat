@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid Test
+  m_Name: River
   m_Shader: {fileID: -6465566751694194690, guid: 12046d9745ecda6438c1e2ceb77f3774, type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -247,6 +247,15 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 1
+    - _Tesselation: 0
+    - _TessellationBackFaceCullEpsilon: -0.25
+    - _TessellationDisplacement: 0
+    - _TessellationFactorMaxDistance: 50
+    - _TessellationFactorMinDistance: 20
+    - _TessellationFactorTriangleSize: 100
+    - _TessellationMaxDisplacement: 0.01
+    - _TessellationMode: 0
+    - _TessellationShapeFactor: 0.75
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -263,6 +272,7 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
+    - _Wave_Intensity: 1
     - _Wave_Scaling: 0.5
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
