@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4649084532397569646
+--- !u!114 &-1026278813331920332
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cave1
+  m_Name: Cave1_Inside
   m_Shader: {fileID: -6465566751694194690, guid: 98fbf3cd3ac5990488ff50596549aef1, type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Texture:
-        m_Texture: {fileID: 2800000, guid: 2bb2736b3e1b485408404dbb5688a627, type: 3}
+        m_Texture: {fileID: 2800000, guid: 75486050a1be31646bf1bd0cc5a9e52a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -81,7 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emission_Texture:
-        m_Texture: {fileID: 2800000, guid: 874e5ba4ce0abe54da1e83976535d727, type: 3}
+        m_Texture: {fileID: 2800000, guid: c8846859d9445134ab5d780d971a72a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissiveColorMap:
@@ -109,7 +109,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask_Map:
-        m_Texture: {fileID: 2800000, guid: 87ee7061f0e22944fbbab6d259fb3ea0, type: 3}
+        m_Texture: {fileID: 2800000, guid: e89b9477c1254104483ade1ce62bb598, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -121,7 +121,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normalmap_Texture:
-        m_Texture: {fileID: 2800000, guid: 0607b5dafe4c62840bf51f4cd73995dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: b119d3fdfb9485141a2c39dfbc30ea35, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -167,7 +167,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
-    - _Alpha: 1
+    - _Alpha: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
