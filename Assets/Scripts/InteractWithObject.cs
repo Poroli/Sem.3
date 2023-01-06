@@ -15,9 +15,9 @@ public class InteractWithObject : MonoBehaviour
         {
             if (collision.GetComponent<InteractTranslate>())
             { 
-            InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
-            ITranslate.InRange = true;
-            InteractTranslates.Add(collision.GetComponent<InteractTranslate>());
+                InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
+                ITranslate.InRange = true;
+                InteractTranslates.Add(collision.GetComponent<InteractTranslate>());
             
             }
         }
@@ -52,7 +52,7 @@ public class InteractWithObject : MonoBehaviour
     }
     private void Update()
     {
-        if (InteractTranslates.Count > 0 && Input.GetKeyDown(CKeys.InteractKeyP1))
+        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(CKeys.InteractKeyP1) || Input.GetKeyDown(CKeys.InteractKeyP2)))
         {
             foreach (InteractTranslate ITranslate in InteractTranslates)
             {
