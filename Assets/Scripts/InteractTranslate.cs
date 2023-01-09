@@ -17,7 +17,7 @@ public class InteractTranslate : MonoBehaviour
     private CollectShard collectShard;
     private ShroomShake shake;
     private DialogueTrigger dialogueTrigger;
-    private bool[] uSO = new bool[5];
+    private bool[] uSO = new bool[6];
     /// <summary>
     /// 0 = Stone_Moving
     /// 1 = activate Runes
@@ -81,6 +81,7 @@ public class InteractTranslate : MonoBehaviour
                     }
                     else
                     {
+                        Interact = false;
                         sMoving.StoneMovable = false;
                     }
                     break;

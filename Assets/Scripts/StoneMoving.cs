@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class StoneMoving : MonoBehaviour
 {
+    public CharacterMovementP1 C1Movement;
     public bool StoneMovable;
     public float SmoothSpeed;
-    public CharacterMovementP1 C1Movement;
+    public float SpeedWhileMoving;
+    public float TurnSpeedWhileMoving;
 
     private GameObject targetposition;
     private Rigidbody rb;
@@ -36,8 +38,8 @@ public class StoneMoving : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
             changeToDefault = true;
             MoveStone();
-            C1Movement.Speed = 1;
-            C1Movement.TurnSmoothTime = 0.75f;
+            C1Movement.Speed = SpeedWhileMoving;
+            C1Movement.TurnSmoothTime = TurnSpeedWhileMoving;
         }
         else
         {
@@ -54,6 +56,6 @@ public class StoneMoving : MonoBehaviour
     {
         movingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
         movingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
-        movingVector = movingVector.normalized * SmoothSpeed;
+        movingVector *= SmoothSpeed;
     }
 }

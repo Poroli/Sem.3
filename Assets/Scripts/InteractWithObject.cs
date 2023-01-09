@@ -11,7 +11,7 @@ public class InteractWithObject : MonoBehaviour
     private string InteractWithPlayer;
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard") || collision.gameObject.CompareTag("NPC"))
         {
             if (collision.GetComponent<InteractTranslate>())
             { 
@@ -25,7 +25,7 @@ public class InteractWithObject : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard") || collision.gameObject.CompareTag("NPC"))
         {
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
             if (InteractTranslates.Contains(ITranslate))
