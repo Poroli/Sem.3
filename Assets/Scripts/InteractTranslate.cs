@@ -16,6 +16,7 @@ public class InteractTranslate : MonoBehaviour
     private ThrowObject tObject;
     private CollectShard collectShard;
     private ShroomShake shake;
+    private DialogueTrigger dialogueTrigger;
     private bool[] uSO = new bool[5];
     /// <summary>
     /// 0 = Stone_Moving
@@ -23,6 +24,7 @@ public class InteractTranslate : MonoBehaviour
     /// 2 = Throw
     /// 3 = Shard
     /// 4 = Shroom
+    /// 5 = Dialogue
     /// 
     /// </summary>
     
@@ -56,6 +58,12 @@ public class InteractTranslate : MonoBehaviour
         {
             shake = GetComponent<ShroomShake>();
             i = 4;
+            uSO[i] = true;
+        }
+        if (GetComponent<DialogueTrigger>())
+        {
+            dialogueTrigger = GetComponent<DialogueTrigger>();
+            i = 5;
             uSO[i] = true;
         }
     }
@@ -108,6 +116,14 @@ public class InteractTranslate : MonoBehaviour
                         switchCount2 = false;
                     }
                     break;
+                case 5:
+                    if (!switchCount1)
+                    {
+                        switchCount1 = true;
+                        dialogueTrigger.TriggerDialogue();
+                        switchCount2 = false;
+                    }
+                    break;
             }
         }
         else if (uSO[i] && !Interact)
@@ -146,6 +162,14 @@ public class InteractTranslate : MonoBehaviour
                     {
                         switchCount2 = true;
                         shake.LetShardDown();
+                        switchCount1 = false;
+                    }
+                    break;
+                case 5:
+                    if (!switchCount2)
+                    {
+                        switchCount2 = true;
+                        dialogueTrigger.TriggerDialogue();
                         switchCount1 = false;
                     }
                     break;
