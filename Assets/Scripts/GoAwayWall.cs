@@ -13,7 +13,7 @@ public class GoAwayWall : MonoBehaviour
     private bool reset;
     private string animationBoolString;
 
-    private void ifRunesChange()
+    private void IfRunesChange()
     {
         if (reset)
         {
@@ -137,7 +137,7 @@ public class GoAwayWall : MonoBehaviour
 
     private void Update()
     {
-        ifRunesChange();
+        IfRunesChange();
     }
 }
     

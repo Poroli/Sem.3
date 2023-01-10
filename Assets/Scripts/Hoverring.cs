@@ -6,12 +6,22 @@ public class Hoverring : MonoBehaviour
 {
     public float XtraRange;
     public float ChangeHeigthPower;
+    public float HoveringHeigth;
 
     private Vector3 hoveringCheckPos1;
-    private Vector3 hoveringCheckPos2;
+    private Vector3 changeHeigthVec;
+    private RaycastHit hit;
     private CapsuleCollider cCollider;
     private Rigidbody rb;
-    private bool spherecheck;
+    private bool spherecast;
+    private float distance;
+
+    private void HeightChange()
+    {
+        distance = HoveringHeigth - hit.distance;
+        changeHeigthVec = Vector3.zero;
+        changeHeigthVec.y = distance;
+    }
 
     private void Start()
     {
@@ -21,22 +31,19 @@ public class Hoverring : MonoBehaviour
     private void HoveringCheckGround()
     {
         hoveringCheckPos1.x = transform.position.x;
-        hoveringCheckPos1.y = transform.position.y - ((cCollider.height / 2) + cCollider.radius);
+        hoveringCheckPos1.y = transform.position.y;
         hoveringCheckPos1.z = transform.position.z;
 
-        hoveringCheckPos2.x = transform.position.x;
-        hoveringCheckPos2.y = hoveringCheckPos1.y - XtraRange;
-        hoveringCheckPos2.z = transform.position.z;
+        spherecast = Physics.SphereCast(hoveringCheckPos1, cCollider.radius, Vector3.down, out hit, XtraRange);
 
-        spherecheck = Physics.CheckCapsule(hoveringCheckPos1, hoveringCheckPos2, cCollider.radius);
-
-        if (!spherecheck)
+        if (!spherecast)
         {
             rb.AddForce(transform.up * -ChangeHeigthPower, ForceMode.Force);
         }
-        else if (spherecheck)
+        else if (spherecast)
         {
-            rb.AddForce(transform.up * ChangeHeigthPower, ForceMode.Force);
+            HeightChange();
+            rb.AddForce(changeHeigthVec * ChangeHeigthPower, ForceMode.Force);
         }
     }
 
