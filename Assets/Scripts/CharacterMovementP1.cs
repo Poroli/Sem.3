@@ -11,7 +11,6 @@ public class CharacterMovementP1 : MonoBehaviour
     public float Jumpforce;
     public float TurnSmoothTime = 0.1f;
 
-
     private JumpManager j_Manager;
     private Vector3 tempVec;
     private Vector3 direction;
@@ -43,7 +42,7 @@ public class CharacterMovementP1 : MonoBehaviour
         {
             j_Manager.StartCooldown();
             j_Manager.ActualJumps += 1;
-            Rb.AddForce(0, Jumpforce, 0);
+            Rb.AddForce(0, Jumpforce, 0) ;
         }
         else if (direction.magnitude != 0)
         { 
