@@ -11,13 +11,13 @@ public class InteractWithObject : MonoBehaviour
     private string InteractWithPlayer;
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard") || collision.gameObject.CompareTag("NPC"))
         {
             if (collision.GetComponent<InteractTranslate>())
             { 
-            InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
-            ITranslate.InRange = true;
-            InteractTranslates.Add(collision.GetComponent<InteractTranslate>());
+                InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
+                ITranslate.InRange = true;
+                InteractTranslates.Add(collision.GetComponent<InteractTranslate>());
             
             }
         }
@@ -25,7 +25,7 @@ public class InteractWithObject : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard"))
+        if (collision.gameObject.CompareTag(Interactable) || collision.gameObject.CompareTag(InteractWithPlayer) || collision.gameObject.CompareTag("Shard") || collision.gameObject.CompareTag("NPC"))
         {
             InteractTranslate ITranslate = collision.GetComponent<InteractTranslate>();
             if (InteractTranslates.Contains(ITranslate))
@@ -52,7 +52,7 @@ public class InteractWithObject : MonoBehaviour
     }
     private void Update()
     {
-        if (InteractTranslates.Count > 0 && Input.GetKeyDown(CKeys.InteractKeyP1))
+        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(CKeys.InteractKeyP1) || Input.GetKeyDown(CKeys.InteractKeyP2)))
         {
             foreach (InteractTranslate ITranslate in InteractTranslates)
             {

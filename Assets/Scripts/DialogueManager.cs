@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
 
 public class DialogueManager : MonoBehaviour
 {
 	public TextMeshProUGUI nameText;
-
     public TextMeshProUGUI  dialogueText;
-
 	public Animator animator;
 
 	private Queue<string> sentences;
+	private bool nextSentenceClickable;
 
 	// Use this for initialization
 	void Start()
@@ -25,16 +22,14 @@ public class DialogueManager : MonoBehaviour
 	public void StartDialogue(Dialogue dialogue)
 	{
 		animator.SetBool("IsOpen", true);
-
 		nameText.text = dialogue.name;
-
 		sentences.Clear();
+		nextSentenceClickable = true;
 
 		foreach (string sentence in dialogue.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
-
 		DisplayNextSentence();
 	}
 
@@ -64,6 +59,14 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
+		nextSentenceClickable = false;
 	}
 
+    private void Update()
+    {
+        if (nextSentenceClickable && Input.GetButtonDown("Submit_C1"))
+		{
+			DisplayNextSentence();
+		}
+    }
 }
