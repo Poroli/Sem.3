@@ -52,7 +52,7 @@ public class InteractWithObject : MonoBehaviour
     }
     private void Update()
     {
-        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(CKeys.InteractKeyP1) || Input.GetKeyDown(CKeys.InteractKeyP2)))
+        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(CKeys.P1InteractKey) || Input.GetKeyDown(CKeys.InteractKeyP2)))
         {
             foreach (InteractTranslate ITranslate in InteractTranslates)
             {

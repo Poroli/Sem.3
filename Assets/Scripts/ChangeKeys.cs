@@ -34,7 +34,7 @@ public class ChangeKeys : MonoBehaviour
                 ControlKeys.P1Jump = tempKeyCode;
                 break;
             case 1:
-                ControlKeys.InteractKeyP1 = tempKeyCode;
+                ControlKeys.P1InteractKey = tempKeyCode;
                 break;
             case 2:
                 ControlKeys.InteractKeyP2 = tempKeyCode;

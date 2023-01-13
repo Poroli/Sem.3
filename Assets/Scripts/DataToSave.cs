@@ -6,16 +6,29 @@ using UnityEngine.TextCore.Text;
 [System.Serializable]
 public class DataToSave : MonoBehaviour
 {
+    [Header("Control Keys")]
+    public ControlKeys CKeys;
+
+    private KeyCode p1Jump;
+    private KeyCode p1Interact;
+    private KeyCode p2Interact;
+
+    [Header("Levels Completed")]
+    public MasterControlScript MasterControlScript;
+    private bool[] levelsCompleted;
+
+    [Header("Elements Activated")]
     public ElementsManager EManager;
+    private bool[] elementsActivated;
 
-    public int P2ElementSave;
-    public int P1ElementSave;
-    public bool[] ElementsActivatedSave;
-
-    public DataToSave(ElementsManager e_Manager)
+    public DataToSave(ControlKeys cKeys, MasterControlScript mCS, ElementsManager eManager)
     {
-        ElementsActivatedSave = e_Manager.Elements_Activated;
-        P1ElementSave = e_Manager.P1Element;
-        P2ElementSave = e_Manager.P2_Element;
+        p1Jump = cKeys.P1Jump;
+        p1Interact = cKeys.P1InteractKey;
+        p2Interact = cKeys.InteractKeyP2;
+
+        levelsCompleted = mCS.LevelsCompleted;
+
+        elementsActivated = eManager.ElementsActivated;
     }
 }
