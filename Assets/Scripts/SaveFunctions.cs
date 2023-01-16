@@ -6,14 +6,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveFunctions : MonoBehaviour
 {
-    public static void SaveData(ElementsManager eManager)
+    public static void SaveData(ControlKeys cKeys, MasterControlScript mCS, ElementsManager eManager)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
+        BinaryFormatter formatter = new();
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = new(path, FileMode.Create);
 
-        DataToSave charData = new DataToSave(eManager);
+        DataToSave charData = new(cKeys,mCS,eManager);
 
         formatter.Serialize(stream, charData);
         stream.Close();
@@ -25,8 +25,8 @@ public class SaveFunctions : MonoBehaviour
 
         if (File.Exists(path))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            BinaryFormatter formatter = new();
+            FileStream stream = new(path, FileMode.Open);
 
             DataToSave data = formatter.Deserialize(stream) as DataToSave;
 

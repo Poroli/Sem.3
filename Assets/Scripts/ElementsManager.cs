@@ -7,80 +7,55 @@ using UnityEngine.UI;
 
 public class ElementsManager : MonoBehaviour
 {
-    public int P2_Element;
-    public int P1Element;
+    public bool[] ElementsActivated = new bool[5];
     //0=Standart_activated;
     //1=Fire_activated;
     //2=Water_activated;
     //3=Earth_activated;
     //4=Air_activated;
-    public bool[] Elements_Activated = new bool[5];
-    public int[] tempElement;
-    public Button[] Element_Buttons = new Button[4];
+    public int tmpActiveElement;
+    public int p2ActiveElement;
+    public int p1ActiveElement;
 
+    private int tmpActiveElements;
 
-    private void Start()
-    {
-        create_Array_of_switchable_Elements();
-    }
-    
-    private void Refresh()
-    {
-        for (int i = 0; i < Elements_Activated.Length; i++)
+    public void ElementChangeRightTurn()
+    { 
+        for (int i = 0; i < ElementsActivated.Length; i++)
         {
-            Elements_Activated[i] = false;
+            if (i < ElementsActivated.Length)
+            {
+                tmpActiveElements += 1;
+            }
         }
-    }
-
-    public void UpdateElementsActivated()
-    {
-        for (int i = 0; i < tempElement.Length; i++)
-        {
-            Elements_Activated[tempElement[i]] = true;
-        }
-    }
-
-    public void Switch_with_Partner_Element()
-    {
-        int tmp_P1_Element;
-
-        tmp_P1_Element = P1Element;
-        P1Element = P2_Element;
-        P2_Element = tmp_P1_Element;
-    }
-
-    public void create_Array_of_switchable_Elements()
-    {
-        int tmp_Element_Nr = 0;
-        int tmp_Element_length = 0;
         
-        for (int i = 0; i < Elements_Activated.Length; i++)
+        if(tmpActiveElement < tmpActiveElements)
         {
-            if (Elements_Activated[i] == true)
-            {
-                tmp_Element_length = tmp_Element_length + 1;
-            }
+            tmpActiveElement += 1;
         }
-        tempElement = new int[tmp_Element_length];
-        for (int AEnr = 0; AEnr < Elements_Activated.Length -1; AEnr++)
+        else
         {
-            if (Elements_Activated[AEnr] == true)
-            {
-                tempElement[tmp_Element_Nr] = AEnr;
-                tmp_Element_Nr = tmp_Element_Nr + 1;
-            }
+            tmpActiveElement = 0;
         }
-        Give_Elementbutton_ElementID();
     }
 
-    public void Give_Elementbutton_ElementID()
+    public void ElementChangeLeftTurn()
     {
-            ElementToSwitch element_To_Switch;
-        for (int i = 0; i < tempElement.Length; i++)
+        for (int i = 0; i < ElementsActivated.Length; i++)
         {
-            Element_Buttons[i].gameObject.SetActive(true);
-            element_To_Switch = Element_Buttons[i].GetComponent<ElementToSwitch>();
-            element_To_Switch.SavedElementID = tempElement[i];
+            if (i < ElementsActivated.Length)
+            {
+                tmpActiveElements += 1;
+            }
+        }
+
+        if (tmpActiveElement > 0)
+        {
+            tmpActiveElement -= 1;
+        }
+        else
+        {
+            tmpActiveElement = tmpActiveElements;
         }
     }
 }

@@ -14,7 +14,7 @@ public class OptionsUIUpdater : MonoBehaviour
     private void Update()
     {
         P1JumpKeyText.text = ControlKeys.P1Jump.ToString();
-        P1InteractKeyText.text = ControlKeys.InteractKeyP1.ToString();
+        P1InteractKeyText.text = ControlKeys.P1InteractKey.ToString();
 
         P2InteractKeyText.text = ControlKeys.InteractKeyP2.ToString();
     }
