@@ -6,20 +6,34 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveFunctions : MonoBehaviour
 {
-    public static void SaveData(ControlKeys cKeys, MasterControlScript mCS, ElementsManager eManager)
+    private DataToSave dataToSave;
+    public static bool canLoadData;
+
+    public void Save()
+    {
+        dataToSave.GetData();
+        SaveData();
+    }
+    public void Load()
+    {
+        LoadDataIntoDataToSave();
+        dataToSave.SyncData();
+    }
+
+    private static void SaveData()
     {
         BinaryFormatter formatter = new();
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
         FileStream stream = new(path, FileMode.Create);
-
-        DataToSave charData = new(cKeys,mCS,eManager);
+        
+        SaveDataContainer charData = new();
 
         formatter.Serialize(stream, charData);
         stream.Close();
     }
 
-    public static DataToSave LoadData()
+    private static SaveDataContainer LoadDataIntoDataToSave()
     {
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
@@ -28,16 +42,22 @@ public class SaveFunctions : MonoBehaviour
             BinaryFormatter formatter = new();
             FileStream stream = new(path, FileMode.Open);
 
-            DataToSave data = formatter.Deserialize(stream) as DataToSave;
+            SaveDataContainer data = formatter.Deserialize(stream) as SaveDataContainer;
 
             stream.Close();
-
+            canLoadData = true;
             return data;
         }
         else
         {
             Debug.LogError("Error: Save file not found in " + path);
+            canLoadData = false;
             return null;
         }
+    }
+
+    private void Start()
+    {
+        dataToSave = GetComponent<DataToSave>();
     }
 }

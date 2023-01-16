@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,26 +10,48 @@ public class DataToSave : MonoBehaviour
     [Header("Control Keys")]
     public ControlKeys CKeys;
 
-    private KeyCode p1Jump;
-    private KeyCode p1Interact;
-    private KeyCode p2Interact;
-
     [Header("Levels Completed")]
     public MasterControlScript MasterControlScript;
-    private bool[] levelsCompleted;
 
     [Header("Elements Activated")]
     public ElementsManager EManager;
-    private bool[] elementsActivated;
 
-    public DataToSave(ControlKeys cKeys, MasterControlScript mCS, ElementsManager eManager)
+
+    public void GetData()
     {
-        p1Jump = cKeys.P1Jump;
-        p1Interact = cKeys.P1InteractKey;
-        p2Interact = cKeys.InteractKeyP2;
+        SaveDataContainer.p1Jump = CKeys.P1Jump;
+        SaveDataContainer.p1Interact = CKeys.P1InteractKey;
+        SaveDataContainer.p2Interact = CKeys.InteractKeyP2;
 
-        levelsCompleted = mCS.LevelsCompleted;
+        SaveDataContainer.levelsCompleted = MasterControlScript.LevelsCompleted;
 
-        elementsActivated = eManager.ElementsActivated;
+        SaveDataContainer.elementsActivated = EManager.ElementsActivated;
     }
+
+    public void SyncData()
+    {
+        if (SaveFunctions.canLoadData)
+        {
+            CKeys.P1Jump = SaveDataContainer.p1Jump;
+            CKeys.P1InteractKey = SaveDataContainer.p1Interact;
+            CKeys.InteractKeyP2 = SaveDataContainer.p2Interact;
+        
+            MasterControlScript.LevelsCompleted = SaveDataContainer.levelsCompleted;
+
+            EManager.ElementsActivated = SaveDataContainer.elementsActivated;
+
+        }
+    }
+}
+
+[Serializable]
+public class SaveDataContainer
+{
+    public static KeyCode p1Jump;
+    public static KeyCode p1Interact;
+    public static KeyCode p2Interact;
+
+    public static bool[] levelsCompleted;
+
+    public static bool[] elementsActivated;
 }
