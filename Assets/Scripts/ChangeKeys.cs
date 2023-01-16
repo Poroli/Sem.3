@@ -4,50 +4,57 @@ using UnityEngine;
 
 public class ChangeKeys : MonoBehaviour
 {
-    public Control_Keys ControlKeys;
+    public ControlKeys ControlKeys;
     public bool GetKeyInput;
 
-    private KeyCode TempKeyCode;
-    private bool P1Jump_Keychange = false;
-    private bool P2Jump_Keychange = false;
+    private KeyCode tempKeyCode;
+    private int i;
 
-
-    public void ChangeForwardP1()
+    public void JumpP1()
     {
-        P1Jump_Keychange = true;
+        i = 0;
         GetKeyInput = true;
     }
-    public void ChangeBackwardsP1()
+    public void InteractP1()
     {
-        P2Jump_Keychange = true;
+        i = 1;
+        GetKeyInput = true;
+    }
+    public void InteractP2()
+    {
+        i = 2;
         GetKeyInput = true;
     }
 
+    private void Keychange()
+    {
+        switch(i)
+        {
+            case 0:
+                ControlKeys.P1Jump = tempKeyCode;
+                break;
+            case 1:
+                ControlKeys.P1InteractKey = tempKeyCode;
+                break;
+            case 2:
+                ControlKeys.InteractKeyP2 = tempKeyCode;
+                break;
+        }
 
+    }
 
     private void Update()
     {
-        if (GetKeyInput == true)
+        if (GetKeyInput)
         {
             foreach (KeyCode TempKey in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKey(TempKey))
                 {
-                    TempKeyCode = TempKey;
+                    tempKeyCode = TempKey;
+                    Keychange();
                     GetKeyInput = false;
                 }
-                if (P1Jump_Keychange == true && GetKeyInput == false)
-                {
-                    ControlKeys.P1Jump = TempKeyCode;
-                    P1Jump_Keychange = false;
-                }
-                
-                if (P2Jump_Keychange == true && GetKeyInput == false)
-                {
-                    ControlKeys.P2Jump = TempKeyCode;
-                    P2Jump_Keychange = false;
-                }
-
             }
         }
     }

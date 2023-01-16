@@ -4,44 +4,51 @@ using UnityEngine;
 
 public class Hoverring : MonoBehaviour
 {
-    public float xtra_range;
-    public float Change_heigth_power;
+    public float XtraRange;
+    public float ChangeHeigthPower;
+    public float HoveringHeigth;
 
-    private Vector3 hovering_check_pos_1;
-    private Vector3 hovering_check_pos_2;
-    private CapsuleCollider c_Collider;
+    private Vector3 hoveringCheckPos1;
+    private Vector3 changeHeigthVec;
+    private RaycastHit hit;
+    private CapsuleCollider cCollider;
     private Rigidbody rb;
-    private bool spherecheck;
+    private bool spherecast;
+    private float distance;
+
+    private void HeightChange()
+    {
+        distance = HoveringHeigth - hit.distance;
+        changeHeigthVec = Vector3.zero;
+        changeHeigthVec.y = distance;
+    }
 
     private void Start()
     {
-        c_Collider = GetComponent<CapsuleCollider>();
+        cCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
     }
-    private void Hovering_Check_Ground()
+    private void HoveringCheckGround()
     {
-        hovering_check_pos_1.x = transform.position.x;
-        hovering_check_pos_1.y = transform.position.y - ((c_Collider.height / 2) + c_Collider.radius);
-        hovering_check_pos_1.z = transform.position.z;
+        hoveringCheckPos1.x = transform.position.x;
+        hoveringCheckPos1.y = transform.position.y;
+        hoveringCheckPos1.z = transform.position.z;
 
-        hovering_check_pos_2.x = transform.position.x;
-        hovering_check_pos_2.y = hovering_check_pos_1.y - xtra_range;
-        hovering_check_pos_2.z = transform.position.z;
+        spherecast = Physics.SphereCast(hoveringCheckPos1, cCollider.radius, Vector3.down, out hit, XtraRange);
 
-        spherecheck = Physics.CheckCapsule(hovering_check_pos_1, hovering_check_pos_2, c_Collider.radius);
-
-        if (!spherecheck)
+        if (!spherecast)
         {
-            rb.AddForce(transform.up * -Change_heigth_power, ForceMode.Force);
+            rb.AddForce(transform.up * -ChangeHeigthPower, ForceMode.Force);
         }
-        else if (spherecheck)
+        else if (spherecast)
         {
-            rb.AddForce(transform.up * Change_heigth_power, ForceMode.Force);
+            HeightChange();
+            rb.AddForce(changeHeigthVec * ChangeHeigthPower, ForceMode.Force);
         }
     }
 
     private void Update()
     {
-        Hovering_Check_Ground();
+        HoveringCheckGround();
     }
 }
