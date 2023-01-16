@@ -146,6 +146,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _Alpha: 0.75
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
@@ -184,6 +185,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
+    - _FoamAlphaResistance: 1
     - _Foam_Ammount: 0
     - _Foam_Intensity: 1
     - _Foam_Smoothness_Impact: 1
@@ -289,7 +291,7 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _Liquid_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Liquid_Color_Deep: {r: 1, g: 0.14576916, b: 0, a: 0}
+    - _Liquid_Color_Deep: {r: 0, g: 0.03137255, b: 0.43529412, a: 0}
     - _Liquid_Color_Shallow: {r: 0.37254903, g: 0.68235296, b: 1, a: 0}
     - _Ripple_Color: {r: 0.1544811, g: 0.1544811, b: 0.1544811, a: 0}
     - _Ripple_Density: {r: 0, g: 0, b: 0, a: 0}

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class MoveBridge : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject Bridge;
+    public void BridgeAppear()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Bridge.SetActive(true);
     }
 }

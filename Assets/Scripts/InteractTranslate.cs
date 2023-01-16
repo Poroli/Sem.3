@@ -17,7 +17,8 @@ public class InteractTranslate : MonoBehaviour
     private CollectShard collectShard;
     private ShroomShake shake;
     private DialogueTrigger dialogueTrigger;
-    private bool[] uSO = new bool[6];
+    private MoveBridge mBridge;
+    private bool[] uSO = new bool[7];
     /// <summary>
     /// 0 = Stone_Moving
     /// 1 = activate Runes
@@ -25,6 +26,7 @@ public class InteractTranslate : MonoBehaviour
     /// 3 = Shard
     /// 4 = Shroom
     /// 5 = Dialogue
+    /// 6 = Bridge
     /// 
     /// </summary>
     
@@ -64,6 +66,12 @@ public class InteractTranslate : MonoBehaviour
         {
             dialogueTrigger = GetComponent<DialogueTrigger>();
             i = 5;
+            uSO[i] = true;
+        }
+        if (GetComponent<MoveBridge>())
+        {
+            mBridge = GetComponent<MoveBridge>();
+            i = 6;
             uSO[i] = true;
         }
     }
@@ -125,6 +133,14 @@ public class InteractTranslate : MonoBehaviour
                         switchCount2 = false;
                     }
                     break;
+                case 6:
+                    if (!switchCount1)
+                    {
+                        switchCount1 = true;
+                        mBridge.BridgeAppear();
+                        switchCount2 = false;
+                    }
+                    break;
             }
         }
         else if (uSO[i] && !Interact)
@@ -171,6 +187,14 @@ public class InteractTranslate : MonoBehaviour
                     {
                         switchCount2 = true;
                         dialogueTrigger.TriggerDialogue();
+                        switchCount1 = false;
+                    }
+                    break;
+                case 6:
+                    if (!switchCount2)
+                    {
+                        switchCount2 = true;
+                        mBridge.BridgeAppear();
                         switchCount1 = false;
                     }
                     break;
