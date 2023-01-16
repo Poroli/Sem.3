@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 079952d47b54d934d81fdd1a39a15b3a
+guid: baa1e4da671c58d42a0e836cf4019322
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hauptwurzel_Oben
+    second: {fileID: 2100000, guid: 66568be9d5d457b459e4f0ea3fffd2a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hauptwurzel_Seiten
+    second: {fileID: 2100000, guid: 66568be9d5d457b459e4f0ea3fffd2a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hauptwurzel_Unten
+    second: {fileID: 2100000, guid: 66568be9d5d457b459e4f0ea3fffd2a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roots
+    second: {fileID: 2100000, guid: 66568be9d5d457b459e4f0ea3fffd2a4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
