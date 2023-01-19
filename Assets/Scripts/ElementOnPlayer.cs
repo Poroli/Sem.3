@@ -11,6 +11,7 @@ public class ElementOnPlayer : MonoBehaviour
     private KeyCode RTKey;
     private KeyCode LTKey;
     
+    
     private void ChangeActiveElementRightTurn()
     {
         if (gameObject.CompareTag("Player1"))
