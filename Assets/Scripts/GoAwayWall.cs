@@ -5,13 +5,14 @@ using UnityEngine;
 public class GoAwayWall : MonoBehaviour
 {
     public GameObject[] Walls = new GameObject[4];
-    public int RunesNr;
+    [Range(1,3)]public int RunesNr;
     public bool ActivateRune;
     
     [SerializeField]private Animator animator;
     private bool[] runes = new bool[3];
     private bool reset;
     private string animationBoolString;
+    private int i;
 
     private void IfRunesChange()
     {
@@ -44,93 +45,54 @@ public class GoAwayWall : MonoBehaviour
         }
     }
 
+    private void SetAnimation()
+    {
+        switch (i)
+        {
+            case 0:
+                animationBoolString = "Bar1Open";
+                break;
+            case 1:
+                animationBoolString = "Bar2Open";
+                break;
+            case 2:
+                animationBoolString = "Bar3Open";
+                break;
+            case 3:
+                animationBoolString = "Bar4Open";
+                break;
+        }
+        if (animator.GetBool(animationBoolString))
+        {
+            animator.SetBool(animationBoolString, false);
+        }
+        else if (!animator.GetBool(animationBoolString))
+        {
+            animator.SetBool(animationBoolString, true);
+        }
+    }
+
     private void Wallcheck()
     {
         if (runes[0])
         {
-            for (int i = 0; i <= 2; i += 2)
+            for (i = 0; i <= 2; i += 2)
             {
-                switch (i)
-                {
-                    case 0:
-                        animationBoolString = "Bar1Open";
-                        break;
-                    case 1:
-                        animationBoolString = "Bar2Open";
-                        break;
-                    case 2:
-                        animationBoolString = "Bar3Open";
-                        break;
-                    case 3:
-                        animationBoolString = "Bar4Open";
-                        break;
-                }
-                if (animator.GetBool(animationBoolString))
-                    {
-                        animator.SetBool(animationBoolString, false);
-                    }
-                else if (!animator.GetBool(animationBoolString))
-                {
-                    animator.SetBool(animationBoolString, true);
-                }
+                SetAnimation();
             }
         }
         else if (runes[1])
         {
-            for (int i = 1; i <= 2; i += 1)
+            for (i = 1; i <= 2; i += 1)
             {
-                switch (i)
-                {
-                    case 0:
-                        animationBoolString = "Bar1Open";
-                        break;
-                    case 1:
-                        animationBoolString = "Bar2Open";
-                        break;
-                    case 2:
-                        animationBoolString = "Bar3Open";
-                        break;
-                    case 3:
-                        animationBoolString = "Bar4Open";
-                        break;
-                }
-                if (animator.GetBool(animationBoolString))
-                {
-                    animator.SetBool(animationBoolString, false);
-                }
-                else if (!animator.GetBool(animationBoolString))
-                {
-                    animator.SetBool(animationBoolString, true);
-                }
+                SetAnimation();
             }
         }
         else if (runes[2])
         {
-            for (int i = 0; i <= Walls.Length; i += 3)
+            for (i = 0; i <= Walls.Length; i += 3)
             {
-                switch (i)
-                {
-                    case 0:
-                        animationBoolString = "Bar1Open";
-                        break;
-                    case 1:
-                        animationBoolString = "Bar2Open";
-                        break;
-                    case 2:
-                        animationBoolString = "Bar3Open";
-                        break;
-                    case 3:
-                        animationBoolString = "Bar4Open";
-                        break;
-                }
-                if (animator.GetBool(animationBoolString))
-                {
-                    animator.SetBool(animationBoolString, false);
-                }
-                else if (!animator.GetBool(animationBoolString))
-                {
-                    animator.SetBool(animationBoolString, true);
-                }
+                SetAnimation();
             }
         }
     }

@@ -14,32 +14,39 @@ public class JumpManager : MonoBehaviour
 
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
-    private CapsuleCollider cCollider;
+    [SerializeField] private Options options;
     private Vector3 sphereCheckPosition;
     private bool isOnCooldown = false;
     private bool jumpReady;
     private CinemachineFreeLook tPCamera1;
     private GameObject camerafollow;
     private bool resetCam;
+    private bool Spherecheck;
+
+    private void DynamicJumpCam()
+    {
+        if (!Spherecheck && !resetCam && options.DynamicJumpCamOn)
+        {
+            camerafollow = tPCamera1.Follow.gameObject;
+            tPCamera1.Follow = null;
+            resetCam = true;
+        }
+        else if (Spherecheck && resetCam && options.DynamicJumpCamOn)
+        {
+            tPCamera1.Follow = camerafollow.transform;
+           resetCam = false;
+        }
+    }
     public bool Grounded()
     {
         sphereCheckPosition.x = transform.position.x;
         sphereCheckPosition.y = transform.position.y - XtraRange;
         sphereCheckPosition.z = transform.position.z;
         
-        bool Spherecheck = Physics.CheckSphere(sphereCheckPosition, SphereRadius, groundlayer);
+        Spherecheck = Physics.CheckSphere(sphereCheckPosition, SphereRadius, groundlayer);
 
-        if (!Spherecheck && !resetCam)
-        {
-            camerafollow = tPCamera1.Follow.gameObject;
-            tPCamera1.Follow = null;
-            resetCam = true;
-        }
-        else if (Spherecheck && resetCam)
-        {
-            tPCamera1.Follow = camerafollow.transform;
-           resetCam = false;
-        }
+        DynamicJumpCam();
+
         if (!Spherecheck && ActualJumps < jumpAmount && !CheckCooldown())
         {
             jumpReady = true;
