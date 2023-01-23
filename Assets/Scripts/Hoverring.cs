@@ -34,7 +34,6 @@ public class Hoverring : MonoBehaviour
     {
         if (thrown)
         {
-            Debug.Log("Test");
             return;
         }
         hoveringCheckPos1.x = transform.position.x;
