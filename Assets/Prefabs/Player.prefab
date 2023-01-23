@@ -350,6 +350,10 @@ MonoBehaviour:
   XtraRange: 2
   ChangeHeigthPower: 15
   HoveringHeigth: 1.2
+  thrown: 0
+  lM:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6078056699343620616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,8 +369,9 @@ MonoBehaviour:
   orient_Point: {fileID: 2046312648358679984}
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
   rb: {fileID: 0}
-  throwForce: 30
+  throwForce: 750
   UpThrow: 0
+  MinHorizontalSpeedbeforeHoveringCheck: 0.1
 --- !u!114 &7786508010206555779
 MonoBehaviour:
   m_ObjectHideFlags: 0

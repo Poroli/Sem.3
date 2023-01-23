@@ -9,19 +9,21 @@ public class ThrowObject : MonoBehaviour
     public Rigidbody rb;
     public float throwForce = 10;
     public bool UpThrow;
+    public float MinHorizontalSpeedbeforeHoveringCheck;
 
+    private Hoverring hovering;
     private FixedJoint fJoint;
     private GameObject gOP1;
     private Rigidbody rbP1;
     private bool beingCarried = false;
 
-    private void createJoints()
+    private void CreateJoints()
     {
         gameObject.AddComponent<FixedJoint>();
         fJoint = gameObject.GetComponent<FixedJoint>();
         fJoint.connectedBody = rbP1;
     }
-    private void destroyJoints()
+    private void DestroyJoints()
     {
         Destroy(fJoint);
     }
@@ -32,23 +34,44 @@ public class ThrowObject : MonoBehaviour
         rbP1 = gOP1.GetComponent<Rigidbody>();
         orient_Point = GameObject.Find("TargetPosition");
         rb = GetComponent<Rigidbody>();
+        hovering= GetComponent<Hoverring>();
     }
 
-    private void Update()
+    private void CheckCarryThrow()
     {
+        //Carry
         if (UpThrow && !beingCarried)
         {
             beingCarried = true;
             transform.position = orient_Point.transform.position;
-            createJoints();
+            CreateJoints();
             UpThrow = false;
         }
+        //Throw
         if (beingCarried && UpThrow)
         {
             beingCarried = false;
-            destroyJoints();
+            DestroyJoints();
             rb.AddForce(orient_Point.transform.up * throwForce);
+            hovering.thrown = true;
             UpThrow = false;
+        }        
+    }
+
+    private void CheckThrownWhispHorizontalSpeed()
+    {
+        if (!hovering.thrown)
+        {
+            return;
         }
+        else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck)
+        {
+            hovering.thrown = false;
+        }
+    }
+    private void Update()
+    {
+        CheckThrownWhispHorizontalSpeed();
+        CheckCarryThrow();
     }
 }
