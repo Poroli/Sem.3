@@ -12,6 +12,7 @@ public class ControlKeys : ScriptableObject
     public KeyCode P1ChangeElementLTKey;
 
     public KeyCode InteractKeyP2;
+    public KeyCode ElementKey;
     public KeyCode P2ChangeElementRTKey;
     public KeyCode P2ChangeElementLTKey;
 }
