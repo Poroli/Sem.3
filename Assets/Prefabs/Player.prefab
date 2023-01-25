@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 6078056699343620616}
   - component: {fileID: 7786508010206555779}
   - component: {fileID: 681602591}
+  - component: {fileID: 2046312649927607640}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -402,7 +403,7 @@ MonoBehaviour:
   orient_Point: {fileID: 2046312648358679984}
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
   rb: {fileID: 0}
-  throwForce: 750
+  throwForce: 1000
   UpThrow: 0
   MinHorizontalSpeedbeforeHoveringCheck: 0.1
   ObjectVerticalThrowDirectionImpact: 0
@@ -436,6 +437,20 @@ MonoBehaviour:
   prefab: {fileID: 1118780533208734157, guid: be30539cd324ab048a1368cefaf11c76, type: 3}
   targetPosition: {fileID: 1624484555}
   cKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
+--- !u!114 &2046312649927607640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046312648280275524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6066b9e73b353714ba5c5593316f4d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
+  animatorP1: {fileID: 4090899553086741682}
 --- !u!1 &2046312648317083576
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +464,7 @@ GameObject:
   - component: {fileID: 2046312648317083580}
   - component: {fileID: 2046312648317083583}
   - component: {fileID: 2046312648317083582}
+  - component: {fileID: 2046312649927607636}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -510,6 +526,7 @@ MonoBehaviour:
   XtraRange: 0
   JCooldown: 0.1
   SphereRadius: 0.1
+  Jumped: 0
   animator: {fileID: 4348029215569978354}
   groundlayer:
     serializedVersion: 2
@@ -546,6 +563,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2046312649927607636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046312648317083576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6066b9e73b353714ba5c5593316f4d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
+  animatorP1: {fileID: 4348029215569978354}
 --- !u!1 &2046312648358679984
 GameObject:
   m_ObjectHideFlags: 0
