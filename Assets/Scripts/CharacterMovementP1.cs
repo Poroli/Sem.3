@@ -12,6 +12,7 @@ public class CharacterMovementP1 : MonoBehaviour
     public float Jumpforce;
     public float TurnSmoothTime = 0.1f;
 
+    [SerializeField] private Animator animator;
     private JumpManager j_Manager;
     private Vector3 tempVec;
     private Vector3 direction;
@@ -43,10 +44,12 @@ public class CharacterMovementP1 : MonoBehaviour
         {
             j_Manager.StartCooldown();
             j_Manager.ActualJumps += 1;
-            Rb.AddForce(0, Jumpforce, 0) ;
+            animator.SetTrigger("StartJump");
         }
         else if (direction.magnitude != 0)
-        { 
+        {
+            animator.SetBool("IsWalking", true);
+            animator.speed = direction.magnitude;
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -58,6 +61,7 @@ public class CharacterMovementP1 : MonoBehaviour
         }
         else
         {
+            animator.SetBool("IsWalking", false);
             playerVelocity.y = Rb.velocity.y;
             Rb.velocity = playerVelocity;
         }
