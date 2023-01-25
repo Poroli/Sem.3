@@ -8,14 +8,16 @@ public class StoneMoving : MonoBehaviour
     public bool StoneMovable;
     public float SmoothSpeed;
     public float SpeedWhileMoving;
-    public float TurnSpeedWhileMoving;
+    public float TurnSmoothTimeWhileMoving;
 
+    [SerializeField] private Animator animator;
     private GameObject targetposition;
     private Rigidbody rb;
     private Vector3 movingVector;
     private float tempC1Speed;
     private float tempC1TurnSmoothTime;
-    private bool changeToDefault;
+    private bool changeToStoneMoving = true;
+    private bool changeToDefault = false;
 
     private void MoveStone()
     {
@@ -36,18 +38,25 @@ public class StoneMoving : MonoBehaviour
         if (StoneMovable)
         {
             rb.constraints = RigidbodyConstraints.None;
-            changeToDefault = true;
             MoveStone();
-            C1Movement.Speed = SpeedWhileMoving;
-            C1Movement.TurnSmoothTime = TurnSpeedWhileMoving;
+            if (changeToStoneMoving)
+            {
+                changeToDefault = true;
+                changeToStoneMoving = false;
+                animator.SetBool("PushStone", true);
+                C1Movement.Speed = SpeedWhileMoving;
+                C1Movement.TurnSmoothTime = TurnSmoothTimeWhileMoving;
+            }
         }
         else
         {
             if (changeToDefault)
             {
+                changeToDefault = false;
+                changeToStoneMoving = true;
+                animator.SetBool("PushStone", false);
                 C1Movement.Speed = tempC1Speed;
                 C1Movement.TurnSmoothTime = tempC1TurnSmoothTime;
-                changeToDefault = false;
             }
         }
     }
