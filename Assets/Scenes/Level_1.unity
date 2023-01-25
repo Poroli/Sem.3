@@ -860,7 +860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3995470182867858492, guid: b38a81eb38e430b46912950659341de0, type: 3}
       propertyPath: m_Name
-      value: Shroomling_standing (1) Variant
+      value: Shroomy
       objectReference: {fileID: 0}
     - target: {fileID: 4339519897902034566, guid: b38a81eb38e430b46912950659341de0, type: 3}
       propertyPath: m_RootOrder
@@ -913,6 +913,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4339519897902034566, guid: b38a81eb38e430b46912950659341de0, type: 3}
   m_PrefabInstance: {fileID: 108903804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &108903806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3702592337512672517, guid: b38a81eb38e430b46912950659341de0, type: 3}
+  m_PrefabInstance: {fileID: 108903804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &108903807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108903806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f3e0429a7935b419774fb6f34c1d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Shroomy
+    sentences:
+    - "Hoffentlich wird uns irgendjemand helfen diesen Winter zu \xFCberstehen.  "
+    - "Zieh dich lieber etwas w\xE4rmer an, nicht dass du dich noch erk\xE4ltest.  "
 --- !u!1 &110759344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,7 +3832,7 @@ GameObject:
   - component: {fileID: 373861442}
   - component: {fileID: 1358500229}
   m_Layer: 0
-  m_Name: Shroomling_sitting_green
+  m_Name: Shrooman
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6113,12 +6135,19 @@ MonoBehaviour:
   dialogue:
     name: Shrooman
     sentences:
-    - "\u201EOh du siehst aber ungew\xF6hnlich aus. Ich sehe aber insgesamt nicht
-      sehr viel andere Kreaturen die reden k\xF6nnen.\u201C"
-    - "\u201EWas machst du denn hier? Gibts irgendeinen Grund den du mir erz\xE4hlen
-      willst?\u201C"
-    - "\u201EWas ist reden schwer? Keine Sorge jeder hat seine st\xE4rken\u201C"
-    - "\u201EKomm einfach wieder wenn du mehr zuh\xF6ren willst oder hilfe brauchst\u201C"
+    - "Oh du siehst aber ungew\xF6hnlich aus. Ich sehe aber insgesamt nicht sehr
+      viel andere Kreaturen die reden k\xF6nnen."
+    - "Was machst du denn hier? Gibt es irgendeinen Grund den du mir erz\xE4hlen
+      willst?"
+    - "Was ist reden schwer? Keine Sorge jeder hat seine st\xE4rken."
+    - "Komm einfach wieder wenn du mehr zuh\xF6ren willst oder hilfe brauchst."
+    - "Schon zur\xFCck?"
+    - "Ich bin noch besch\xE4ftigt da ich sehr viel herumbewegen muss."
+    - "Zuerst muss ich Ein Apfelpilz sch\xFCtteln und die \xC4pfel zur\xFCck bringen."
+    - Das ganze wird wahrscheinlich Zwei Wege brauchen.
+    - "Nah theoretisch Drei da ich ja auch zur\xFCck laufen muss!"
+    - "Und nachdem ich das alles gemacht habe werde ich mich f\xFCr eine Stunde hinlegen
+      und ein Nickerchen genie\xDFen."
 --- !u!1001 &551146431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11327,7 +11356,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4672540371016803671, guid: 8bf6ba09dd0f5bb4aa285f6b1212f3d5, type: 3}
       propertyPath: m_Name
-      value: Shroomling_standing Variant
+      value: Mooshroom
       objectReference: {fileID: 0}
     - target: {fileID: 5445944978126716909, guid: 8bf6ba09dd0f5bb4aa285f6b1212f3d5, type: 3}
       propertyPath: m_RootOrder
@@ -11380,6 +11409,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5445944978126716909, guid: 8bf6ba09dd0f5bb4aa285f6b1212f3d5, type: 3}
   m_PrefabInstance: {fileID: 972783621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &972783623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4956405304811502702, guid: 8bf6ba09dd0f5bb4aa285f6b1212f3d5, type: 3}
+  m_PrefabInstance: {fileID: 972783621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &972783624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972783623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f3e0429a7935b419774fb6f34c1d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mooshroom
+    sentences:
+    - "Das Land hier ver\xE4ndert sich langsam, der Winter kommt immer n\xE4her und
+      wir hoffen, dass es diesmal nicht zu kalt wird."
+    - "Das Land hier ver\xE4ndert sich langsam, der Winter kommt immer n\xE4her und
+      wir hoffen, dass es diesmal nicht zu kalt wird."
+    - "Wir m\xFCssen uns auf die K\xE4lte vorbereiten, uns ist jetzt schon so kalt."
 --- !u!64 &978091692
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17700,7 +17754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6591082678816892448, guid: b33e85088db4617498c66aee099a47ce, type: 3}
       propertyPath: m_Name
-      value: Shroomling_sitting (1) Variant
+      value: Papa Shroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33e85088db4617498c66aee099a47ce, type: 3}
@@ -17709,6 +17763,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5779220491703958682, guid: b33e85088db4617498c66aee099a47ce, type: 3}
   m_PrefabInstance: {fileID: 1357533467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1357533469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6874947335619231513, guid: b33e85088db4617498c66aee099a47ce, type: 3}
+  m_PrefabInstance: {fileID: 1357533467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1357533470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357533469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f3e0429a7935b419774fb6f34c1d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Papa Shroom
+    sentences:
+    - "Ihr zwei scheint euch noch nicht so lang zu kennen, doch eure Freundschaft
+      erw\xE4rmt jetzt schon eure Herzen."
+    - Diese Funkelsteine helfen euch bestimmt weiter auf eurem Weg.
 --- !u!114 &1358500229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27593,7 +27670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653184239044}
   m_Layer: 0
-  m_Name: Shroomling_standing (1)
+  m_Name: Shroobert
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27685,15 +27762,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46561882
+      value: 0.4656188
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.109917715
+      value: 0.1099177
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20175357
+      value: -0.2017536
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085697348029, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Follow
@@ -27761,15 +27838,15 @@ PrefabInstance:
       objectReference: {fileID: 1651556119}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46561882
+      value: 0.4656188
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.109917715
+      value: 0.1099177
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20175357
+      value: -0.2017536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
@@ -27980,13 +28057,11 @@ MonoBehaviour:
   dialogue:
     name: Shroobert
     sentences:
-    - "\"Schon zur\xFCck?\""
-    - "\"Ich bin noch besch\xE4ftigt, da ich noch einiges zu erledigen habe.\""
-    - "\"Zuerst muss ich EIN Apfelpilz sch\xFCtteln und die \xC4pfel zur\xFCck bringen.\""
-    - '"Das ganze wird wahrscheinlich ZWEI Wege brauchen."'
-    - "\"Nah, theoretisch DREI da ich ja auch zur\xFCck laufen muss.\""
-    - "\"Nachdem ich dann das ganze gemacht habe werde ich mich f\xFCr EINe Stunde
-      hinlegen und ein Nickerchen genie\xDFen.\""
+    - "Wusstest du, dass die gr\xF6\xDFte Motte der Welt eine Fl\xFCgelspannweite
+      von bis zu 30 Zentimetern hat? "
+    - 'Du solltest hier nicht weitergehen, Motten sind nicht gerade die besten Schwimmer.  '
+    - "Ich w\xFCrde euch ja gern weiterhelfen, aber ich habe leider keine Arme."
+    - Guck nicht so, hier passiert nichts weiter.
 --- !u!1001 &5890729616856713780
 PrefabInstance:
   m_ObjectHideFlags: 0
