@@ -1,8 +1,8 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using Cinemachine;
 
 public class JumpManager : MonoBehaviour
 {
