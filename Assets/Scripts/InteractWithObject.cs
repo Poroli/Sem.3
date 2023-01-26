@@ -7,6 +7,7 @@ public class InteractWithObject : MonoBehaviour
     public ControlKeys CKeys;
     public List<InteractTranslate> InteractTranslates = new();
 
+    private KeyCode playerKey;
     private string Interactable;
     private string InteractWithPlayer;
     private void OnTriggerEnter(Collider collision)
@@ -37,22 +38,28 @@ public class InteractWithObject : MonoBehaviour
     }
 
 
-    private void Start()
+    public void RefreshPlayerSpecifics()
     {
         if (this.transform.parent.CompareTag("Player1"))
         {
+            playerKey = CKeys.P1InteractKey;
             Interactable = "InteractableP1";
             InteractWithPlayer = "Player2";
         }
         else if (this.transform.parent.CompareTag("Player2"))
         {
+            playerKey = CKeys.InteractKeyP2;
             Interactable = "InteractableP2";
             InteractWithPlayer = "Player1";
         }
     }
+    private void Start()
+    {
+        RefreshPlayerSpecifics();
+    }
     private void Update()
     {
-        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(CKeys.P1InteractKey) || Input.GetKeyDown(CKeys.InteractKeyP2)))
+        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(playerKey)))
         {
             foreach (InteractTranslate ITranslate in InteractTranslates)
             {
