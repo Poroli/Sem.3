@@ -1,8 +1,8 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using Cinemachine;
 
 public class JumpManager : MonoBehaviour
 {
@@ -10,8 +10,9 @@ public class JumpManager : MonoBehaviour
     public float XtraRange;
     public float JCooldown;
     public float SphereRadius;
+    public bool Jumped;
 
-
+    [SerializeField] private Animator animator;
     [SerializeField] private LayerMask groundlayer;
     [SerializeField] private int jumpAmount;
     [SerializeField] private Options options;
@@ -53,6 +54,11 @@ public class JumpManager : MonoBehaviour
         }
         else if (Spherecheck && !CheckCooldown())
         {
+            if (Jumped)
+            {
+                animator.SetTrigger("JumpLanding");
+                Jumped = false;
+            }
             jumpReady = true;
             ActualJumps = 0;
         }

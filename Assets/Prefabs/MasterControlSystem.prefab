@@ -44,15 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99211b030739fcd41acda68ff7efb6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P2_Element: 0
-  P1Element: 0
-  Elements_Activated: 0000000000
-  tempElement: 
-  Element_Buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ElementsActivated: 0000000000
+  tmpActiveElement: 0
+  p2ActiveElement: 0
+  p1ActiveElement: 0
 --- !u!1 &1622595510
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +119,6 @@ GameObject:
   - component: {fileID: 5890729615739463329}
   - component: {fileID: 5890729615739463328}
   - component: {fileID: 6586480027672250725}
-  - component: {fileID: 5655474484796018497}
   m_Layer: 0
   m_Name: MasterControlSystem
   m_TagString: Untagged
@@ -161,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb666f4b1ffbf546acaacf3f0ac10a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelsCompleted: 0000
+  LevelsCompleted: 0100
 --- !u!114 &6586480027672250725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,20 +172,3 @@ MonoBehaviour:
   ShardsCollected: 0
   ShardsToCollect: 0
   shards: []
---- !u!114 &5655474484796018497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5890729615739463335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 915576574a38f5e4897f0a29f9c33188, type: 2}

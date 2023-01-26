@@ -7,6 +7,7 @@ public class ElementOnPlayer : MonoBehaviour
 {
     public ControlKeys CKeys;
 
+    [SerializeField] private Animator animatorP1;
     private ElementsManager eManager;
     private KeyCode RTKey;
     private KeyCode LTKey;
@@ -18,6 +19,7 @@ public class ElementOnPlayer : MonoBehaviour
         {
             eManager.tmpActiveElement = eManager.p1ActiveElement;
             eManager.ElementChangeRightTurn();
+            animatorP1.SetTrigger("ChangeElement");
             eManager.p1ActiveElement = eManager.tmpActiveElement;
         }
         else if (gameObject.CompareTag("Player2"))
@@ -33,6 +35,7 @@ public class ElementOnPlayer : MonoBehaviour
         {
             eManager.tmpActiveElement = eManager.p1ActiveElement;
             eManager.ElementChangeLeftTurn();
+            animatorP1.SetTrigger("ChangeElement");
             eManager.p1ActiveElement = eManager.tmpActiveElement;
         }
         else if (gameObject.CompareTag("Player2"))
