@@ -4120,6 +4120,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19a5cb2a99d199d43b3baf0ec4ce7e26, type: 3}
   m_PrefabInstance: {fileID: 1887460758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1887460760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 19a5cb2a99d199d43b3baf0ec4ce7e26, type: 3}
+  m_PrefabInstance: {fileID: 1887460758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887460761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887460760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f3e0429a7935b419774fb6f34c1d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Arktos
+    sentences:
+    - Puh endlich kann ich wieder Atmen, danke dass du mich wieder zusammengesetzt
+      hast.
+    - "Ich sehe du hast schon so einen Leuchtstein, dann kannst du denn hier bestimmt
+      auch gut gebrauchen (\xFCbergibt Splitter).\u202F "
+    - "Schau dich gut um, hier irgendwo in der N\xE4he habe ich noch so einen gesehen,
+      habe aber leider vergessen wo."
+    - "Mit deinen F\xE4higkeiten kannst du einem ja m\xE4chtig einheizen. Du kannst
+      bestimmt so einige Dinge hier zum Schmelzen bringen. ABER BITTE NICH MICH!\u202F "
 --- !u!1 &1910768132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,7 +4803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24111705
+      value: 0.24111708
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5079,7 +5107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24111709
+      value: 0.2411171
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5087,7 +5115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.24031633
+      value: 0.24031635
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338195, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Layer
