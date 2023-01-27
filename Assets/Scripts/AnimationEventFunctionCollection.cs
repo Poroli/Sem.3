@@ -10,11 +10,11 @@ public class AnimationEventFunctionCollection : MonoBehaviour
     }
     public void AddJumpforce()
     {
-        Rigidbody rb = GetComponentInParent <Rigidbody>();
-        CharacterMovementP1 CMP1 = rb.gameObject.GetComponent<CharacterMovementP1>();
+        Rigidbody rbP1 = GetComponentInParent <Rigidbody>();
+        CharacterMovementP1 CMP1 = rbP1.gameObject.GetComponent<CharacterMovementP1>();
         JumpManager JM = GetComponentInParent<JumpManager>();
         JM.StartCooldown();
-        rb.AddForce(0, CMP1.Jumpforce, 0);
+        rbP1.AddForce(0, CMP1.Jumpforce, 0);
     }
     public void SetJumpedBool()
     {

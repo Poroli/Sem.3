@@ -52,6 +52,10 @@ public class Hoverring : MonoBehaviour
             rb.AddForce(changeHeigthVec * ChangeHeigthPower, ForceMode.Force);
         }
     }
+    private void SetFlyMode()
+    {
+
+    }
 
     private void FixedUpdate()
     {
