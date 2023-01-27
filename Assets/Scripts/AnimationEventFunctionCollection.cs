@@ -12,13 +12,19 @@ public class AnimationEventFunctionCollection : MonoBehaviour
     {
         Rigidbody rbP1 = GetComponentInParent <Rigidbody>();
         CharacterMovementP1 CMP1 = rbP1.gameObject.GetComponent<CharacterMovementP1>();
-        JumpManager JM = GetComponentInParent<JumpManager>();
-        JM.StartCooldown();
+        GroundedAndJumpSystem GAJS = GetComponentInParent<GroundedAndJumpSystem>();
+        GAJS.StartCooldown();
+        GAJS.NotMovableInJump = false;
         rbP1.AddForce(0, CMP1.Jumpforce, 0);
     }
     public void SetJumpedBool()
     {
-        JumpManager JM = GetComponentInParent<JumpManager>();
-        JM.Jumped = true;
+        GroundedAndJumpSystem GAJS = GetComponentInParent<GroundedAndJumpSystem>();
+        GAJS.OnAir = true;
+    }
+    public void Landed()
+    {
+        GroundedAndJumpSystem GAJS = GetComponentInParent<GroundedAndJumpSystem>();
+        GAJS.NotMovableInJump = false;
     }
 }

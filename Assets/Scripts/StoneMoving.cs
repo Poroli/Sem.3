@@ -22,13 +22,12 @@ public class StoneMoving : MonoBehaviour
     private void MoveStone()
     {
         CalculateMovingVector();
-        rb.AddForce(movingVector * SmoothSpeed, ForceMode.Force);
         rb.velocity = movingVector;
     }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        targetposition = GameObject.Find("TargetPosition");
+        targetposition = GameObject.Find("PushTargetPosition");
         C1Movement = FindObjectOfType<CharacterMovementP1>();
         tempC1Speed = C1Movement.Speed;
         tempC1TurnSmoothTime = C1Movement.TurnSmoothTime;
@@ -66,5 +65,6 @@ public class StoneMoving : MonoBehaviour
         movingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
         movingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
         movingVector *= SmoothSpeed;
+        movingVector.y = rb.velocity.y;
     }
 }

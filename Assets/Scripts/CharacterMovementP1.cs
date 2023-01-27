@@ -14,7 +14,7 @@ public class CharacterMovementP1 : MonoBehaviour
     public bool CantJump;
 
     [SerializeField] private Animator animator;
-    private JumpManager j_Manager;
+    private GroundedAndJumpSystem jAGSystem;
     private Vector3 tempVec;
     private Vector3 direction;
     private Vector3 moveDir;
@@ -29,7 +29,7 @@ public class CharacterMovementP1 : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         Camera = GameObject.Find("Main_Camera1");
-        j_Manager = GetComponent<JumpManager>();
+        jAGSystem = GetComponent<GroundedAndJumpSystem>();
     }
 
     void Update()
@@ -41,15 +41,13 @@ public class CharacterMovementP1 : MonoBehaviour
         tempVec.z = verticalP1;
         direction = tempVec.normalized;
 
-        if (Input.GetKeyDown(C_Keys.P1Jump))
+        if (Input.GetKeyDown(C_Keys.P1Jump) && jAGSystem.Grounded() && !CantJump)
         {
-            if(j_Manager.Grounded() && !CantJump)
-            {
-                j_Manager.ActualJumps += 1;
-                animator.SetTrigger("StartJump");
-            }
+            jAGSystem.NotMovableInJump = true;
+            jAGSystem.ActualJumps += 1;
+            animator.SetTrigger("StartJump");
         }
-        else if (direction.magnitude != 0)
+        else if (direction.magnitude != 0 && !jAGSystem.NotMovableInJump)
         {
             animator.SetBool("IsWalking", true);
             animator.speed = direction.magnitude;

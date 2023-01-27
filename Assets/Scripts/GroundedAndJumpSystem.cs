@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEditor;
 using Cinemachine;
 
-public class JumpManager : MonoBehaviour
+public class GroundedAndJumpSystem : MonoBehaviour
 {
     public int ActualJumps;
     public float XtraRange;
     public float JCooldown;
     public float SphereRadius;
-    public bool Jumped;
+    public bool OnAir;
+    public bool NotMovableInJump;
 
     [SerializeField] private Animator animator;
     [SerializeField] private LayerMask groundlayer;
@@ -20,9 +21,9 @@ public class JumpManager : MonoBehaviour
     private CinemachineFreeLook tPCamera1;
     private GameObject camerafollow;
     private bool isOnCooldown = false;
-    private bool jumpReady;
     private bool resetCam;
     private bool SphereCheck;
+    private bool jumpReady;
 
     private void DynamicJumpCam()
     {
@@ -52,12 +53,17 @@ public class JumpManager : MonoBehaviour
         {
             jumpReady = true;
         }
-        else if (SphereCheck && !CheckCooldown() && Jumped)
+        else if (SphereCheck && !CheckCooldown() && OnAir)
         {
             animator.SetTrigger("JumpLanding");
-            Jumped = false;
+            NotMovableInJump = true;
+            OnAir = false;
             jumpReady = true;
             ActualJumps = 0;
+        }
+        else if (SphereCheck)
+        {
+            jumpReady = true;
         }
         else
         {
@@ -65,10 +71,11 @@ public class JumpManager : MonoBehaviour
         }
         return jumpReady;
     }
+
     public void StartCooldown()
     {
         isOnCooldown = true;
-        Invoke("EndCooldown", JCooldown);
+        Invoke(nameof(EndCooldown), JCooldown);
     }
     private bool CheckCooldown()
     {
@@ -87,5 +94,9 @@ public class JumpManager : MonoBehaviour
     private void Update()
     {
         CheckCooldown();
+        if (OnAir)
+        {
+            Grounded();
+        }
     }
 }

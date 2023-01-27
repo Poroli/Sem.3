@@ -9,7 +9,7 @@ public class GoAwayWall : MonoBehaviour
     public bool ActivateRune;
     
     [SerializeField]private Animator animator;
-    private bool[] runes = new bool[3];
+    private readonly bool[] runes = new bool[3];
     private bool reset;
     private string animationBoolString;
     private int i;

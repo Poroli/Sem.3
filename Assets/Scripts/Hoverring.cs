@@ -7,7 +7,7 @@ public class Hoverring : MonoBehaviour
     public float XtraRange;
     public float ChangeHeigthPower;
     public float HoveringHeigth;
-    public bool thrown;
+    public bool disableHoveringCheck;
 
     [SerializeField] private LayerMask lM;
     private Vector3 hoveringCheckPos1;
@@ -32,10 +32,6 @@ public class Hoverring : MonoBehaviour
     }
     private void HoveringCheckGround()
     {
-        if (thrown)
-        {
-            return;
-        }
         hoveringCheckPos1.x = transform.position.x;
         hoveringCheckPos1.y = transform.position.y;
         hoveringCheckPos1.z = transform.position.z;
@@ -52,13 +48,11 @@ public class Hoverring : MonoBehaviour
             rb.AddForce(changeHeigthVec * ChangeHeigthPower, ForceMode.Force);
         }
     }
-    private void SetFlyMode()
-    {
-
-    }
-
     private void FixedUpdate()
     {
-        HoveringCheckGround();
+        if (!disableHoveringCheck)
+        {
+            HoveringCheckGround();
+        }
     }
 }

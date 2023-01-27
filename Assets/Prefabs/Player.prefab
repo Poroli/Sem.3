@@ -218,7 +218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2046312648317083577}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &939655160
 MonoBehaviour:
@@ -277,6 +277,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2046312648280275525}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1946555726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946555727}
+  m_Layer: 0
+  m_Name: PushTargetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946555727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946555726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046312648317083577}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046312648280275524
 GameObject:
@@ -339,6 +370,7 @@ MonoBehaviour:
   Speed: 2
   Jumpforce: 50
   TurnSmoothTime: 0.1
+  animator: {fileID: 4090899553086741682}
 --- !u!54 &2046312648280275531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -486,8 +518,9 @@ Transform:
   m_Children:
   - {fileID: 494620010}
   - {fileID: 4869999844450184386}
-  - {fileID: 2046312648358679985}
   - {fileID: 939655158}
+  - {fileID: 2046312648358679985}
+  - {fileID: 1946555727}
   m_Father: {fileID: 2046312648662398377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -509,6 +542,7 @@ MonoBehaviour:
   Speed: 2.5
   Jumpforce: 325
   TurnSmoothTime: 0.1
+  CantJump: 0
   animator: {fileID: 4348029215569978354}
 --- !u!114 &2046312648317083580
 MonoBehaviour:
@@ -527,6 +561,7 @@ MonoBehaviour:
   JCooldown: 0.1
   SphereRadius: 0.1
   Jumped: 0
+  NotMovableInJump: 0
   animator: {fileID: 4348029215569978354}
   groundlayer:
     serializedVersion: 2
@@ -546,7 +581,7 @@ CapsuleCollider:
   m_Radius: 0.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.5, z: -0.1}
 --- !u!54 &2046312648317083582
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -587,7 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046312648358679985}
   m_Layer: 0
-  m_Name: TargetPosition
+  m_Name: CarryTargetPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,12 +636,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046312648358679984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2046312648317083577}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046312648662398376
 GameObject:
