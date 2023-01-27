@@ -41,11 +41,13 @@ public class CharacterMovementP1 : MonoBehaviour
         tempVec.z = verticalP1;
         direction = tempVec.normalized;
 
-        if (Input.GetKeyDown(C_Keys.P1Jump) && j_Manager.Grounded() && !CantJump)
+        if (Input.GetKeyDown(C_Keys.P1Jump))
         {
-            //j_Manager.StartCooldown();
-            j_Manager.ActualJumps += 1;
-            animator.SetTrigger("StartJump");
+            if(j_Manager.Grounded() && !CantJump)
+            {
+                j_Manager.ActualJumps += 1;
+                animator.SetTrigger("StartJump");
+            }
         }
         else if (direction.magnitude != 0)
         {

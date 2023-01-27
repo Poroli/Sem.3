@@ -17,10 +17,10 @@ public class JumpManager : MonoBehaviour
     [SerializeField] private int jumpAmount;
     [SerializeField] private Options options;
     private Vector3 sphereCheckPosition;
-    private bool isOnCooldown = false;
-    private bool jumpReady;
     private CinemachineFreeLook tPCamera1;
     private GameObject camerafollow;
+    private bool isOnCooldown = false;
+    private bool jumpReady;
     private bool resetCam;
     private bool SphereCheck;
 
@@ -87,6 +87,5 @@ public class JumpManager : MonoBehaviour
     private void Update()
     {
         CheckCooldown();
-        Grounded();
     }
 }
