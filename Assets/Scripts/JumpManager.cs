@@ -1,8 +1,8 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using Cinemachine;
 
 public class JumpManager : MonoBehaviour
 {
@@ -22,17 +22,17 @@ public class JumpManager : MonoBehaviour
     private CinemachineFreeLook tPCamera1;
     private GameObject camerafollow;
     private bool resetCam;
-    private bool Spherecheck;
+    private bool SphereCheck;
 
     private void DynamicJumpCam()
     {
-        if (!Spherecheck && !resetCam && options.DynamicJumpCamOn)
+        if (!SphereCheck && !resetCam && options.DynamicJumpCamOn)
         {
             camerafollow = tPCamera1.Follow.gameObject;
             tPCamera1.Follow = null;
             resetCam = true;
         }
-        else if (Spherecheck && resetCam && options.DynamicJumpCamOn)
+        else if (SphereCheck && resetCam && options.DynamicJumpCamOn)
         {
             tPCamera1.Follow = camerafollow.transform;
            resetCam = false;
@@ -44,27 +44,24 @@ public class JumpManager : MonoBehaviour
         sphereCheckPosition.y = transform.position.y - XtraRange;
         sphereCheckPosition.z = transform.position.z;
         
-        Spherecheck = Physics.CheckSphere(sphereCheckPosition, SphereRadius, groundlayer);
+        SphereCheck = Physics.CheckSphere(sphereCheckPosition, SphereRadius, groundlayer);
 
         DynamicJumpCam();
 
-        if (!Spherecheck && ActualJumps < jumpAmount && !CheckCooldown())
+        if (!SphereCheck && ActualJumps < jumpAmount && !CheckCooldown())
         {
             jumpReady = true;
         }
-        else if (Spherecheck && !CheckCooldown())
+        else if (SphereCheck && !CheckCooldown() && Jumped)
         {
-            if (Jumped)
-            {
-                animator.SetTrigger("JumpLanding");
-                Jumped = false;
-            }
+            animator.SetTrigger("JumpLanding");
+            Jumped = false;
             jumpReady = true;
             ActualJumps = 0;
         }
-        else 
-        { 
-         jumpReady = false;
+        else
+        {
+            jumpReady = false;
         }
         return jumpReady;
     }

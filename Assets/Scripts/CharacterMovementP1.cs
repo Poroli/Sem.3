@@ -11,6 +11,7 @@ public class CharacterMovementP1 : MonoBehaviour
     public float Speed = 6f;
     public float Jumpforce;
     public float TurnSmoothTime = 0.1f;
+    public bool CantJump;
 
     [SerializeField] private Animator animator;
     private JumpManager j_Manager;
@@ -40,9 +41,9 @@ public class CharacterMovementP1 : MonoBehaviour
         tempVec.z = verticalP1;
         direction = tempVec.normalized;
 
-        if (Input.GetKeyDown(C_Keys.P1Jump) && j_Manager.Grounded())
+        if (Input.GetKeyDown(C_Keys.P1Jump) && j_Manager.Grounded() && !CantJump)
         {
-            j_Manager.StartCooldown();
+            //j_Manager.StartCooldown();
             j_Manager.ActualJumps += 1;
             animator.SetTrigger("StartJump");
         }

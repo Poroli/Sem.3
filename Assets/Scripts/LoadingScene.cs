@@ -8,34 +8,33 @@ public class LoadingScene : MonoBehaviour
 {
     public VideoPlayer LoadingScreen;
 
-    [SerializeField] string[] Levels;
+    [SerializeField] private Camera cam;
     [SerializeField] private MasterControlScript mCS;
+    [SerializeField] private string[] Levels;
     private string SceneToBeLoaded;
-    
     private void WichSceneShouldBeLoaded() 
     {
         for (int i = 0; i < mCS.LevelsCompleted.Length; i++) 
         {
-            if (mCS.LevelsCompleted[i]) 
+            if (!mCS.LevelsCompleted[i]) 
             {
-                return;               
+                SceneToBeLoaded = Levels[i];
+                break;             
             }
-            SceneToBeLoaded = Levels[i];
-            break;
         }   
     }
 
     public void LoadScene()
     {
         WichSceneShouldBeLoaded();
+        LoadingScreen.Play();
+        cam.gameObject.SetActive(true);
         StartCoroutine(LoadSceneAsync());
     }
 
     private IEnumerator LoadSceneAsync()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneToBeLoaded);
-
-        LoadingScreen.Play();
 
         while(!operation.isDone)
         {

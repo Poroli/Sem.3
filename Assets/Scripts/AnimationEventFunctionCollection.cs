@@ -12,6 +12,8 @@ public class AnimationEventFunctionCollection : MonoBehaviour
     {
         Rigidbody rb = GetComponentInParent <Rigidbody>();
         CharacterMovementP1 CMP1 = rb.gameObject.GetComponent<CharacterMovementP1>();
+        JumpManager JM = GetComponentInParent<JumpManager>();
+        JM.StartCooldown();
         rb.AddForce(0, CMP1.Jumpforce, 0);
     }
     public void SetJumpedBool()

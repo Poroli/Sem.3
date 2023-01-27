@@ -14,9 +14,12 @@ public class ThrowObject : MonoBehaviour
 
     [SerializeField][Range(0,1)] private float ObjectVerticalThrowDirectionImpact;
     [SerializeField][Range(0, 1)] private float ObjectHorizontalThrowDirectionImpact;
+    private CharacterMovementP1 cMP1;
+    private Animator animator;
     private Hoverring hovering;
     private FixedJoint fJoint;
     private GameObject gOP1;
+    private GameObject cModelMoth;
     private Rigidbody rbP1;
     private Vector3 tempThrowDirection;
     private bool beingCarried = false;
@@ -32,14 +35,6 @@ public class ThrowObject : MonoBehaviour
         Destroy(fJoint);
     }
 
-    public void Start()
-    {
-        gOP1 = GameObject.Find("Player1");
-        rbP1 = gOP1.GetComponent<Rigidbody>();
-        orient_Point = GameObject.Find("TargetPosition");
-        rb = GetComponent<Rigidbody>();
-        hovering= GetComponent<Hoverring>();
-    }
 
     private void CheckCarryThrow()
     {
@@ -47,6 +42,8 @@ public class ThrowObject : MonoBehaviour
         if (UpThrow && !beingCarried)
         {
             beingCarried = true;
+            cMP1.CantJump = true;
+            animator.SetBool("Carrying", true);
             transform.position = orient_Point.transform.position;
             CreateJoints();
             UpThrow = false;
@@ -58,9 +55,12 @@ public class ThrowObject : MonoBehaviour
             SetThrowDirection();
             DestroyJoints();
             rb.AddForce(tempThrowDirection * throwForce);
+            animator.SetTrigger("Throwing");
+            animator.SetBool("Carrying", false);
+            cMP1.CantJump = false;
             if (gameObject.CompareTag("Player2"))
             {
-            hovering.thrown = true;
+                hovering.thrown = true;
             }
             UpThrow = false;
         }        
@@ -93,6 +93,17 @@ public class ThrowObject : MonoBehaviour
         {
             hovering.thrown = false;
         }
+    }
+    public void Start()
+    {
+        gOP1 = GameObject.Find("Player1");
+        rbP1 = gOP1.GetComponent<Rigidbody>();
+        orient_Point = GameObject.Find("TargetPosition");
+        rb = GetComponent<Rigidbody>();
+        hovering= GetComponent<Hoverring>();
+        cModelMoth = GameObject.Find("Character_Moth");
+        animator = cModelMoth.GetComponent<Animator>();
+        cMP1 = cModelMoth.GetComponentInParent<CharacterMovementP1>();
     }
     private void Update()
     {
