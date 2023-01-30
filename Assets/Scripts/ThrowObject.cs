@@ -26,6 +26,7 @@ public class ThrowObject : MonoBehaviour
     private Vector3 tempThrowDirection;
     private bool beingCarried = false;
     private bool disableCTWHS;
+    private bool speedToActivateMHSHC;
 
     private void CreateJoints()
     {
@@ -92,9 +93,14 @@ public class ThrowObject : MonoBehaviour
         {
             return;
         }
-        else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck)
+        else if (rb.velocity.y >= MinHorizontalSpeedbeforeHoveringCheck)
+        {
+            speedToActivateMHSHC = true;
+        }
+        else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck && speedToActivateMHSHC)
         {
             hovering.disableHoveringCheck = false;
+            speedToActivateMHSHC = false;
             animatorP2.SetBool("Flying", false);
         }
     }

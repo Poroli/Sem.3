@@ -185,8 +185,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0, z: 0.5}
+  m_Radius: 0.4
+  m_Center: {x: 0, y: -0.2, z: 0.5}
 --- !u!1 &939655157
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946555726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,6 +367,7 @@ MonoBehaviour:
   Rb: {fileID: 0}
   Camera: {fileID: 0}
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
+  tempNotMovable: 0
   Speed: 2
   Jumpforce: 50
   TurnSmoothTime: 0.1
@@ -416,7 +417,7 @@ MonoBehaviour:
   XtraRange: 2
   ChangeHeigthPower: 15
   HoveringHeigth: 1.2
-  thrown: 0
+  disableHoveringCheck: 0
   lM:
     serializedVersion: 2
     m_Bits: 64
@@ -560,7 +561,7 @@ MonoBehaviour:
   XtraRange: 0
   JCooldown: 0.1
   SphereRadius: 0.1
-  Jumped: 0
+  OnAir: 0
   NotMovableInJump: 0
   animator: {fileID: 4348029215569978354}
   groundlayer:
@@ -1614,6 +1615,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1587266815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090122009700883284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcef160db16a00345b2a6a226a8f3de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5613858239640633838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 079952d47b54d934d81fdd1a39a15b3a, type: 3}

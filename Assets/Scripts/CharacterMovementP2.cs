@@ -8,6 +8,7 @@ public class CharacterMovementP2 : MonoBehaviour
     public Rigidbody Rb;
     public GameObject Camera;
     public ControlKeys CKeys;
+    public bool tempNotMovable;
     public float Speed = 6f;
     public float Jumpforce;
     public float TurnSmoothTime = 0.1f;
@@ -39,7 +40,7 @@ public class CharacterMovementP2 : MonoBehaviour
         tempVec.z = verticalP2;
         direction = tempVec.normalized;
 
-        if (direction.magnitude != 0)
+        if (direction.magnitude != 0 && !tempNotMovable)
         {
             animator.SetBool("IsMoving", true);
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;

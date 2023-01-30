@@ -97,7 +97,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount1)
                     {
                         switchCount1 = true;
-                        gAW.ActivateRune = true;
+                        gAW.WichRuneChange();
                         switchCount2 = false;
                     }
                     break;
@@ -154,7 +154,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount2)
                     {
                         switchCount2 = true;
-                        gAW.ActivateRune = true;
+                        gAW.WichRuneChange();
                         switchCount1 = false;
                     }
                     break;
