@@ -43,9 +43,13 @@ public class CharacterMovementP1 : MonoBehaviour
         cCastPos2.y = cCollider.center.y - (cCollider.height / 2);
         cCastPos2.z = cCollider.center.z;
 
-        if(Physics.CapsuleCast((transform.position + cCastPos1), (transform.position + cCastPos2), cCollider.radius - compensateRadius, gameObject.transform.forward, out hit, CanMoveDirectionCheckSphereDistance, CanMoveDirectionCheckSphereLayerMask))
+        if (Physics.CapsuleCast((transform.position + cCastPos1), (transform.position + cCastPos2), cCollider.radius - compensateRadius, gameObject.transform.forward, out hit, CanMoveDirectionCheckSphereDistance, CanMoveDirectionCheckSphereLayerMask))
         {
             dot = Vector3.Dot(hit.normal, gameObject.transform.forward);
+            if (dot <= dotMinCanMoveDirectionCheckSphere && verticalP1 > 0)
+            {
+                verticalP1 = 0;
+            }
         }
     }
 
@@ -77,10 +81,9 @@ public class CharacterMovementP1 : MonoBehaviour
 
         CheckNormalObjectInMoveDirection();
 
-        if(dot >= dotMinCanMoveDirectionCheckSphere && verticalP1 > 0)
-        {
-                verticalP1 = 0;
-        }
+        direction.x = horizontalP1;
+        direction.z = verticalP1;
+        direction = direction.normalized;
         if (Input.GetKeyDown(C_Keys.P1Jump) && jAGSystem.Grounded() && !CantJump)
         {
             jAGSystem.NotMovableInJump = true;
@@ -89,9 +92,6 @@ public class CharacterMovementP1 : MonoBehaviour
         }
         else if (direction.magnitude != 0 && !jAGSystem.NotMovableInJump)
         {
-            direction.x = horizontalP1;
-            direction.z = verticalP1;
-            direction = direction.normalized;
             Walking();
         }
         else
