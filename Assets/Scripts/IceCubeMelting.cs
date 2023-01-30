@@ -8,17 +8,17 @@ public class IceCubeMelting : MonoBehaviour
 {
 
     private GameObject IceCube;
-   
-    
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Meltable"))
+        if (other.gameObject.CompareTag("Meltable"))
         {
+
             IceCube = other.gameObject.transform.parent.gameObject;
             GameObject.Destroy(IceCube);
 
         }
     }
 
+  
 
 }
