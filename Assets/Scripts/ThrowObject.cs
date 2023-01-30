@@ -14,12 +14,18 @@ public class ThrowObject : MonoBehaviour
 
     [SerializeField][Range(0,1)] private float ObjectVerticalThrowDirectionImpact;
     [SerializeField][Range(0, 1)] private float ObjectHorizontalThrowDirectionImpact;
+    private CharacterMovementP1 cMP1;
+    private GroundedAndJumpSystem jAGSystem;
+    private Animator animatorP1;
+    private Animator animatorP2;
     private Hoverring hovering;
     private FixedJoint fJoint;
     private GameObject gOP1;
+    private GameObject cModelMoth;
     private Rigidbody rbP1;
     private Vector3 tempThrowDirection;
     private bool beingCarried = false;
+    private bool disableCTWHS;
 
     private void CreateJoints()
     {
@@ -32,23 +38,23 @@ public class ThrowObject : MonoBehaviour
         Destroy(fJoint);
     }
 
-    public void Start()
-    {
-        gOP1 = GameObject.Find("Player1");
-        rbP1 = gOP1.GetComponent<Rigidbody>();
-        orient_Point = GameObject.Find("TargetPosition");
-        rb = GetComponent<Rigidbody>();
-        hovering= GetComponent<Hoverring>();
-    }
-
     private void CheckCarryThrow()
     {
         //Carry
         if (UpThrow && !beingCarried)
         {
             beingCarried = true;
+            cMP1.CantJump = true;
+            disableCTWHS = true;
+            jAGSystem.NotMovableInJump = false;
+            jAGSystem.OnAir = false;
+            animatorP1.SetBool("Carrying", true);
             transform.position = orient_Point.transform.position;
             CreateJoints();
+            if (gameObject.CompareTag("Player2"))
+            {
+                hovering.disableHoveringCheck = true;
+            }
             UpThrow = false;
         }
         //Throw
@@ -58,11 +64,12 @@ public class ThrowObject : MonoBehaviour
             SetThrowDirection();
             DestroyJoints();
             rb.AddForce(tempThrowDirection * throwForce);
-            if (gameObject.CompareTag("Player2"))
-            {
-            hovering.thrown = true;
-            }
+            animatorP2.SetBool("Flying", true);
+            animatorP1.SetTrigger("Throwing");
+            animatorP1.SetBool("Carrying", false);
+            cMP1.CantJump = false;
             UpThrow = false;
+            disableCTWHS = false;
         }        
     }
 
@@ -75,28 +82,42 @@ public class ThrowObject : MonoBehaviour
         else if (gameObject.CompareTag("InteractableP1"))
         {
             tempThrowDirection = gOP1.transform.forward;
-            tempThrowDirection = tempThrowDirection * ObjectHorizontalThrowDirectionImpact;
+            tempThrowDirection *= ObjectHorizontalThrowDirectionImpact;
             tempThrowDirection.y = ObjectVerticalThrowDirectionImpact;
         }
     }
     private void CheckThrownWhispHorizontalSpeed()
     {
-        if (!gameObject.CompareTag("Player2"))
-        {
-            return;
-        }
-        if (!hovering.thrown)
+        if (!hovering.disableHoveringCheck)
         {
             return;
         }
         else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck)
         {
-            hovering.thrown = false;
+            hovering.disableHoveringCheck = false;
+            animatorP2.SetBool("Flying", false);
         }
+    }
+
+    public void Start()
+    {
+        gOP1 = GameObject.Find("Player1");
+        rbP1 = gOP1.GetComponent<Rigidbody>();
+        orient_Point = GameObject.Find("CarryTargetPosition");
+        rb = GetComponent<Rigidbody>();
+        hovering= GetComponent<Hoverring>();
+        cModelMoth = GameObject.Find("Character_Moth");
+        animatorP1 = cModelMoth.GetComponent<Animator>();
+        animatorP2 = GetComponentInChildren<Animator>();
+        cMP1 = cModelMoth.GetComponentInParent<CharacterMovementP1>();
+        jAGSystem = FindObjectOfType<GroundedAndJumpSystem>();
     }
     private void Update()
     {
-        CheckThrownWhispHorizontalSpeed();
         CheckCarryThrow();
+        if (!disableCTWHS)
+        {
+            CheckThrownWhispHorizontalSpeed();
+        }
     }
 }

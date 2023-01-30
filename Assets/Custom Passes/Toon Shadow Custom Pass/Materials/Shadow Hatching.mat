@@ -82,7 +82,7 @@ Material:
     - _OpaqueCullMode: 2
     - _RenderQueueType: 4
     - _Shadow_Strength: 1
-    - _Shadow_intensity: 0.7
+    - _Shadow_intensity: 0.5
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
@@ -95,7 +95,7 @@ Material:
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
     - _SurfaceType: 1
-    - _Tiling: 0.67
+    - _Tiling: 0.7
     - _Tiling_2: 0.57
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -109,10 +109,10 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
-    - _edge: 0
-    - _edge_2: 3.09
+    - _edge: 1
+    - _edge_2: 5
     - _edge_3: 0.5
-    - _edge_4: 1.72
+    - _edge_4: 2
     - _rotation: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
