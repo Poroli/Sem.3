@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 858270809060512131, guid: 36e28b2a3eed75840914ad355b9eae51, type: 3}
+      propertyPath: m_TagString
+      value: Meltable
+      objectReference: {fileID: 0}
     - target: {fileID: 5774679084841139035, guid: 36e28b2a3eed75840914ad355b9eae51, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 5943238867844937172, guid: 36e28b2a3eed75840914ad355b9eae51, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 118785277a195094da2e13538b356529, type: 2}
+      objectReference: {fileID: 2100000, guid: 3a60d26592cee1c4e8d0b33663a73a1a, type: 2}
     - target: {fileID: 6586541550592139745, guid: 36e28b2a3eed75840914ad355b9eae51, type: 3}
       propertyPath: m_Name
       value: IcecubeMeltable Variant
