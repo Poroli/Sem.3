@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
   InteractTranslates: []
+  UIPopUpInteract: {fileID: 9057340745407866701, guid: 597859954d1d95c4d81095c1ff5411e8, type: 3}
 --- !u!135 &677068818
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CKeys: {fileID: 11400000, guid: d3acc92b563c22f4199a95f4c17df061, type: 2}
   InteractTranslates: []
+  UIPopUpInteract: {fileID: 9057340745407866701, guid: 597859954d1d95c4d81095c1ff5411e8, type: 3}
 --- !u!135 &939655159
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -543,8 +545,14 @@ MonoBehaviour:
   Speed: 2.5
   Jumpforce: 325
   TurnSmoothTime: 0.1
+  compensateRadius: 0.15
   CantJump: 0
+  CanMoveDirectionCheckSphereDistance: 0
+  dotMinCanMoveDirectionCheckSphere: 0
   animator: {fileID: 4348029215569978354}
+  CanMoveDirectionCheckSphereLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2046312648317083580
 MonoBehaviour:
   m_ObjectHideFlags: 0

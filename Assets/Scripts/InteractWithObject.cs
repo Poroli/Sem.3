@@ -7,6 +7,7 @@ public class InteractWithObject : MonoBehaviour
     public ControlKeys CKeys;
     public List<InteractTranslate> InteractTranslates = new();
 
+    [SerializeField] private GameObject UIPopUpInteract;
     private KeyCode playerKey;
     private string Interactable;
     private string InteractWithPlayer;
@@ -59,19 +60,27 @@ public class InteractWithObject : MonoBehaviour
     }
     private void Update()
     {
-        if (InteractTranslates.Count > 0 && (Input.GetKeyDown(playerKey)))
+        if (InteractTranslates.Count > 0)
         {
-            foreach (InteractTranslate ITranslate in InteractTranslates)
+            UIPopUpInteract.SetActive(true);
+
+            if (Input.GetKeyDown(playerKey))
             {
-                if (ITranslate.Interact)
+                foreach (InteractTranslate ITranslate in InteractTranslates)
                 {
-                    ITranslate.Interact = false;
+                    if (ITranslate.Interact)
+                    {
+                        ITranslate.Interact = false;
+                    }
+                    else if (!ITranslate.Interact)
+                    {
+                        ITranslate.Interact = true;
+                    }
                 }
-                else if (!ITranslate.Interact)
-                {
-                    ITranslate.Interact = true;
-                }
+
             }
         }
+        else UIPopUpInteract.SetActive(false);
+
     }
 }
