@@ -6,8 +6,24 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public void Level_1loading()
+    private void NewGame()
     {
         SceneManager.LoadScene("Level_1");
+    }
+    private void LoadGame()
+    {
+    
+    }
+    private void StartDemo()
+    {
+
+    }
+    private void ExitGame()
+    {
+
+    }
+    private void OpenOptions()
+    {
+
     }
 }
