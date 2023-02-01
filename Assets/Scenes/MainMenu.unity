@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 203394436}
   - component: {fileID: 203394437}
   - component: {fileID: 203394438}
+  - component: {fileID: 203394439}
   m_Layer: 0
   m_Name: 'ExitGameCollider  '
   m_TagString: InteractableP1
@@ -806,6 +807,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &203394439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203394435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fab306c456f8488140d499cfdbedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &211404893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49717,6 +49730,7 @@ GameObject:
   - component: {fileID: 368365438}
   - component: {fileID: 368365439}
   - component: {fileID: 368365440}
+  - component: {fileID: 368365441}
   m_Layer: 0
   m_Name: 'OptionCollider '
   m_TagString: InteractableP1
@@ -49766,6 +49780,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &368365441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368365437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fab306c456f8488140d499cfdbedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &380122975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52347,6 +52373,7 @@ GameObject:
   - component: {fileID: 996034293}
   - component: {fileID: 996034294}
   - component: {fileID: 996034295}
+  - component: {fileID: 996034296}
   m_Layer: 0
   m_Name: LoadGameCollider
   m_TagString: InteractableP1
@@ -52396,6 +52423,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &996034296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996034292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fab306c456f8488140d499cfdbedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1010391048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57582,6 +57621,7 @@ GameObject:
   - component: {fileID: 1636849007}
   - component: {fileID: 1636849008}
   - component: {fileID: 1636849009}
+  - component: {fileID: 1636849010}
   m_Layer: 0
   m_Name: 'StartDemoCollider   '
   m_TagString: InteractableP1
@@ -57631,6 +57671,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &1636849010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636849006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fab306c456f8488140d499cfdbedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1661334089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57864,11 +57916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0819328
+      value: 0.08193278
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.019341704
+      value: -0.019341702
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57908,11 +57960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06655492
+      value: 0.06655491
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.024096204
+      value: -0.0240962
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085697348029, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Follow
@@ -57956,11 +58008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085811723840, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06655492
+      value: 0.06655491
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085811723840, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.024096204
+      value: -0.0240962
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085911637168, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_FollowOffset.y
@@ -58120,7 +58172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.28905725
+      value: 0.28905728
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -58128,7 +58180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.020511683
+      value: -0.020511687
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58148,15 +58200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3395714
+      value: 0.33957136
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06655493
+      value: 0.06655488
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.024096204
+      value: -0.024096189
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
@@ -58171,6 +58223,7 @@ GameObject:
   - component: {fileID: 1717016674}
   - component: {fileID: 1717016675}
   - component: {fileID: 1717016676}
+  - component: {fileID: 1717016677}
   m_Layer: 0
   m_Name: 'NewGameCollider '
   m_TagString: InteractableP1
@@ -58220,6 +58273,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interact: 0
   InRange: 0
+--- !u!114 &1717016677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717016673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4fab306c456f8488140d499cfdbedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1719848367
 GameObject:
   m_ObjectHideFlags: 0
