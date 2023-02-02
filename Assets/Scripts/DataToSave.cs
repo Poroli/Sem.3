@@ -45,7 +45,7 @@ public class DataToSave : MonoBehaviour
 }
 
 [Serializable]
-public class SaveDataContainer: MonoBehaviour
+public class SaveDataContainer
 {
     public static KeyCode p1Jump;
     public static KeyCode p1Interact;
