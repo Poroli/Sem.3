@@ -5,18 +5,14 @@ using UnityEngine;
 public class ShardManager : MonoBehaviour
 {
     public GameObject GOToCheck;
-    public int ShardsCollected;
-    public int ShardsToCollect;
     
-
+    [SerializeField] [Range(0,6)] private int ShardsToCollect;
+    private int ShardsCollected;
+    
     private InteractWithObject[] iWOs;
-    public GameObject[] shards;
-
 
     private void Start()
     {
-        shards = GameObject.FindGameObjectsWithTag("Shard");
-        ShardsToCollect = shards.Length;
         iWOs = FindObjectsOfType<InteractWithObject>();
     }
 
@@ -26,12 +22,11 @@ public class ShardManager : MonoBehaviour
         {
             foreach (InteractTranslate IT in IWO.InteractTranslates)
             {
-                foreach (GameObject GO in shards)
+                if(IT.gameObject.CompareTag("Shard") && GOToCheck)
                 {
-                    if (IT.gameObject == GO == GOToCheck)
-                    {
-                        Destroy(IT.gameObject);
-                    }
+                    IT.gameObject.SetActive(false);
+                    ShardsCollected += 1;
+                    IWO.RefreshInteractTranslates();
                 }
             }
         }

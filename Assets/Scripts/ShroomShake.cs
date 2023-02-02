@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShroomShake : MonoBehaviour
 {
     [SerializeField] private GameObject shard;
+    private bool shroomShaked;
 
     private Rigidbody rb;
 
@@ -14,6 +15,10 @@ public class ShroomShake : MonoBehaviour
     }
     public void LetShardDown()
     {
+        if (shroomShaked)
+        {
+            return;
+        }
         rb.isKinematic = false;
     }
 }

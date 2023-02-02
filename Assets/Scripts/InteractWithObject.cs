@@ -54,6 +54,22 @@ public class InteractWithObject : MonoBehaviour
             InteractWithPlayer = "Player1";
         }
     }
+
+    public void RefreshInteractTranslates()
+    {
+        if (InteractTranslates.Count == 0)
+        {
+            return;
+        }
+        for (int i = 0; i < InteractTranslates.Count; i++)
+        {
+            if (InteractTranslates[i] == null || InteractTranslates[i].gameObject.activeInHierarchy)
+            {
+                InteractTranslates.RemoveAt(i);
+            }
+        }
+    }
+
     private void Start()
     {
         RefreshPlayerSpecifics();

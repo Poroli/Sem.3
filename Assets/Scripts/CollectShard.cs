@@ -12,7 +12,6 @@ public class CollectShard : MonoBehaviour
     }
     public void CollectingShard()
     {
-        shardManager.ShardsCollected += 1;
         shardManager.GOToCheck = gameObject;
         shardManager.CheckShardCollectable();
     }
