@@ -51,6 +51,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7995503127128131575, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7995503127128131575, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7995503127128131575, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7995503127128131575, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7843526034019976685, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -92,6 +108,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1736622283181914040, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+--- !u!1 &4456551412691139230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6828977723248325220, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
+  m_PrefabInstance: {fileID: 2081297535544211202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6160058812749020006
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456551412691139230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7768a7ee5ff3b874d80d4822fd0e3cd9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6129035657861980549 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3896470876298488185, guid: be16c71104bf6014c9794ca2fd991cc9, type: 3}
