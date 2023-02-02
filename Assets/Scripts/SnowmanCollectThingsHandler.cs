@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SnowmanCollectThingsHandler : MonoBehaviour
 {
+    public bool[] accessoiresCollected;
+
     [SerializeField] private GameObject[] accesoires;
-    private bool[] accessoiresCollected;
     private int AccessoireCount;
 
     
@@ -41,7 +42,13 @@ public class SnowmanCollectThingsHandler : MonoBehaviour
         }
         if (AccessoireCount == accesoires.Length)
         {
-
+            DialogueTrigger dialogueTrigger = transform.parent.gameObject.GetComponent<DialogueTrigger>();
+            dialogueTrigger.TriggerDialogue();
         }
+    }
+
+    private void Awake()
+    {
+        accessoiresCollected = new bool[accesoires.Length];
     }
 }
