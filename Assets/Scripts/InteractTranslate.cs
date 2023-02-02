@@ -153,7 +153,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount1)
                     {
                         switchCount1 = true;
-                        mainMenu.whichFunctionCalled();
+                        mainMenu.WhichFunctionCalled();
                         switchCount2 = false;
                     }
                     break;
@@ -218,7 +218,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount2)
                     {
                         switchCount2 = true;
-                        mainMenu.whichFunctionCalled();
+                        mainMenu.WhichFunctionCalled();
                         switchCount1 = false;
                     }
                     break;

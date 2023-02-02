@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-[System.Serializable]
+
 public class MainMenu : MonoBehaviour
 {
     [SerializeField][Range(0, 4)] private int functionID;
@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private SaveFunctions saveFunctions;
 
-    public void whichFunctionCalled() 
+    public void WhichFunctionCalled() 
     {
         switch (functionID) 
         {

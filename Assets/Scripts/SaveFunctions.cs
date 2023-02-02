@@ -22,6 +22,7 @@ public class SaveFunctions : MonoBehaviour
 
     public void NewGame()
     {
+        Save();
         LoadDataIntoDataToSave();
         for (int i = 0; i < SaveDataContainer.levelsCompleted.Length; i++)
         {
