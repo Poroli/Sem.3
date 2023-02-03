@@ -16,6 +16,7 @@ public class CharacterMovementP1 : MonoBehaviour
 
     [SerializeField] [Range(0,1)]private float CanMoveDirectionCheckSphereDistance;
     [SerializeField] [Range(0,-1)]private float dotMinCanMoveDirectionCheckSphere;
+    [SerializeField][Range(0, -1)] private float dotMoveDirectionCompensate;
     [SerializeField] [Range(0,0.5f)] private float groundBumperCompensate;
     [SerializeField] private Animator animator;
     [SerializeField] private LayerMask CanMoveDirectionCheckSphereLayerMask;
@@ -27,14 +28,15 @@ public class CharacterMovementP1 : MonoBehaviour
     private Vector3 playerVelocity;
     private Vector3 cCastPos1;
     private Vector3 cCastPos2;
-    private float dot;
+    private float dotCharakterDirection;
+    private float dotPlayerInput;
     private float turnSmoothVelocity;
     private float horizontalP1;
     private float verticalP1;
     private float angle;
     private float targetAngle;
 
-    private void CheckNormalObjectInMoveDirection()
+    private void CheckMoveDirection()
     {
         cCastPos1.x = cCollider.center.x;
         cCastPos1.y = cCollider.center.y + (cCollider.height / 2);
@@ -43,26 +45,30 @@ public class CharacterMovementP1 : MonoBehaviour
         cCastPos2.x = cCollider.center.x;
         cCastPos2.y = cCollider.center.y - ((cCollider.height / 2) - groundBumperCompensate);
         cCastPos2.z = cCollider.center.z;
-
+        
         if (Physics.CapsuleCast((transform.position + cCastPos1), (transform.position + cCastPos2), cCollider.radius - compensateRadius, gameObject.transform.forward, out hit, CanMoveDirectionCheckSphereDistance, CanMoveDirectionCheckSphereLayerMask))
         {
-            dot = Vector3.Dot(hit.normal, gameObject.transform.forward);
-            if (dot <= dotMinCanMoveDirectionCheckSphere && verticalP1 > 0)
+            dotCharakterDirection = Vector3.Dot(hit.normal, gameObject.transform.forward);
+            if (dotCharakterDirection <= dotMinCanMoveDirectionCheckSphere)
             {
-                verticalP1 = 0;
+                direction.x += -direction.x;
+                direction.z += -direction.z;
             }
         }
+    }
+
+    private void CalculateMoveDirection()
+    {
+        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
+        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
     }
 
     private void Walking()
     {
         animator.SetBool("IsWalking", true);
         animator.speed = direction.magnitude;
-        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
-        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-        moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
         moveDir = direction.magnitude * Speed * moveDir.normalized;
         moveDir.y = Rb.velocity.y;
         Rb.velocity = moveDir;
@@ -80,10 +86,10 @@ public class CharacterMovementP1 : MonoBehaviour
         horizontalP1 = Input.GetAxisRaw("Horizontal_LStick_C1");
         verticalP1 = Input.GetAxisRaw("Vertical_LStick_C1");
 
-        CheckNormalObjectInMoveDirection();
-
         direction.x = horizontalP1;
         direction.z = verticalP1;
+        
+
         if (Input.GetKeyDown(C_Keys.P1Jump) && jAGSystem.Grounded() && !CantJump)
         {
             animator.speed = 1;
@@ -93,6 +99,8 @@ public class CharacterMovementP1 : MonoBehaviour
         }
         else if (direction.magnitude != 0 && !jAGSystem.NotMovableInJump)
         {
+            CalculateMoveDirection();
+            CheckMoveDirection();
             Walking();
         }
         else
