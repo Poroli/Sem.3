@@ -27,4 +27,28 @@ public class AnimationEventFunctionCollection : MonoBehaviour
         GroundedAndJumpSystem GAJS = GetComponentInParent<GroundedAndJumpSystem>();
         GAJS.NotMovableInJump = false;
     }
+    public void ActivateRune()
+    {
+        MoveBridge MB = FindObjectOfType<MoveBridge>();
+        GoAwayWall[] GAWs= FindObjectsOfType<GoAwayWall>();
+        CharacterMovementP2 CMP2 = FindObjectOfType<CharacterMovementP2>();
+
+        if(MB.BridgeActivate)
+        {
+            MB.Bridge.SetActive(true);
+            MB.BridgeActivate = false;
+        }
+        else
+        {
+            foreach (GoAwayWall GAW in GAWs)
+            {
+                if (GAW.GateBarsOpen)
+                {
+                    GAW.Wallcheck();
+                    GAW.ResetRunes();
+                }
+            }
+        }
+        CMP2.tempNotMovable = false;
+    }
 }

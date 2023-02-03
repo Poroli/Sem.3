@@ -7,42 +7,39 @@ public class GoAwayWall : MonoBehaviour
     public GameObject[] Walls = new GameObject[4];
     [Range(1,3)]public int RunesNr;
     public bool ActivateRune;
+    public bool GateBarsOpen;
     
-    [SerializeField]private Animator animator;
+    [SerializeField]private Animator gateAnimator;
+    [SerializeField] private Animator animatorP2;
+    private CharacterMovementP2 CMP2;
     private readonly bool[] runes = new bool[3];
-    private bool reset;
     private string animationBoolString;
     private int i;
 
-    private void IfRunesChange()
+    public void ResetRunes()
     {
-        if (reset)
+        for (int i = 0; i < runes.Length; i++)
         {
-            ActivateRune = false;
-            for (int i = 0; i < runes.Length; i++)
-            {
-                runes[i] = false;
-            }
-            reset = false;
+            runes[i] = false;
         }
-        else if (ActivateRune && RunesNr == 1)
+    }
+    public void WichRuneChange()
+    {
+        if (RunesNr == 1)
         {
             runes[0] = true;
-            Wallcheck();
-            reset = true;
         }
-        else if (ActivateRune && RunesNr == 2)
+        else if (RunesNr == 2)
         {
             runes[1] = true;
-            Wallcheck();
-            reset = true;
         }
-        else if (ActivateRune && RunesNr == 3)
+        else if (RunesNr == 3)
         {
             runes[2] = true;
-            Wallcheck();
-            reset = true;
         }
+        animatorP2.SetTrigger("ActivateRune");
+        CMP2.tempNotMovable = true;
+        GateBarsOpen = true;
     }
 
     private void SetAnimation()
@@ -62,17 +59,17 @@ public class GoAwayWall : MonoBehaviour
                 animationBoolString = "Bar4Open";
                 break;
         }
-        if (animator.GetBool(animationBoolString))
+        if (gateAnimator.GetBool(animationBoolString))
         {
-            animator.SetBool(animationBoolString, false);
+            gateAnimator.SetBool(animationBoolString, false);
         }
-        else if (!animator.GetBool(animationBoolString))
+        else if (!gateAnimator.GetBool(animationBoolString))
         {
-            animator.SetBool(animationBoolString, true);
+            gateAnimator.SetBool(animationBoolString, true);
         }
     }
 
-    private void Wallcheck()
+    public void Wallcheck()
     {
         if (runes[0])
         {
@@ -97,9 +94,9 @@ public class GoAwayWall : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        IfRunesChange();
+        CMP2 = FindObjectOfType<CharacterMovementP2>();
     }
 }
     

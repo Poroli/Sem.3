@@ -18,7 +18,9 @@ public class InteractTranslate : MonoBehaviour
     private ShroomShake shake;
     private DialogueTrigger dialogueTrigger;
     private MoveBridge mBridge;
-    private bool[] uSO = new bool[7];
+    private MainMenu mainMenu;
+    private SnowmanCollectThings snowmanCollectThings;
+    private bool[] uSO = new bool[9];
     /// <summary>
     /// 0 = Stone_Moving
     /// 1 = activate Runes
@@ -27,6 +29,8 @@ public class InteractTranslate : MonoBehaviour
     /// 4 = Shroom
     /// 5 = Dialogue
     /// 6 = Bridge
+    /// 7 = MainMenuFunctions
+    /// 8 = SnowmanCollectThings
     /// 
     /// </summary>
     
@@ -74,6 +78,18 @@ public class InteractTranslate : MonoBehaviour
             i = 6;
             uSO[i] = true;
         }
+        if (GetComponent<MainMenu>())
+        {
+            mainMenu = GetComponent<MainMenu>();
+            i = 7;
+            uSO[i] = true;
+        }
+        if (GetComponent<SnowmanCollectThings>())
+        {
+            snowmanCollectThings = GetComponent<SnowmanCollectThings>();
+            i = 8;
+            uSO[i] = true;
+        }
     }
 
     private void TranslateInteract()
@@ -97,7 +113,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount1)
                     {
                         switchCount1 = true;
-                        gAW.ActivateRune = true;
+                        gAW.WichRuneChange();
                         switchCount2 = false;
                     }
                     break;
@@ -138,6 +154,22 @@ public class InteractTranslate : MonoBehaviour
                     {
                         switchCount1 = true;
                         mBridge.BridgeAppear();
+                        switchCount2 = false;
+                    }
+                    break;
+                case 7:
+                    if (!switchCount1)
+                    {
+                        switchCount1 = true;
+                        mainMenu.WhichFunctionCalled();
+                        switchCount2 = false;
+                    }
+                    break;
+                case 8:
+                    if (!switchCount1)
+                    {
+                        switchCount1 = true;
+                        snowmanCollectThings.CollectObject();
                         switchCount2 = false;
                     }
                     break;
@@ -154,7 +186,7 @@ public class InteractTranslate : MonoBehaviour
                     if (!switchCount2)
                     {
                         switchCount2 = true;
-                        gAW.ActivateRune = true;
+                        gAW.WichRuneChange();
                         switchCount1 = false;
                     }
                     break;
@@ -195,6 +227,22 @@ public class InteractTranslate : MonoBehaviour
                     {
                         switchCount2 = true;
                         mBridge.BridgeAppear();
+                        switchCount1 = false;
+                    }
+                    break;
+                case 7:
+                    if (!switchCount2)
+                    {
+                        switchCount2 = true;
+                        mainMenu.WhichFunctionCalled();
+                        switchCount1 = false;
+                    }
+                    break;
+                case 8:
+                    if (!switchCount2)
+                    {
+                        switchCount2 = true;
+                        snowmanCollectThings.CollectObject();
                         switchCount1 = false;
                     }
                     break;

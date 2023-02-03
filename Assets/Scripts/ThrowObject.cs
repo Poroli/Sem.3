@@ -26,6 +26,8 @@ public class ThrowObject : MonoBehaviour
     private Vector3 tempThrowDirection;
     private bool beingCarried = false;
     private bool disableCTWHS;
+    private bool isWhisp;
+    private bool speedToActivateMHSHC;
 
     private void CreateJoints()
     {
@@ -45,7 +47,10 @@ public class ThrowObject : MonoBehaviour
         {
             beingCarried = true;
             cMP1.CantJump = true;
-            disableCTWHS = true;
+            if (isWhisp)
+            {
+                disableCTWHS = true;
+            }
             jAGSystem.NotMovableInJump = false;
             jAGSystem.OnAir = false;
             animatorP1.SetBool("Carrying", true);
@@ -69,7 +74,10 @@ public class ThrowObject : MonoBehaviour
             animatorP1.SetBool("Carrying", false);
             cMP1.CantJump = false;
             UpThrow = false;
-            disableCTWHS = false;
+            if (isWhisp)
+            {
+                disableCTWHS = false;
+            }
         }        
     }
 
@@ -92,9 +100,14 @@ public class ThrowObject : MonoBehaviour
         {
             return;
         }
-        else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck)
+        else if (rb.velocity.y >= MinHorizontalSpeedbeforeHoveringCheck)
+        {
+            speedToActivateMHSHC = true;
+        }
+        else if (rb.velocity.y <= MinHorizontalSpeedbeforeHoveringCheck && speedToActivateMHSHC)
         {
             hovering.disableHoveringCheck = false;
+            speedToActivateMHSHC = false;
             animatorP2.SetBool("Flying", false);
         }
     }
@@ -111,6 +124,14 @@ public class ThrowObject : MonoBehaviour
         animatorP2 = GetComponentInChildren<Animator>();
         cMP1 = cModelMoth.GetComponentInParent<CharacterMovementP1>();
         jAGSystem = FindObjectOfType<GroundedAndJumpSystem>();
+        if (gameObject.CompareTag("Player2"))
+        {
+            isWhisp = true;
+        }
+        else
+        {
+            isWhisp = false;
+        }
     }
     private void Update()
     {

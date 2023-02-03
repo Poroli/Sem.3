@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.78
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7405047
+      value: -0.78507996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.92
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51,6 +51,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8665374912803100077, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8543835670723947052, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7903005001077901035, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -7577739868436781572, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -61,16 +73,28 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9a3631fdb37ab8c44b68dda2f8842578, type: 2}
     - target: {fileID: 919132149155446097, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_Name
-      value: House2 Variant
+      value: House_2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1573276210768463476, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5696494855991954268, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4a9276a65b0bc78449a0eb6deb8839e1, type: 2}
+    - target: {fileID: 7032823420476312315, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
 --- !u!1 &79565465052163307 stripped
@@ -92,6 +116,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9146618070568788744, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+--- !u!1 &1137996229098640236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8665374912803100077, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}
+  m_PrefabInstance: {fileID: 609286568668215615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2241348519546994349
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137996229098640236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86559ea05bfd6fa4a90a3e6338b875f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1884330062241529898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7903005001077901035, guid: 7039d67631e04134c985a7a9dc20273a, type: 3}

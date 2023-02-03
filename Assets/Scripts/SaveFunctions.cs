@@ -20,6 +20,21 @@ public class SaveFunctions : MonoBehaviour
         dataToSave.SyncData();
     }
 
+    public void NewGame()
+    {
+        Save();
+        LoadDataIntoDataToSave();
+        for (int i = 0; i < SaveDataContainer.levelsCompleted.Length; i++)
+        {
+            SaveDataContainer.levelsCompleted[i] = false;
+        }
+        for (int i = 0; i < SaveDataContainer.elementsActivated.Length; i++)
+        {
+            SaveDataContainer.elementsActivated[i] = false;
+        }
+        dataToSave.SyncData();
+    }
+
     private static void SaveData()
     {
         BinaryFormatter formatter = new();

@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class CollectShard : MonoBehaviour
 {
-    private ShardManager shardManager;
-
-    private void Start()
-    {
-        shardManager = FindObjectOfType<ShardManager>();
-    }
     public void CollectingShard()
     {
-        shardManager.ShardsCollected += 1;
-        shardManager.GOToCheck = gameObject;
-        shardManager.CheckShardCollectable();
+        ShardManager.GOToCheck = gameObject;
+        ShardManager.CheckShardCollectable();
     }
 }
