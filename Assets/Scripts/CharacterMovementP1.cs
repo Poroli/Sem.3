@@ -24,6 +24,7 @@ public class CharacterMovementP1 : MonoBehaviour
     private Vector3 direction;
     private Vector3 moveDir;
     private Vector3 playerVelocity;
+    private Vector3 moveSpeed;
     private Vector3 cCastPos1;
     private Vector3 cCastPos2;
     private float dot;
@@ -56,7 +57,7 @@ public class CharacterMovementP1 : MonoBehaviour
     private void Walking()
     {
             animator.SetBool("IsWalking", true);
-            animator.speed = direction.magnitude;
+            animator.speed = moveSpeed.magnitude;
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -83,6 +84,7 @@ public class CharacterMovementP1 : MonoBehaviour
 
         direction.x = horizontalP1;
         direction.z = verticalP1;
+        moveSpeed = direction;
         direction = direction.normalized;
         if (Input.GetKeyDown(C_Keys.P1Jump) && jAGSystem.Grounded() && !CantJump)
         {
