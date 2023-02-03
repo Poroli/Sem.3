@@ -69,6 +69,7 @@ public class ThrowObject : MonoBehaviour
             SetThrowDirection();
             DestroyJoints();
             rb.AddForce(tempThrowDirection * throwForce);
+            animatorP1.speed = 1;
             animatorP2.SetBool("Flying", true);
             animatorP1.SetTrigger("Throwing");
             animatorP1.SetBool("Carrying", false);

@@ -16,6 +16,7 @@ public class CharacterMovementP1 : MonoBehaviour
 
     [SerializeField] [Range(0,1)]private float CanMoveDirectionCheckSphereDistance;
     [SerializeField] [Range(0,-1)]private float dotMinCanMoveDirectionCheckSphere;
+    [SerializeField] [Range(0,0.5f)] private float groundBumperCompensate;
     [SerializeField] private Animator animator;
     [SerializeField] private LayerMask CanMoveDirectionCheckSphereLayerMask;
     private GroundedAndJumpSystem jAGSystem;
@@ -24,7 +25,6 @@ public class CharacterMovementP1 : MonoBehaviour
     private Vector3 direction;
     private Vector3 moveDir;
     private Vector3 playerVelocity;
-    private Vector3 moveSpeed;
     private Vector3 cCastPos1;
     private Vector3 cCastPos2;
     private float dot;
@@ -41,7 +41,7 @@ public class CharacterMovementP1 : MonoBehaviour
         cCastPos1.z = cCollider.center.z;
         
         cCastPos2.x = cCollider.center.x;
-        cCastPos2.y = cCollider.center.y - (cCollider.height / 2);
+        cCastPos2.y = cCollider.center.y - ((cCollider.height / 2) - groundBumperCompensate);
         cCastPos2.z = cCollider.center.z;
 
         if (Physics.CapsuleCast((transform.position + cCastPos1), (transform.position + cCastPos2), cCollider.radius - compensateRadius, gameObject.transform.forward, out hit, CanMoveDirectionCheckSphereDistance, CanMoveDirectionCheckSphereLayerMask))
@@ -56,16 +56,16 @@ public class CharacterMovementP1 : MonoBehaviour
 
     private void Walking()
     {
-            animator.SetBool("IsWalking", true);
-            animator.speed = moveSpeed.magnitude;
-            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
-            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        animator.SetBool("IsWalking", true);
+        animator.speed = direction.magnitude;
+        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
+        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            moveDir = direction.magnitude * Speed * moveDir.normalized;
-            moveDir.y = Rb.velocity.y;
-            Rb.velocity = moveDir;
+        moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        moveDir = direction.magnitude * Speed * moveDir.normalized;
+        moveDir.y = Rb.velocity.y;
+        Rb.velocity = moveDir;
     }
     private void Start()
     {
@@ -84,10 +84,9 @@ public class CharacterMovementP1 : MonoBehaviour
 
         direction.x = horizontalP1;
         direction.z = verticalP1;
-        moveSpeed = direction;
-        direction = direction.normalized;
         if (Input.GetKeyDown(C_Keys.P1Jump) && jAGSystem.Grounded() && !CantJump)
         {
+            animator.speed = 1;
             jAGSystem.NotMovableInJump = true;
             jAGSystem.ActualJumps += 1;
             animator.SetTrigger("StartJump");
@@ -99,6 +98,7 @@ public class CharacterMovementP1 : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
+            animator.speed = 1;
             playerVelocity.y = Rb.velocity.y;
             Rb.velocity = playerVelocity;
         }
