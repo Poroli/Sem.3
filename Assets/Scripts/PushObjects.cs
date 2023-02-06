@@ -77,6 +77,7 @@ public class PushObjects : MonoBehaviour
                 switchToPush = false;
                 changeToDefault = true;
                 SetPushDirection();
+                C1Movement.PushingIceCube = true;
                 animator.SetBool("PushStone", true);
                 C1Movement.Speed = SpeedWhileMoving;
                 C1Movement.TurnSmoothTime = TurnSmoothTimeWhileMoving;
@@ -87,6 +88,7 @@ public class PushObjects : MonoBehaviour
         {
             changeToDefault = false;
             switchToPush = true;
+            C1Movement.PushingIceCube = false;
             pushDirection = Vector3.zero;
             iceMovingVector = Vector3.zero;
             animator.SetBool("PushStone", false);
@@ -96,7 +98,17 @@ public class PushObjects : MonoBehaviour
     }
     private void MoveIce()
     {
+        C1Movement.ViewDirVec.x = gameObject.transform.position.x - C1Movement.transform.position.x;
+        C1Movement.ViewDirVec.y = gameObject.transform.position.z - C1Movement.transform.position.z;
         CalculateIceMovingVector();
+        if (iceMovingVector.x < 0 && pushDirection.x < 0)
+        {
+            pushDirection.x *= -1;
+        }
+        if (iceMovingVector.z > 0 && pushDirection.z < 0)
+        {
+            pushDirection.z *= -1;
+        }
         iceMovingVector.x *= pushDirection.x;
         iceMovingVector.y *= pushDirection.y;
         iceMovingVector.z *= pushDirection.z;
@@ -105,15 +117,8 @@ public class PushObjects : MonoBehaviour
     }
     private void CalculateIceMovingVector()
     {
-        if (pushDirection.x == 1 || pushDirection.x == -1)
-        {
-            iceMovingVector.x = transform.TransformPoint(targetposition.transform.position).x - transform.TransformPoint(gameObject.transform.position.x);
-
-        }
-        else if (pushDirection.z == 1 || pushDirection.z == -1)
-        {
-            iceMovingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
-        }
+            iceMovingVector.x = targetposition.transform.position.x - transform.position.x;
+            iceMovingVector.z = targetposition.transform.position.z - transform.position.z;
     }
     private void SetPushDirection()
     {

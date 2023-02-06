@@ -13,6 +13,9 @@ public class CharacterMovementP1 : MonoBehaviour
     public float TurnSmoothTime = 0.1f;
     public float compensateRadius = 0.15f;
     public bool CantJump;
+    [Header("IceCubePushing")]
+    public Vector2 ViewDirVec;
+    public bool PushingIceCube;
 
     [SerializeField] [Range(0,1)]private float CanMoveDirectionCheckSphereDistance;
     [SerializeField] [Range(0,-1)]private float dotMinCanMoveDirectionCheckSphere;
@@ -29,7 +32,6 @@ public class CharacterMovementP1 : MonoBehaviour
     private Vector3 cCastPos1;
     private Vector3 cCastPos2;
     private float dotCharakterDirection;
-    private float dotPlayerInput;
     private float turnSmoothVelocity;
     private float horizontalP1;
     private float verticalP1;
@@ -59,7 +61,14 @@ public class CharacterMovementP1 : MonoBehaviour
 
     private void CalculateMoveDirection()
     {
-        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
+        if (PushingIceCube)
+        {
+            targetAngle = Mathf.Atan2(ViewDirVec.x, ViewDirVec.y) * Mathf.Rad2Deg;
+        }
+        else
+        {
+            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.transform.eulerAngles.y;
+        }
         angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, TurnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
         moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
