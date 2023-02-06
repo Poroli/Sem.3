@@ -19328,7 +19328,7 @@ GameObject:
   - component: {fileID: 1511217972}
   - component: {fileID: 1511217979}
   m_Layer: 6
-  m_Name: Stone_1
+  m_Name: PushableStone
   m_TagString: InteractableP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19361,11 +19361,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   C1Movement: {fileID: 0}
-  StoneMovable: 0
+  ObjectMovable: 0
   SmoothSpeed: 15
   SpeedWhileMoving: 1.5
   TurnSmoothTimeWhileMoving: 2
   animator: {fileID: 1136582746}
+  objectToMoveID: 0
 --- !u!54 &1511217974
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27844,19 +27845,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.04081439
+      value: -0.04081443
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.009634968
+      value: -0.009634977
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.04081443
+      value: -0.04081439
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.009634977
+      value: -0.009634968
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085671535616, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -27944,19 +27945,19 @@ PrefabInstance:
       objectReference: {fileID: 1651556119}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.04081443
+      value: -0.04081439
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.009634977
+      value: -0.009634968
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.02765702
+      value: 0.027657067
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008373873
+      value: -0.008373887
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087262338192, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y

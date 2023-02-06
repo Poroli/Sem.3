@@ -14,24 +14,24 @@ public class PushObjects : MonoBehaviour
     [SerializeField] [Range(0,1)] private int objectToMoveID;
     private GameObject targetposition;
     private Rigidbody rb;
-    private Vector3 movingVector;
+    private Vector3 iceMovingVector;
+    private Vector3 stoneMovingVector;
     private float tempC1Speed;
     private float tempC1TurnSmoothTime;
     private bool switchToPush = true;
     private bool changeToDefault = false;
     private Vector2 positionRelToPlayerVector;
-    private Vector2 pushDirection;
+    private Vector3 pushDirection;
 
     private void CheckStoneMovable()
     {
-        if (!ObjectMovable)
+        if (!ObjectMovable && changeToDefault!)
         {
             return;
         }
         if (ObjectMovable)
         {
             rb.constraints = RigidbodyConstraints.None;
-            MoveStone();
             if (switchToPush)
             {
                 changeToDefault = true;
@@ -40,6 +40,7 @@ public class PushObjects : MonoBehaviour
                 C1Movement.Speed = SpeedWhileMoving;
                 C1Movement.TurnSmoothTime = TurnSmoothTimeWhileMoving;
             }
+            MoveStone();
         }
         else if (changeToDefault)
         {
@@ -53,39 +54,41 @@ public class PushObjects : MonoBehaviour
     private void MoveStone()
     {
         CalculateStoneMovingVector();
-        rb.velocity = movingVector;
+        rb.velocity = stoneMovingVector;
     }
     private void CalculateStoneMovingVector()
     {
-        movingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
-        movingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
-        movingVector *= SmoothSpeed;
-        movingVector.y = rb.velocity.y;
+        stoneMovingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
+        stoneMovingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
+        stoneMovingVector *= SmoothSpeed;
+        stoneMovingVector.y = rb.velocity.y;
     }
 
     private void CheckIceCubeMovable()
     {
-        if (!ObjectMovable)
+        if (!ObjectMovable && !changeToDefault)
         {
             return;
         }
         else if (ObjectMovable)
         {
-            CheckIceCubeMovable();
             if (switchToPush)
             {
-                SetPushDirection();
+                switchToPush = false;
                 changeToDefault = true;
-            //    switchToPush = true;
+                SetPushDirection();
                 animator.SetBool("PushStone", true);
-            //    C1Movement.Speed = SpeedWhileMoving;
-            //    C1Movement.TurnSmoothTime = TurnSmoothTimeWhileMoving;
+                C1Movement.Speed = SpeedWhileMoving;
+                C1Movement.TurnSmoothTime = TurnSmoothTimeWhileMoving;
             }
+            MoveIce();
         }
         else if (changeToDefault)
         {
             changeToDefault = false;
             switchToPush = true;
+            pushDirection = Vector3.zero;
+            iceMovingVector = Vector3.zero;
             animator.SetBool("PushStone", false);
             C1Movement.Speed = tempC1Speed;
             C1Movement.TurnSmoothTime = tempC1TurnSmoothTime;
@@ -94,14 +97,22 @@ public class PushObjects : MonoBehaviour
     private void MoveIce()
     {
         CalculateIceMovingVector();
-        rb.velocity = movingVector;
+        iceMovingVector.x = pushDirection.x;
+        iceMovingVector.y = pushDirection.y;
+        iceMovingVector.z = pushDirection.z;
+        iceMovingVector *= SmoothSpeed;
+        rb.AddForce(iceMovingVector, ForceMode.Force);
     }
     private void CalculateIceMovingVector()
     {
-        movingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
-        movingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
-        movingVector *= SmoothSpeed;
-        movingVector.y = rb.velocity.y;
+        if (pushDirection.x == 1 || pushDirection.x == -1)
+        {
+            iceMovingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
+        }
+        else if (pushDirection.z == 1 || pushDirection.z == -1)
+        {
+            iceMovingVector.z = targetposition.transform.position.z - gameObject.transform.position.z;
+        }
     }
     private void SetPushDirection()
     {
@@ -112,27 +123,38 @@ public class PushObjects : MonoBehaviour
         if (positionRelToPlayerVector.y > 0 && (positionRelToPlayerVector.x > -positionRelToPlayerVector.y && positionRelToPlayerVector.x < positionRelToPlayerVector.y))
         {
             Debug.Log("FRONT");
+            pushDirection.z = -1;
         }
         //Forward
         if (positionRelToPlayerVector.y < 0 && (positionRelToPlayerVector.x < -positionRelToPlayerVector.y && positionRelToPlayerVector.x > positionRelToPlayerVector.y))
         {
             Debug.Log("Back");
+            pushDirection.z = 1;
         }
         //Left
         if (positionRelToPlayerVector.x > 0 && (positionRelToPlayerVector.y > -positionRelToPlayerVector.x && positionRelToPlayerVector.y < positionRelToPlayerVector.x))
         {
             Debug.Log("Right");
+            pushDirection.x = 1;
         }
         //Right
         if (positionRelToPlayerVector.x < 0 && (positionRelToPlayerVector.y < -positionRelToPlayerVector.x && positionRelToPlayerVector.y > positionRelToPlayerVector.x))
         {
             Debug.Log("Left");
+            pushDirection.x = -1;
         }
     }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        targetposition = GameObject.Find("PushTargetPosition");
+        if (gameObject.name == "PushableStone")
+        {
+            targetposition = GameObject.Find("StonePushTargetPosition");
+        }
+        else if (gameObject.name == "IceCubeBigPushable")
+        {
+            targetposition = GameObject.Find("IcePushTargetPosition");
+        }
         C1Movement = FindObjectOfType<CharacterMovementP1>();
         tempC1Speed = C1Movement.Speed;
         tempC1TurnSmoothTime = C1Movement.TurnSmoothTime;
