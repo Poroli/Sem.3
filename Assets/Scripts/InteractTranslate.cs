@@ -11,7 +11,7 @@ public class InteractTranslate : MonoBehaviour
     private int i;
     private bool switchCount1 = false;
     private bool switchCount2 = true;
-    private StoneMoving sMoving;
+    private PushObjects sMoving;
     private GoAwayWall gAW;
     private ThrowObject tObject;
     private CollectShard collectShard;
@@ -36,9 +36,9 @@ public class InteractTranslate : MonoBehaviour
     
     private void Start()
     {
-        if (GetComponent<StoneMoving>())
+        if (GetComponent<PushObjects>())
         {
-            sMoving = GetComponent<StoneMoving>();
+            sMoving = GetComponent<PushObjects>();
             i = 0;
             uSO[i] = true;
         }
@@ -101,12 +101,12 @@ public class InteractTranslate : MonoBehaviour
                 case 0:
                     if (InRange)
                     {
-                        sMoving.StoneMovable = true;
+                        sMoving.ObjectMovable = true;
                     }
                     else
                     {
                         Interact = false;
-                        sMoving.StoneMovable = false;
+                        sMoving.ObjectMovable = false;
                     }
                     break;
                 case 1:
@@ -180,7 +180,7 @@ public class InteractTranslate : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    sMoving.StoneMovable = false;
+                    sMoving.ObjectMovable = false;
                     break;
                 case 1:
                     if (!switchCount2)
