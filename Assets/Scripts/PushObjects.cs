@@ -122,7 +122,7 @@ public class PushObjects : MonoBehaviour
         //Backwards
         if (positionRelToPlayerVector.y > 0 && (positionRelToPlayerVector.x > -positionRelToPlayerVector.y && positionRelToPlayerVector.x < positionRelToPlayerVector.y))
         {
-            Debug.Log("FRONT");
+            Debug.Log("Front");
             pushDirection.z = -1;
         }
         //Forward

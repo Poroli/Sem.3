@@ -8,7 +8,7 @@ public class PauseFunctions : MonoBehaviour
     public GameObject ButtonsPause;
     public GameObject PauseMenu;
 
-    private InteractWithObject iWO;
+    private InteractWithObject[] iWOs;
 
     public void OpenOptions()
     {
@@ -25,7 +25,10 @@ public class PauseFunctions : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1;
-        iWO.RefreshPlayerSpecifics();
+        foreach (InteractWithObject iWO in iWOs)
+        {
+            iWO.RefreshPlayerSpecifics();
+        }
         PauseMenu.SetActive(false);
     }
 
@@ -42,7 +45,7 @@ public class PauseFunctions : MonoBehaviour
         PauseMenu = GameObject.Find("Pause_Menu");
         OptionsButtons.SetActive(false);
         PauseMenu.SetActive(false);
-        iWO = FindObjectOfType<InteractWithObject>();
+        iWOs = FindObjectsOfType<InteractWithObject>();
     }
 
 
