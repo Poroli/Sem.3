@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
     private void LoadGame()
     {
         saveFunctions.Load();
+        Debug.Break();
         loadingScene.LoadScene();
     }
     private void StartDemo()

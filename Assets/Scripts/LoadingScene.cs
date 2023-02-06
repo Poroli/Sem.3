@@ -35,6 +35,7 @@ public class LoadingScene : MonoBehaviour
         else 
         {
             WhichSceneShouldBeLoaded();
+            Debug.Log("2");
         }
         LoadingScreen.Play();
         cam.gameObject.SetActive(true);

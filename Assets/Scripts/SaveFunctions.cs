@@ -42,13 +42,15 @@ public class SaveFunctions : MonoBehaviour
 
         FileStream stream = new(path, FileMode.Create);
         
-        SaveDataContainer charData = new();
+        //SaveDataContainer charData = new();
+        SaveDataHelper dataHelper = new SaveDataHelper(SaveDataContainer.p1Jump, SaveDataContainer.p1Interact, SaveDataContainer.p2Interact, SaveDataContainer.levelsCompleted, SaveDataContainer.elementsActivated);
 
-        formatter.Serialize(stream, charData);
+
+        formatter.Serialize(stream, dataHelper);
         stream.Close();
     }
 
-    private static SaveDataContainer LoadDataIntoDataToSave()
+    private static void LoadDataIntoDataToSave()
     {
         string path = Application.persistentDataPath + "/SaveGame.orb";
 
@@ -57,22 +59,48 @@ public class SaveFunctions : MonoBehaviour
             BinaryFormatter formatter = new();
             FileStream stream = new(path, FileMode.Open);
 
-            SaveDataContainer data = formatter.Deserialize(stream) as SaveDataContainer;
+            SaveDataHelper dataHelper = formatter.Deserialize(stream) as SaveDataHelper;
+            SaveDataContainer.p1Jump = dataHelper.p1Jump;
+            SaveDataContainer.p1Interact = dataHelper.p1Interact;
+            SaveDataContainer.p2Interact = dataHelper.p2Interact;
+            SaveDataContainer.levelsCompleted = dataHelper.levelsCompleted;
+            SaveDataContainer.elementsActivated = dataHelper.elementsActivated;
 
             stream.Close();
             canLoadData = true;
-            return data;
+            //return data;
         }
         else
         {
             Debug.LogError("Error: Save file not found in " + path);
             canLoadData = false;
-            return null;
+           // return null;
         }
     }
 
     private void Start()
     {
         dataToSave = GetComponent<DataToSave>();
+    }
+
+    [System.Serializable]
+    private class SaveDataHelper 
+    {
+        public KeyCode p1Jump;
+        public KeyCode p1Interact;
+        public KeyCode p2Interact;
+
+        public bool[] levelsCompleted;
+
+        public bool[] elementsActivated;
+
+        public SaveDataHelper(KeyCode p1Jump, KeyCode p1Interact, KeyCode p2Interact, bool[] levelsCompleted, bool[] elementsActivated)
+        {
+            this.p1Jump = p1Jump;
+            this.p1Interact = p1Interact;
+            this.p2Interact = p2Interact;
+            this.levelsCompleted = levelsCompleted;
+            this.elementsActivated = elementsActivated;
+        }
     }
 }

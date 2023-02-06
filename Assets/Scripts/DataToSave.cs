@@ -39,13 +39,13 @@ public class DataToSave : MonoBehaviour
             MasterControlScript.LevelsCompleted = SaveDataContainer.levelsCompleted;
 
             EManager.ElementsActivated = SaveDataContainer.elementsActivated;
-
+            Debug.Log("SyncDatasuc!");
         }
     }
 }
 
 [Serializable]
-public class SaveDataContainer
+public static class SaveDataContainer
 {
     public static KeyCode p1Jump;
     public static KeyCode p1Interact;
