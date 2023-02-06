@@ -61,9 +61,9 @@ public class InteractWithObject : MonoBehaviour
         {
             return;
         }
-        for (int i = 0; i < InteractTranslates.Count; i++)
+        for (int i = InteractTranslates.Count -1; i >= 0; i--)
         {
-            if (InteractTranslates[i] == null || InteractTranslates[i].gameObject.activeInHierarchy)
+            if (InteractTranslates[i].gameObject == ShardManager.GOToCheck)
             {
                 InteractTranslates.RemoveAt(i);
             }

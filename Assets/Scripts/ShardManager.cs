@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ShardManager : MonoBehaviour
 {
-    public GameObject GOToCheck;
+    public static GameObject GOToCheck;
     
     [SerializeField] [Range(0,6)] private int ShardsToCollect;
-    private int ShardsCollected;
+    private static int ShardsCollected;
     
-    private InteractWithObject[] iWOs;
+    private static InteractWithObject[] iWOs;
 
     private void Start()
     {
         iWOs = FindObjectsOfType<InteractWithObject>();
     }
 
-    public void CheckShardCollectable()
+    public static void CheckShardCollectable()
     {
         foreach (InteractWithObject IWO in iWOs)
         {
@@ -26,9 +26,9 @@ public class ShardManager : MonoBehaviour
                 {
                     IT.gameObject.SetActive(false);
                     ShardsCollected += 1;
-                    IWO.RefreshInteractTranslates();
                 }
             }
+            IWO.RefreshInteractTranslates();
         }
     }
 }
