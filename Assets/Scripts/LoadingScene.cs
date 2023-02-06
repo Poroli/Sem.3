@@ -7,12 +7,13 @@ using UnityEngine.Video;
 public class LoadingScene : MonoBehaviour
 {
     public VideoPlayer LoadingScreen;
+    public bool startDemo;
 
     [SerializeField] private Camera cam;
     [SerializeField] private MasterControlScript mCS;
     [SerializeField] private string[] Levels;
     private string SceneToBeLoaded;
-    private void WichSceneShouldBeLoaded() 
+    private void WhichSceneShouldBeLoaded() 
     {
         for (int i = 0; i < mCS.LevelsCompleted.Length; i++) 
         {
@@ -26,10 +27,19 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadScene()
     {
-        WichSceneShouldBeLoaded();
+        if (startDemo)
+        {
+            SceneToBeLoaded = "Demo";
+            startDemo = false;
+        }
+        else 
+        {
+            WhichSceneShouldBeLoaded();
+        }
         LoadingScreen.Play();
         cam.gameObject.SetActive(true);
-        StartCoroutine(LoadSceneAsync());
+        StartCoroutine(LoadSceneAsync());           
+
     }
 
     private IEnumerator LoadSceneAsync()
