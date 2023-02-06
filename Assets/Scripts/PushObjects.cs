@@ -97,17 +97,18 @@ public class PushObjects : MonoBehaviour
     private void MoveIce()
     {
         CalculateIceMovingVector();
-        iceMovingVector.x = pushDirection.x;
-        iceMovingVector.y = pushDirection.y;
-        iceMovingVector.z = pushDirection.z;
+        iceMovingVector.x *= pushDirection.x;
+        iceMovingVector.y *= pushDirection.y;
+        iceMovingVector.z *= pushDirection.z;
         iceMovingVector *= SmoothSpeed;
-        rb.AddForce(iceMovingVector, ForceMode.Force);
+        rb.velocity= iceMovingVector;
     }
     private void CalculateIceMovingVector()
     {
         if (pushDirection.x == 1 || pushDirection.x == -1)
         {
-            iceMovingVector.x = targetposition.transform.position.x - gameObject.transform.position.x;
+            iceMovingVector.x = transform.TransformPoint(targetposition.transform.position).x - transform.TransformPoint(gameObject.transform.position.x);
+
         }
         else if (pushDirection.z == 1 || pushDirection.z == -1)
         {
