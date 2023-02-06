@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     /// 4 = OpenOptions
     /// </summary>
     private SaveFunctions saveFunctions;
+    private PauseFunctions pauseFunctions;
+    private LoadingScene loadingScene;
 
     public void WhichFunctionCalled() 
     {
@@ -40,26 +42,32 @@ public class MainMenu : MonoBehaviour
     private void NewGame()
     {
         saveFunctions.NewGame();
-        SceneManager.LoadScene("Level_1");
+        loadingScene.LoadScene();
     }
     private void LoadGame()
     {
-    
+        saveFunctions.Load();
+        Debug.Break();
+        loadingScene.LoadScene();
     }
     private void StartDemo()
     {
-
+       loadingScene.startDemo = true;
+       loadingScene.LoadScene();
     }
     private void ExitGame()
     {
-
+        Application.Quit();
     }
     private void OpenOptions()
     {
-
+        pauseFunctions.StartPauseMenu();
     }
     private void Start()
     { 
         saveFunctions = FindObjectOfType<SaveFunctions>();   
+        pauseFunctions= FindObjectOfType<PauseFunctions>();
+        loadingScene= FindObjectOfType<LoadingScene>();
     }
+    
 }

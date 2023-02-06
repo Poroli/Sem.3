@@ -29,6 +29,11 @@ public class PauseFunctions : MonoBehaviour
         PauseMenu.SetActive(false);
     }
 
+    public void StartPauseMenu()
+    {
+        Time.timeScale = 0;
+        PauseMenu.SetActive(true);
+    }
 
     private void Start()
     {
