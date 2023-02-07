@@ -5,8 +5,9 @@ using UnityEngine;
 public class ShardManager : MonoBehaviour
 {
     public static GameObject GOToCheck;
+    public static bool AllShardsCollected;
     
-    [SerializeField] [Range(0,6)] private int ShardsToCollect;
+    [SerializeField] [Range(0,6)] private static int ShardsToCollect;
     private static int ShardsCollected;
     
     private static InteractWithObject[] iWOs;
@@ -14,6 +15,18 @@ public class ShardManager : MonoBehaviour
     private void Start()
     {
         iWOs = FindObjectsOfType<InteractWithObject>();
+    }
+
+    private static void CheckAllShardsCollected()
+    {
+        if (ShardsCollected >= ShardsToCollect)
+        {
+            AllShardsCollected = true;
+        }
+        else
+        {
+            AllShardsCollected = false;
+        }
     }
 
     public static void CheckShardCollectable()
@@ -26,6 +39,7 @@ public class ShardManager : MonoBehaviour
                 {
                     IT.gameObject.SetActive(false);
                     ShardsCollected += 1;
+                    CheckAllShardsCollected();
                 }
             }
             IWO.RefreshInteractTranslates();

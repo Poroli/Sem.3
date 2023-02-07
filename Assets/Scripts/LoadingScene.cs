@@ -6,7 +6,8 @@ using UnityEngine.Video;
 
 public class LoadingScene : MonoBehaviour
 {
-    public VideoPlayer LoadingScreen;
+    public VideoPlayer LoadingScreenVideoPlayer;
+    public VideoClip LoadingScreen;
     public bool startDemo;
     public bool startMainMenu;
 
@@ -42,8 +43,9 @@ public class LoadingScene : MonoBehaviour
         {
             WhichSceneShouldBeLoaded();
         }
-        LoadingScreen.Play();
         cam.gameObject.SetActive(true);
+        LoadingScreenVideoPlayer.clip = LoadingScreen;
+        LoadingScreenVideoPlayer.Play();
         StartCoroutine(LoadSceneAsync());           
 
     }
@@ -59,7 +61,7 @@ public class LoadingScene : MonoBehaviour
     }
     private void Start()
     {
-        LoadingScreen = GetComponent<VideoPlayer>();
+        LoadingScreenVideoPlayer = GetComponent<VideoPlayer>();
     }
 }
 

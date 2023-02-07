@@ -593,7 +593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046312648280275524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.71, y: 14.04, z: 21.8}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -767,7 +767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046312648317083576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.44, y: 5.29, z: -2.01}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -802,6 +802,8 @@ MonoBehaviour:
   TurnSmoothTime: 0.1
   compensateRadius: 0.15
   CantJump: 0
+  ViewDirVec: {x: 0, y: 0}
+  PushingIceCube: 0
   CanMoveDirectionCheckSphereDistance: 0.25
   dotMinCanMoveDirectionCheckSphere: -0.1
   dotMoveDirectionCompensate: 0
@@ -831,7 +833,7 @@ MonoBehaviour:
   animator: {fileID: 4348029215569978354}
   groundlayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   jumpAmount: 1
   options: {fileID: 11400000, guid: d7a1a2771f30d804fa927978753a01fa, type: 2}
 --- !u!136 &2046312648317083583

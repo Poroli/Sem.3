@@ -25,7 +25,7 @@ public class PushObjects : MonoBehaviour
 
     private void CheckStoneMovable()
     {
-        if (!ObjectMovable && changeToDefault!)
+        if (!ObjectMovable && !changeToDefault)
         {
             return;
         }

@@ -5,25 +5,26 @@ using UnityEngine;
 public class ChangeKeys : MonoBehaviour
 {
     public ControlKeys ControlKeys;
-    public bool GetKeyInput;
 
     private KeyCode tempKeyCode;
+    private bool keyToChangeSelected;
+    private bool readyForNewKey;
     private int i;
 
     public void JumpP1()
     {
         i = 0;
-        GetKeyInput = true;
+        keyToChangeSelected = true;
     }
     public void InteractP1()
     {
         i = 1;
-        GetKeyInput = true;
+        keyToChangeSelected = true;
     }
     public void InteractP2()
     {
         i = 2;
-        GetKeyInput = true;
+        keyToChangeSelected = true;
     }
 
     private void Keychange()
@@ -45,17 +46,23 @@ public class ChangeKeys : MonoBehaviour
 
     private void Update()
     {
-        if (GetKeyInput)
+        if (readyForNewKey)
         {
             foreach (KeyCode TempKey in System.Enum.GetValues(typeof(KeyCode)))
             {
-                if (Input.GetKey(TempKey))
+                if (Input.GetKeyDown(TempKey))
                 {
+                    readyForNewKey = false;
                     tempKeyCode = TempKey;
                     Keychange();
-                    GetKeyInput = false;
                 }
             }
+
+        }
+        else if (keyToChangeSelected)
+        {
+            readyForNewKey = true;
+            keyToChangeSelected = false;
         }
     }
 }

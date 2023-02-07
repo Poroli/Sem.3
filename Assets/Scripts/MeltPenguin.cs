@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeltPenguin : MonoBehaviour
 {
     [SerializeField] private LayerMask fireball;
+    [SerializeField] private Material pinguMaterial;
     private int i = 0;
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,9 +29,13 @@ public class MeltPenguin : MonoBehaviour
 
             i++;
         }
+        gameObject.AddComponent<MeshFilter>();
+        gameObject.AddComponent<MeshCollider>();
+        gameObject.AddComponent<MeshRenderer>().material = pinguMaterial;
         gameObject.GetComponent<MeshFilter>().mesh = new Mesh();
         gameObject.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         MeshCollider meshCollider = gameObject.GetComponent<MeshCollider>();
         meshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().mesh;
+        transform.gameObject.SetActive(true);
     }
 }
