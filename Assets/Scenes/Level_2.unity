@@ -591,6 +591,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 857422022}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5502018618306810013, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -842,7 +854,7 @@ Transform:
   m_Children:
   - {fileID: 1404493162}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &82156343
 MonoBehaviour:
@@ -926,6 +938,7 @@ Transform:
   m_Children:
   - {fileID: 1598058035}
   - {fileID: 1621338274}
+  - {fileID: 857422023}
   m_Father: {fileID: 1147910897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1221,7 +1234,7 @@ Transform:
   m_Children:
   - {fileID: 120698080}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &135963642
 MonoBehaviour:
@@ -1994,7 +2007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057340745407866545, guid: 597859954d1d95c4d81095c1ff5411e8, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9057340745407866545, guid: 597859954d1d95c4d81095c1ff5411e8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2181,6 +2194,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 2105835471}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5502018618306810013, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2561,6 +2586,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1110066924447119157, guid: 745d3a9b5f076db40b151c29a24f748f, type: 3}
   m_PrefabInstance: {fileID: 213438599}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &249683457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249683458}
+  m_Layer: 6
+  m_Name: ShardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249683458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249683457}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16, y: 2, z: -12.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565102928}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &296118675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1314002005697678448, guid: 88f770fbf654a244b8f2e5b37b1955b4, type: 3}
@@ -2598,6 +2654,7 @@ Transform:
   - {fileID: 1999208697}
   - {fileID: 1654305754}
   - {fileID: 513708771}
+  - {fileID: 1165766889}
   m_Father: {fileID: 1147910897}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2874,7 +2931,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
@@ -3236,7 +3293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014734289153277596, guid: 8d4f9f57d5388c54bbce54e73fae11b5, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1014734289153277596, guid: 8d4f9f57d5388c54bbce54e73fae11b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3535,6 +3592,7 @@ Transform:
   - {fileID: 3614189203677894254}
   - {fileID: 5222177538813357454}
   - {fileID: 3484976910460392255}
+  - {fileID: 249683458}
   m_Father: {fileID: 1147910897}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3711,6 +3769,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1165766888}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5502018618306810013, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3898,6 +3968,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1336892113596248818, guid: c3983334a78277041a61f902cb70d383, type: 3}
   m_PrefabInstance: {fileID: 646139834}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &726005875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+  m_PrefabInstance: {fileID: 2070863328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726633142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,6 +4109,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 857422022}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 140139206413121049, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4237,6 +4324,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandleMiddle (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 2105835471}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
 --- !u!4 &778693092 stripped
@@ -4251,6 +4350,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 2105835471}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 140139206413121049, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4402,6 +4513,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9107778429877778202, guid: adaeaf38cb76a214889fa3b9c81963b2, type: 3}
   m_PrefabInstance: {fileID: 1619150359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &857422022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 857422023}
+  m_Layer: 6
+  m_Name: ShardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &857422023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857422022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 1, z: 7.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 87795924}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862143450
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,7 +4891,7 @@ Transform:
   - {fileID: 1291351870}
   - {fileID: 63159384}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961719922
 GameObject:
@@ -4974,6 +5116,18 @@ PrefabInstance:
     - target: {fileID: 3630983352631267057, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
       propertyPath: m_Name
       value: CandleMiddle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1165766888}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
@@ -5328,6 +5482,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 140139206689876924, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
   m_PrefabInstance: {fileID: 140139207812291042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1165766888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165766889}
+  m_Layer: 6
+  m_Name: ShardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1165766889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165766888}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13, y: 2, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 299224217}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1177309327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5390,6 +5575,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1336892113596248818, guid: c3983334a78277041a61f902cb70d383, type: 3}
   m_PrefabInstance: {fileID: 1177309327}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1179183510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179183511}
+  m_Layer: 0
+  m_Name: Shards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1179183511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179183510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2081114887}
+  - {fileID: 726005875}
+  m_Father: {fileID: 1291351870}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1257034583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5581,6 +5799,7 @@ Transform:
   - {fileID: 1147910897}
   - {fileID: 1773890192}
   - {fileID: 9107778429699053633}
+  - {fileID: 1179183511}
   m_Father: {fileID: 951167479}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5895,6 +6114,7 @@ Transform:
   - {fileID: 1030967600}
   - {fileID: 180367318}
   - {fileID: 296118675}
+  - {fileID: 1678574521}
   m_Father: {fileID: 1147910897}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6100,7 +6320,7 @@ Transform:
   m_Children:
   - {fileID: 343664911}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478962043
 PrefabInstance:
@@ -6460,6 +6680,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandleMiddle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1678574520}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
 --- !u!4 &1551926801 stripped
@@ -6474,6 +6706,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1165766888}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 140139206413121049, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7002,6 +7246,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8508831100492758527, guid: 6af22f2b3182157469775458f1e7a4d8, type: 3}
   m_PrefabInstance: {fileID: 1654305753}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1678574520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678574521}
+  m_Layer: 6
+  m_Name: ShardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678574521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678574520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1384705419}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1679982413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7009,6 +7284,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1678574520}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5502018618306810013, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7215,6 +7502,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 1678574520}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 140139206413121049, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7446,7 +7745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550308309936626106, guid: 3e8ca9447b684d7488586575112a117a, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3550308309936626106, guid: 3e8ca9447b684d7488586575112a117a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8311,6 +8610,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandleMiddle
       objectReference: {fileID: 0}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 857422022}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
 --- !u!4 &1949502732 stripped
@@ -8415,7 +8726,7 @@ Transform:
   m_Children:
   - {fileID: 1612556081}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2001706659
 MonoBehaviour:
@@ -8492,8 +8803,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1179183511}
     m_Modifications:
+    - target: {fileID: -816709801023610660, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_Name
       value: Watershard2
@@ -8504,7 +8819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8512,7 +8827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.402
+      value: 3.135
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8524,7 +8839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8609,6 +8924,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f770fbf654a244b8f2e5b37b1955b4, type: 3}
+--- !u!4 &2081114887 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+  m_PrefabInstance: {fileID: 8839469838788795694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2081164442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8775,8 +9095,40 @@ Transform:
   m_Children:
   - {fileID: 44972226}
   - {fileID: 461476760}
+  - {fileID: 2105835472}
   m_Father: {fileID: 1147910897}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2105835471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105835472}
+  m_Layer: 6
+  m_Name: ShardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105835472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105835471}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.75, y: 1, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2091079648}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &140139207812291042
 PrefabInstance:
@@ -8785,6 +9137,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 249683457}
+    - target: {fileID: 140139206018670677, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 140139206413121049, guid: 0e8677f7aef2a7a4d82bfdc252f23f6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9529,7 +9893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046312648662398377, guid: 8f2499d9bd9d12a44928318f7fe609dc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2046312648662398377, guid: 8f2499d9bd9d12a44928318f7fe609dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9623,15 +9987,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22781949
+      value: 0.22781946
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12599614
+      value: 0.12599602
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655656, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.029743649
+      value: -0.029743623
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085263655659, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Layer
@@ -9655,15 +10019,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22781949
+      value: 0.22781946
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12599616
+      value: 0.12599602
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108120, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02974365
+      value: -0.029743623
       objectReference: {fileID: 0}
     - target: {fileID: 2067713085597108123, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Layer
@@ -9819,15 +10183,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086765218157, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3375605
+      value: 0.33756047
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086765218157, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12172694
+      value: 0.12172684
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086765218157, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04407123
+      value: -0.04407119
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086774960419, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Layer
@@ -9851,7 +10215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086836825541, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2067713086836825541, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9951,15 +10315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22781949
+      value: 0.22781946
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12599616
+      value: 0.12599602
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087129259955, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02974365
+      value: -0.029743623
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9979,15 +10343,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2872926
+      value: 0.28729257
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12523788
+      value: 0.12523784
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400572, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.03791898
+      value: -0.03791897
       objectReference: {fileID: 0}
     - target: {fileID: 2067713087187400575, guid: a27d5b2ae8c824e4394bb76f823254c0, type: 3}
       propertyPath: m_Layer
@@ -10389,7 +10753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550308309936626106, guid: 3e8ca9447b684d7488586575112a117a, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3550308309936626106, guid: 3e8ca9447b684d7488586575112a117a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10585,6 +10949,18 @@ PrefabInstance:
     - target: {fileID: 3630983352631267057, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
       propertyPath: m_Name
       value: CandleMiddle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 249683457}
+    - target: {fileID: 3630983354255220656, guid: bbbad9dbc598df1438f08438779d462b, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 9032888553551873687, guid: 5ec2f5a7249adb24dbaafa48a6fd5ee9, type: 3}
       propertyPath: m_Layer
@@ -10797,6 +11173,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773890192}
     m_Modifications:
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardToSpawn
+      value: 
+      objectReference: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: shardSpawnPosition
+      value: 
+      objectReference: {fileID: 249683457}
+    - target: {fileID: 1991537315, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
+      propertyPath: fireballLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5502018618306810013, guid: 8135c8ef701ee144c8c5969f281244ba, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -10864,7 +11252,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5890729615739463329, guid: cdcf37469be2f9b45a54d6429ceeb509, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5890729615739463329, guid: cdcf37469be2f9b45a54d6429ceeb509, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11322,7 +11710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7458986521124964948, guid: 57d7bb5a75290a24f983a362ba2f0304, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7458986521124964948, guid: 57d7bb5a75290a24f983a362ba2f0304, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11459,19 +11847,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1179183511}
     m_Modifications:
+    - target: {fileID: -816709801023610660, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     - target: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_Name
       value: Watershard
       objectReference: {fileID: 0}
     - target: {fileID: 5107203578232816487, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11479,7 +11871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11491,7 +11883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5596776096757160413, guid: 261820163e5e2004daae5af74a59c7ac, type: 3}
       propertyPath: m_LocalRotation.y

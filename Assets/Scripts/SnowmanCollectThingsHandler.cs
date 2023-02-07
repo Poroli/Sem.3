@@ -7,6 +7,7 @@ public class SnowmanCollectThingsHandler : MonoBehaviour
     public bool[] accessoiresCollected;
 
     [SerializeField] private GameObject[] accesoires;
+    [SerializeField] private GameObject Shard;
     private int AccessoireCount;
 
     
@@ -40,10 +41,11 @@ public class SnowmanCollectThingsHandler : MonoBehaviour
                  AccessoireCount += 1;
             }
         }
-        if (AccessoireCount == accesoires.Length)
+        if (AccessoireCount >= accesoires.Length)
         {
             DialogueTrigger dialogueTrigger = transform.parent.gameObject.GetComponent<DialogueTrigger>();
             dialogueTrigger.TriggerDialogue();
+            Shard.SetActive(true);
         }
     }
 

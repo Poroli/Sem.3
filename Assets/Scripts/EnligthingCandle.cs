@@ -6,12 +6,13 @@ public class EnligthingCandle : MonoBehaviour
 {
     [SerializeField] private GameObject shardSpawnPosition;
     [SerializeField] private GameObject shardToSpawn;
+    [SerializeField] private LayerMask fireballLayer;
     private EnligthingCandle[] enligthingCandles;
     private GameObject vFXGraph;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("fireballLayer"))
+        if (collision.gameObject.layer == fireballLayer)
         {
             StartCandleFire();
             RandomShardExpose();
@@ -44,7 +45,7 @@ public class EnligthingCandle : MonoBehaviour
     }
     private void Start()
     {
-        FindObjectsOfType<EnligthingCandle>();
+        enligthingCandles = FindObjectsOfType<EnligthingCandle>();
         vFXGraph = transform.parent.GetChild(1).gameObject;
     }
 }
