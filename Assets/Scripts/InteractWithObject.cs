@@ -43,7 +43,6 @@ public class InteractWithObject : MonoBehaviour
     {
         if (this.transform.parent.CompareTag("Player1"))
         {
-            Debug.Log("Test StringSet");
             playerKey = CKeys.P1InteractKey;
             Interactable = "InteractableP1";
             InteractWithPlayer = "Player2";
