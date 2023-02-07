@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.43
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.32
+      value: 2.6959999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.815647
+      value: 17.21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3a60d26592cee1c4e8d0b33663a73a1a, type: 2}
     - target: {fileID: 919132149155446097, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_Name
-      value: Fountain Variant
+      value: Fountain_Penguin Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1011244851801769193, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -89,3 +89,87 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3a60d26592cee1c4e8d0b33663a73a1a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
+--- !u!1 &2411926483702327127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6494435419249051148, guid: 67cf9df4aae9328479c261e48eae3fa8, type: 3}
+  m_PrefabInstance: {fileID: 335451370727333539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &1043354520
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411926483702327127}
+  m_Mesh: {fileID: 0}
+--- !u!64 &1043354519
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411926483702327127}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &1043354518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411926483702327127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced798134667f2d448bd51895b3b7ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!23 &8609508455739283242
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411926483702327127}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
