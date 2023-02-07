@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
     }
     private void OpenOptions()
     {
-        pauseFunctions.StartPauseMenu();
+        pauseFunctions.Pause();
     }
     private void Start()
     { 

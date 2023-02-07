@@ -8,6 +8,7 @@ public class LoadingScene : MonoBehaviour
 {
     public VideoPlayer LoadingScreen;
     public bool startDemo;
+    public bool startMainMenu;
 
     [SerializeField] private Camera cam;
     [SerializeField] private MasterControlScript mCS;
@@ -32,7 +33,12 @@ public class LoadingScene : MonoBehaviour
             SceneToBeLoaded = "Demo";
             startDemo = false;
         }
-        else 
+        if (startMainMenu)
+        {
+            SceneToBeLoaded = "MainMenu";
+            startMainMenu = false;
+        }
+        else
         {
             WhichSceneShouldBeLoaded();
         }

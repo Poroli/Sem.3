@@ -119,7 +119,6 @@ public class ThrowObject : MonoBehaviour
         rbP1 = gOP1.GetComponent<Rigidbody>();
         orient_Point = GameObject.Find("CarryTargetPosition");
         rb = GetComponent<Rigidbody>();
-        hovering= GetComponent<Hoverring>();
         cModelMoth = GameObject.Find("Character_Moth");
         animatorP1 = cModelMoth.GetComponent<Animator>();
         animatorP2 = GetComponentInChildren<Animator>();
@@ -128,6 +127,7 @@ public class ThrowObject : MonoBehaviour
         if (gameObject.CompareTag("Player2"))
         {
             isWhisp = true;
+            hovering = GetComponent<Hoverring>();
         }
         else
         {
@@ -137,7 +137,7 @@ public class ThrowObject : MonoBehaviour
     private void Update()
     {
         CheckCarryThrow();
-        if (!disableCTWHS)
+        if (!disableCTWHS && isWhisp)
         {
             CheckThrownWhispHorizontalSpeed();
         }
