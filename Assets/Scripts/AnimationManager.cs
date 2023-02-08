@@ -7,8 +7,10 @@ using UnityEngine.Video;
 public class AnimationManager : MonoBehaviour
 {
     public int VideoID;
+    public bool CutSceneFinished;
 
     [SerializeField] private VideoClip[] videoClips;
+    [SerializeField] private GameObject uI;
     private VideoPlayer videoPlayer;
     private VideoClip videoClip;
 
@@ -18,6 +20,8 @@ public class AnimationManager : MonoBehaviour
         videoPlayer.clip = videoClip;
         videoPlayer.gameObject.SetActive(true);
         videoPlayer.Play();
+        Time.timeScale = 0;
+        uI.SetActive(false);
         WaitForCutSceneEnd();
     }
 
@@ -35,7 +39,11 @@ public class AnimationManager : MonoBehaviour
 
     private void CutSceneEnds(VideoPlayer vp)
     {
-        Debug.Log("Video Ended");
+        CutSceneFinished = true;
+        videoPlayer.clip = null;
+        uI.SetActive(true);
+        Time.timeScale = 1;
+        videoPlayer.gameObject.SetActive(false);
     }
 
     private void Start()

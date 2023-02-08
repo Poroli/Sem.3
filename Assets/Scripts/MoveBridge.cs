@@ -9,12 +9,18 @@ public class MoveBridge : MonoBehaviour
 
     [SerializeField] private Animator animatorP2;
     private CharacterMovementP2 CMP2;
+    private bool bridgeAlreadyActivated;
 
     public void BridgeAppear()
     {
+        if (bridgeAlreadyActivated)
+        {
+            return;
+        }
         animatorP2.SetTrigger("ActivateRune");
         CMP2.tempNotMovable = true;
         BridgeActivate = true;
+        bridgeAlreadyActivated = true;
     }
 
     private void Start()

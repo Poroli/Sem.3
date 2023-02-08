@@ -35,6 +35,9 @@ public class AnimationEventFunctionCollection : MonoBehaviour
 
         if(MB.BridgeActivate)
         {
+            AnimationManager animationManager = FindObjectOfType<AnimationManager>();
+            animationManager.VideoID = 1;
+            animationManager.StartCutScene();
             MB.Bridge.SetActive(true);
             MB.BridgeActivate = false;
         }
