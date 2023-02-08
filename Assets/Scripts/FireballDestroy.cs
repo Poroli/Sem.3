@@ -11,13 +11,11 @@ public class FireballDestroy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            Debug.Log("Test");
             destroyTimerOn = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
-            Debug.Log("Unground");
             destroyTimerOn = false;
             despawnCounter = 0;
     }
@@ -32,7 +30,7 @@ public class FireballDestroy : MonoBehaviour
         {
             despawnCounter += Time.deltaTime;
         }
-        if (despawnCounter >= TimeToDestroyFireball)
+        if (despawnCounter >= TimeToDestroyFireball && !gameObject.GetComponent<FixedJoint>())
         {
             animator.SetTrigger("DestroyFireball");
         }

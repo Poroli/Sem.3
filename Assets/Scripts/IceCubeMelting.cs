@@ -13,7 +13,7 @@ public class IceCubeMelting : MonoBehaviour
         if (other.gameObject.CompareTag("Meltable"))
         {
 
-            IceCube = other.gameObject.transform.parent.gameObject;
+            IceCube = other.gameObject;
             GameObject.Destroy(IceCube);
 
         }

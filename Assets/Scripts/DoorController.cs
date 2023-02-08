@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    Animator doorAnimation;
+    private Animator doorAnimation;
 
-    private void OnTriggerEnter(Collider other)
+    public void OpenCloseDoor()
     {
-        doorAnimation.SetBool("isOpening", true);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        doorAnimation.SetBool("isOpening", false);
+        if (doorAnimation.GetBool("DoorOpen"))
+        {
+            doorAnimation.SetBool("DoorOpen", false);
+        }
+        else if (!doorAnimation.GetBool("DoorOpen"))
+        {
+            doorAnimation.SetBool("DoorOpen", true);
+        }
     }
 
     void Start()
     {
-        doorAnimation = this.transform.parent.GetComponent<Animator>();
+        doorAnimation = GetComponent<Animator>();
     }
 }

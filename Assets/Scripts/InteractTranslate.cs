@@ -20,7 +20,8 @@ public class InteractTranslate : MonoBehaviour
     private MoveBridge mBridge;
     private MainMenu mainMenu;
     private SnowmanCollectThings snowmanCollectThings;
-    private bool[] uSO = new bool[9];
+    private DoorController doorController;
+    private bool[] uSO = new bool[10];
     /// <summary>
     /// 0 = Stone_Moving
     /// 1 = activate Runes
@@ -31,6 +32,7 @@ public class InteractTranslate : MonoBehaviour
     /// 6 = Bridge
     /// 7 = MainMenuFunctions
     /// 8 = SnowmanCollectThings
+    /// 9 = DoorOpen
     /// 
     /// </summary>
     
@@ -88,6 +90,12 @@ public class InteractTranslate : MonoBehaviour
         {
             snowmanCollectThings = GetComponent<SnowmanCollectThings>();
             i = 8;
+            uSO[i] = true;
+        }
+        if (GetComponent<DoorController>())
+        {
+            doorController = GetComponent<DoorController>();
+            i = 9;
             uSO[i] = true;
         }
     }
@@ -173,6 +181,14 @@ public class InteractTranslate : MonoBehaviour
                         switchCount2 = false;
                     }
                     break;
+                case 9:
+                    if (!switchCount1)
+                    {
+                        switchCount1 = true;
+                        doorController.OpenCloseDoor();
+                        switchCount2 = false;
+                    }
+                    break;
             }
         }
         else if (uSO[i] && !Interact)
@@ -243,6 +259,14 @@ public class InteractTranslate : MonoBehaviour
                     {
                         switchCount2 = true;
                         snowmanCollectThings.CollectObject();
+                        switchCount1 = false;
+                    }
+                    break;
+                case 9:
+                    if (!switchCount2)
+                    {
+                        switchCount2 = true;
+                        doorController.OpenCloseDoor();
                         switchCount1 = false;
                     }
                     break;

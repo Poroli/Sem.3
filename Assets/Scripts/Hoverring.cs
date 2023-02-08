@@ -9,6 +9,7 @@ public class Hoverring : MonoBehaviour
     public float HoveringHeigth;
     public bool disableHoveringCheck;
 
+    [SerializeField][Range(0, 1)] private float hoveringSpherePercentageOfWhispRadius;
     [SerializeField] private LayerMask lM;
     private Vector3 hoveringCheckPos1;
     private Vector3 changeHeigthVec;
@@ -36,7 +37,7 @@ public class Hoverring : MonoBehaviour
         hoveringCheckPos1.y = transform.position.y;
         hoveringCheckPos1.z = transform.position.z;
 
-        spherecast = Physics.SphereCast(hoveringCheckPos1, cCollider.radius, Vector3.down, out hit, XtraRange, lM);
+        spherecast = Physics.SphereCast(hoveringCheckPos1, cCollider.radius * hoveringSpherePercentageOfWhispRadius, Vector3.down, out hit, XtraRange, lM);
 
         if (!spherecast)
         {
