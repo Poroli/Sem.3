@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShardManager : MonoBehaviour
 {
-    public static GameObject GOToCheck;
+    public GameObject GOToCheck;
     public static bool AllShardsCollected;
     
-    [SerializeField] [Range(0,6)] private static int ShardsToCollect;
+    [SerializeField] [Range(0,6)] private int ShardsToCollect;
     private static int ShardsCollected;
     
     private static InteractWithObject[] iWOs;
@@ -17,7 +17,7 @@ public class ShardManager : MonoBehaviour
         iWOs = FindObjectsOfType<InteractWithObject>();
     }
 
-    private static void CheckAllShardsCollected()
+    private void CheckAllShardsCollected()
     {
         if (ShardsCollected >= ShardsToCollect)
         {
@@ -29,7 +29,7 @@ public class ShardManager : MonoBehaviour
         }
     }
 
-    public static void CheckShardCollectable()
+    public void CheckShardCollectable()
     {
         foreach (InteractWithObject IWO in iWOs)
         {

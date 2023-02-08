@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class CollectShard : MonoBehaviour
 {
+    private ShardManager shardManager;
     public void CollectingShard()
     {
-        ShardManager.GOToCheck = gameObject;
-        ShardManager.CheckShardCollectable();
+        shardManager.GOToCheck = gameObject;
+        shardManager.CheckShardCollectable();
+    }
+
+    private void Start()
+    {
+        shardManager = FindObjectOfType<ShardManager>();
     }
 }

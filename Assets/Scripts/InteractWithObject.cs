@@ -8,6 +8,7 @@ public class InteractWithObject : MonoBehaviour
     public List<InteractTranslate> InteractTranslates = new();
 
     [SerializeField] private GameObject UIPopUpInteract;
+    private ShardManager shardManager;
     private KeyCode playerKey;
     private string Interactable;
     private string InteractWithPlayer;
@@ -63,7 +64,7 @@ public class InteractWithObject : MonoBehaviour
         }
         for (int i = InteractTranslates.Count -1; i >= 0; i--)
         {
-            if (InteractTranslates[i].gameObject == ShardManager.GOToCheck)
+            if (InteractTranslates[i].gameObject == shardManager.GOToCheck)
             {
                 InteractTranslates.RemoveAt(i);
             }
@@ -73,6 +74,7 @@ public class InteractWithObject : MonoBehaviour
     private void Start()
     {
         RefreshPlayerSpecifics();
+        shardManager = FindObjectOfType<ShardManager>();
     }
     private void Update()
     {
