@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class FireballDestroy : MonoBehaviour
 {
-    [SerializeField] private LayerMask despawnIfOnThisLayer;
     [SerializeField] private float TimeToDestroyFireball;
     private Animator animator;
+    private bool destroyTimerOn;
     private float despawnCounter;
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
             Debug.Log("Test");
-        if (collision.gameObject.layer == despawnIfOnThisLayer)
-        {
-            despawnCounter += Time.deltaTime;
-        }
+            destroyTimerOn = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == despawnIfOnThisLayer)
-        {
             Debug.Log("Unground");
+            destroyTimerOn = false;
             despawnCounter = 0;
-        }
     }
 
     private void Start()
@@ -33,6 +28,10 @@ public class FireballDestroy : MonoBehaviour
     }
     private void Update()
     {
+        if (destroyTimerOn)
+        {
+            despawnCounter += Time.deltaTime;
+        }
         if (despawnCounter >= TimeToDestroyFireball)
         {
             animator.SetTrigger("DestroyFireball");

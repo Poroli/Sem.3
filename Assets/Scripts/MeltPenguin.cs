@@ -7,6 +7,8 @@ public class MeltPenguin : MonoBehaviour
     [SerializeField] private LayerMask fireball;
     [SerializeField] private Material pinguMaterial;
     private int i = 0;
+    private Vector3 tempTransform;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == fireball)
@@ -16,8 +18,10 @@ public class MeltPenguin : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void CombineMesh()
     {
+        tempTransform = gameObject.transform.parent.parent.transform.position;
+        gameObject.transform.parent.parent.transform.position = Vector3.zero;
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
 
@@ -36,6 +40,12 @@ public class MeltPenguin : MonoBehaviour
         gameObject.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         MeshCollider meshCollider = gameObject.GetComponent<MeshCollider>();
         meshCollider.sharedMesh = gameObject.GetComponent<MeshFilter>().mesh;
-        transform.gameObject.SetActive(true);
+        gameObject.transform.parent.parent.transform.position = tempTransform;
+        gameObject.SetActive(true);
+    }
+
+    private void Start()
+    {
+        CombineMesh();
     }
 }
