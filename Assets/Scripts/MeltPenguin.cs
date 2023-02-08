@@ -11,9 +11,8 @@ public class MeltPenguin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == fireball)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Fireball"))
         {
-
             gameObject.SetActive(false);
         }
     }

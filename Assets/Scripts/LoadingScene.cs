@@ -15,6 +15,7 @@ public class LoadingScene : MonoBehaviour
     [SerializeField] private MasterControlScript mCS;
     [SerializeField] private string[] Levels;
     private string SceneToBeLoaded;
+    private int numberOfLevelsCompleted;
     private void WhichSceneShouldBeLoaded() 
     {
         for (int i = 0; i < mCS.LevelsCompleted.Length; i++) 
@@ -24,7 +25,15 @@ public class LoadingScene : MonoBehaviour
                 SceneToBeLoaded = Levels[i];
                 break;             
             }
+            else
+            {
+                numberOfLevelsCompleted++;
+            }
         }   
+        if (numberOfLevelsCompleted >= mCS.LevelsCompleted.Length)
+        {
+            SceneToBeLoaded = "MainMenu";
+        }
     }
 
     public void LoadScene()
@@ -41,13 +50,13 @@ public class LoadingScene : MonoBehaviour
         }
         else
         {
+
             WhichSceneShouldBeLoaded();
         }
         cam.gameObject.SetActive(true);
         LoadingScreenVideoPlayer.clip = LoadingScreen;
         LoadingScreenVideoPlayer.Play();
         StartCoroutine(LoadSceneAsync());           
-
     }
 
     private IEnumerator LoadSceneAsync()

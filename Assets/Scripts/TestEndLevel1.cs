@@ -13,20 +13,19 @@ public class TestEndLevel1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        if ((other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2")) && ShardManager.AllShardsCollected)
         {
             EndLevel();
         }
     }
     private void EndLevel()
     {
-        Debug.Log("0");
         for (int i = 0; i < mCS.LevelsCompleted.Length; i++)
         {
             if (!mCS.LevelsCompleted[i])
             {
                 mCS.LevelsCompleted[i] = true;
-                Debug.Log("1");
+                break;
             }
         }
         if (ActiveNextElement)
@@ -36,11 +35,10 @@ public class TestEndLevel1 : MonoBehaviour
                 if (!elementsManager.ElementsActivated[i])
                 {
                     elementsManager.ElementsActivated[i] = true;
-                    Debug.Log("2");
+                    break;
                 }
             }
         }
-        Debug.Log("3");
         saveFunctions.Save();
         loadingScene.LoadScene();
     }

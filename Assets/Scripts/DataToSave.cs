@@ -4,18 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-[System.Serializable]
 public class DataToSave : MonoBehaviour
 {
     [Header("Control Keys")]
-    public ControlKeys CKeys;
+    [SerializeField] private ControlKeys CKeys;
 
     [Header("Levels Completed")]
-    public MasterControlScript MasterControlScript;
+    [SerializeField] private MasterControlScript MasterControlScript;
 
     [Header("Elements Activated")]
-    public ElementsManager EManager;
-
+    [SerializeField] private ElementsManager EManager;
 
     public void GetData()
     {

@@ -43,7 +43,7 @@ public class SaveFunctions : MonoBehaviour
         FileStream stream = new(path, FileMode.Create);
         
         //SaveDataContainer charData = new();
-        SaveDataHelper dataHelper = new SaveDataHelper(SaveDataContainer.p1Jump, SaveDataContainer.p1Interact, SaveDataContainer.p2Interact, SaveDataContainer.levelsCompleted, SaveDataContainer.elementsActivated);
+        SaveDataHelper dataHelper = new(SaveDataContainer.p1Jump, SaveDataContainer.p1Interact, SaveDataContainer.p2Interact, SaveDataContainer.levelsCompleted, SaveDataContainer.elementsActivated);
 
 
         formatter.Serialize(stream, dataHelper);
